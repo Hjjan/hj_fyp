@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Vanilla Flashcard App Template</title>
+		<title>HJ Grammar Quiz</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<!-- The font used for the flashcard app. You can change this to any other font. -->
@@ -19,8 +19,9 @@
 			<!-- The header includes a button to show/hide all flashcard entries. -->
 			<h1 id="header">
 				<label for="toggle-entries-checkbox" id="toggle-entries" title="Show All Entries">|||</label>
-				Vanilla Flashcard App Template
+				HJ Grammar Quiz
 			</h1>
+			
 			<!-- This section displays a table of all cards for quick access. -->
 			<section id="entries">
 				<div id="entries-inner">
@@ -38,34 +39,37 @@
 			</section>
 			<!-- The main flashcard section. Clicking flips between front and back. -->
 			<section id="flashcard">
-				<label for="flip-card-checkbox" id="card-inner">
+				<div id="card-inner">
 					<!-- STUDENTS: Start of recommended modifications -->
 					<!-- Add and rearrange HTML elements inside .card-front and .card-back below. -->
 					<div class="card card-front">
-						<h2 id="front-word"></h2>
+						<div class="question-container">
+							<h2 id="question-text"></h2>
+							<br>
+							<p id="text"></p>
+						</div>
+						<button id="option-1" class="option"></button>
+						<button id="option-2" class="option"></button>
+						<button id="option-3" class="option"></button>
 					</div>
 					<div class="card card-back">
 						<p>
-							<span id="back-pos"></span>
 							<span id="back-definition"></span>
 						</p>
-						<img id="back-image" />
-						<audio id="back-audio" controls></audio>
-						<video id="back-video" controls autoplay loop muted></video>
+						<h2 id="correctness"></h2>
+						<p id="explanation"></p>
+						<button id="btn-next-question" style="display: none;">Next Question</button>
+						<button id="btn-try-again" style="display: none;">Try Again</button>
 						<!-- Remove the above attributes as needed. -->
 					</div>
 					<!-- STUDENTS: End of recommended modifications -->
-				</label>
+				</div>
 			</section>
 			<!-- Navigation and learning progress buttons for the current flashcard. -->
 			<div id="actions">
-				<button id="btn-back">‹ Back</button>
-				<div id="btns-progress">
-					<button id="btn-again">☹ Again</button>
-					<button id="btn-good">😉 Good</button>
-					<button id="btn-easy">😍 Easy</button>
-				</div>
-				<button id="btn-skip">Skip ›</button>
+				<button id="btn-back"> Back</button>
+				<button id="btn-home">Back to Home</button>
+				<button id="btn-next">Next </button>
 			</div>
 		</main>
 		<!-- This line imports the JavaScript file containing the logic for the flashcard app. It can be modified to add functionality to the app. -->

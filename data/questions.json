@@ -1,0 +1,488 @@
+[
+    {
+        "id": 1,
+        "question": "Please choose the correct article: ",
+        "text": "I have ___ apple in my bag.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"apple\" starts with a vowel sound.",
+        "tips": "Remember, use 'an' before words starting with vowel sounds, such as 'apple' and 'elephant'."
+    },
+    {
+        "id": 2,
+        "question": "Please choose the correct article: ",
+        "text": "He is ___ good student.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"good\" starts with a consonant sound.",
+        "tips": "Use 'a' before consonant sounds like 'good' or 'student'."
+    },
+    {
+        "id": 3,
+        "question": "Please choose the correct article: ",
+        "text": "We are going to ___ park this afternoon.",
+        "options": ["the", "a", "an"],
+        "explanation": "The answer is \"the\" because we are talking about a specific park.",
+        "tips": "Use 'the' when referring to a specific place or thing."
+    },
+    {
+        "id": 4,
+        "question": "Please choose the correct article: ",
+        "text": "She is eating ___ sandwich for lunch.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"sandwich\" starts with a consonant sound.",
+        "tips": "Use 'a' when the next word starts with a consonant sound, like 'sandwich'."
+    },
+    {
+        "id": 5,
+        "question": "Please choose the correct article: ",
+        "text": "I want to buy ___ pencil from the store.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because we are not referring to a specific pencil.",
+        "tips": "Use 'a' when talking about something non-specific."
+    },
+    {
+        "id": 6,
+        "question": "Please choose the correct article: ",
+        "text": "We saw ___ elephant at the zoo.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"elephant\" starts with a vowel sound.",
+        "tips": "Use 'an' before words starting with vowel sounds, like 'elephant'."
+    },
+    {
+        "id": 7,
+        "question": "Please choose the correct article: ",
+        "text": "He is ___ tall boy in our class.",
+        "options": ["the", "a", "an"],
+        "explanation": "The answer is \"the\" because we are talking about a specific boy.",
+        "tips": "Use 'the' when referring to something specific or already mentioned."
+    },
+    {
+        "id": 8,
+        "question": "Please choose the correct article: ",
+        "text": "I have ___ book about animals.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because we are not referring to a specific book.",
+        "tips": "Use 'a' when you are referring to a general or unspecific thing."
+    },
+    {
+        "id": 9,
+        "question": "Please choose the correct article: ",
+        "text": "I saw ___ owl in the tree.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"owl\" starts with a vowel sound.",
+        "tips": "Use 'an' before words that start with vowel sounds, like 'owl'."
+    },
+    {
+        "id": 10,
+        "question": "Please choose the correct article: ",
+        "text": "My father is ___ engineer.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"engineer\" starts with a vowel sound.",
+        "tips": "Use 'an' before words starting with a vowel sound, such as 'engineer'."
+    },
+    {
+        "id": 11,
+        "question": "Please choose the correct article: ",
+        "text": "She has ___ cat at home.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"cat\" starts with a consonant sound.",
+        "tips": "Use 'a' before words that start with consonant sounds, like 'cat'."
+    },
+    {
+        "id": 12,
+        "question": "Please choose the correct article: ",
+        "text": "I want to be ___ artist when I grow up.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"artist\" starts with a vowel sound.",
+        "tips": "Use 'an' before words starting with a vowel sound, such as 'artist'."
+    },
+    {
+        "id": 13,
+        "question": "Please choose the correct article: ",
+        "text": "He is ___ best player in the team.",
+        "options": ["the", "a", "an"],
+        "explanation": "The answer is \"the\" because we are talking about a specific person in the team.",
+        "tips": "Use 'the' when talking about something unique or specific."
+    },
+    {
+        "id": 14,
+        "question": "Please choose the correct article: ",
+        "text": "I have ___ idea for the project.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"idea\" starts with a vowel sound.",
+        "tips": "Use 'an' before words that start with a vowel sound, like 'idea'."
+    },
+    {
+        "id": 15,
+        "question": "Please choose the correct article: ",
+        "text": "She gave me ___ apple.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"apple\" starts with a vowel sound.",
+        "tips": "Remember, 'an' is used for words starting with vowel sounds, like 'apple'."
+    },
+    {
+        "id": 16,
+        "question": "Please choose the correct article: ",
+        "text": "He is playing with ___ ball.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"ball\" starts with a consonant sound.",
+        "tips": "Use 'a' before words that start with consonant sounds, like 'ball'."
+    },
+    {
+        "id": 17,
+        "question": "Please choose the correct article: ",
+        "text": "I would like to order ___ sandwich.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"sandwich\" starts with a consonant sound.",
+        "tips": "Use 'a' when the next word starts with a consonant sound."
+    },
+    {
+        "id": 18,
+        "question": "Please choose the correct article: ",
+        "text": "She is wearing ___ red dress.",
+        "options": ["a", "an", "the"],
+        "explanation": "The answer is \"a\" because \"red\" starts with a consonant sound.",
+        "tips": "Use 'a' when the word begins with a consonant sound, like 'red'."
+    },
+    {
+        "id": 19,
+        "question": "Please choose the correct article: ",
+        "text": "We are going to buy ___ apples from the market.",
+        "options": ["the", "a", "an"],
+        "explanation": "The answer is \"the\" because we are referring to specific apples in a context.",
+        "tips": "Use 'the' when referring to specific items."
+    },
+    {
+        "id": 20,
+        "question": "Please choose the correct article: ",
+        "text": "There is ___ interesting story in the book.",
+        "options": ["an", "a", "the"],
+        "explanation": "The answer is \"an\" because \"interesting\" starts with a vowel sound.",
+        "tips": "Use 'an' before words starting with vowel sounds, like 'interesting'."
+    },
+	{
+        "id": 21,
+        "question": "Fill in the blank ___:",
+        "text": "He ___ to school every day.",
+        "options": ["goes", "going", "will go"],
+        "explanation": "The answer is 'goes' because it is the present tense used for a habitual action.",
+        "tips": "Look for 'every day'—this means it's a habit."
+    },
+    {
+        "id": 22,
+        "question": "Fill in the blank ___:",
+        "text": "She ___ her homework right now.",
+        "options": ["is doing", "does", "will do"],
+        "explanation": "The answer is 'is doing' because it is the present continuous tense describing an action happening at the moment.",
+        "tips": "'Right now' suggests the present continuous."
+    },
+    {
+        "id": 23,
+        "question": "Fill in the blank ___:",
+        "text": "We ___ to the park tomorrow.",
+        "options": ["will go", "going", "go"],
+        "explanation": "The answer is 'will go' because it refers to a future action.",
+        "tips": "'Tomorrow' indicates the future tense."
+    },
+    {
+        "id": 24,
+        "question": "Fill in the blank ___:",
+        "text": "They ___ a movie yesterday.",
+        "options": ["watched", "watch", "will watch"],
+        "explanation": "The answer is 'watched' because it refers to an action completed in the past.",
+        "tips": "'Yesterday' shows it's something in the past."
+    },
+    {
+        "id": 25,
+        "question": "Fill in the blank ___:",
+        "text": "He ___ to the shop this afternoon.",
+        "options": ["is going", "goes", "will go"],
+        "explanation": "The answer is 'is going' because it is the present continuous tense describing a future plan.",
+        "tips": "For future plans, use the present continuous."
+    },
+    {
+        "id": 26,
+        "question": "Fill in the blank ___:",
+        "text": "She ___ to the library every week.",
+        "options": ["goes", "going", "will go"],
+        "explanation": "The answer is 'goes' because it refers to a regular action in the present.",
+        "tips": "'Every week' shows it's a habit."
+    },
+    {
+        "id": 27,
+        "question": "Fill in the blank ___:",
+        "text": "They ___ TV right now.",
+        "options": ["are watching", "watch", "will watch"],
+        "explanation": "The answer is 'are watching' because it is the present continuous tense for an action happening now.",
+        "tips": "'Right now' means present continuous."
+    },
+    {
+        "id": 28,
+        "question": "Fill in the blank ___:",
+        "text": "We ___ a new book tomorrow.",
+        "options": ["will read", "reading", "read"],
+        "explanation": "The answer is 'will read' because it refers to a future action.",
+        "tips": "'Tomorrow' tells you it's the future."
+    },
+    {
+        "id": 29,
+        "question": "Fill in the blank ___:",
+        "text": "He ___ his homework now.",
+        "options": ["is doing", "does", "will do"],
+        "explanation": "The answer is 'is doing' because it is the present continuous tense for something happening at the moment.",
+        "tips": "'Now' shows the action is happening at this moment."
+    },
+    {
+        "id": 30,
+        "question": "Fill in the blank ___:",
+        "text": "She ___ a pizza for dinner yesterday.",
+        "options": ["ate", "will eat", "eats"],
+        "explanation": "The answer is 'ate' because it refers to an action completed in the past.",
+        "tips": "'Yesterday' means past tense."
+    },
+    {
+        "id": 31,
+        "question": "Fill in the blank ___:",
+        "text": "I ___ my friends this weekend.",
+        "options": ["will meet", "meet", "am meeting"],
+        "explanation": "The answer is 'am meeting' because it refers to a future arrangement using the present continuous tense.",
+        "tips": "For future plans, use 'am meeting'."
+    },
+    {
+        "id": 32,
+        "question": "Fill in the blank ___:",
+        "text": "They ___ to the market every Saturday.",
+        "options": ["go", "will go", "going"],
+        "explanation": "The answer is 'go' because it is a habitual action in the present.",
+        "tips": "'Every Saturday' shows a regular action."
+    },
+    {
+        "id": 33,
+        "question": "Fill in the blank ___:",
+        "text": "He ___ his lunch at 12:00 every day.",
+        "options": ["eats", "ate", "will eat"],
+        "explanation": "The answer is 'eats' because it refers to a regular action in the present.",
+        "tips": "'Every day' means it's a routine."
+    },
+    {
+        "id": 34,
+        "question": "Fill in the blank ___:",
+        "text": "She ___ her shoes right now.",
+        "options": ["is wearing", "wore", "wear"],
+        "explanation": "The answer is 'is wearing' because it is the present continuous tense describing an action happening right now.",
+        "tips": "'Right now' means it's happening now."
+    },
+    {
+        "id": 35,
+        "question": "Fill in the blank ___:",
+        "text": "We ___ to the zoo next week.",
+        "options": ["will go", "going", "go"],
+        "explanation": "The answer is 'will go' because it refers to a future plan.",
+        "tips": "Look for 'next week'—this is the future."
+    },
+    {
+        "id": 36,
+        "question": "Fill in the blank ___:",
+        "text": "They ___ a new movie tonight.",
+        "options": ["will watch", "watch", "are watching"],
+        "explanation": "The answer is 'are watching' because it refers to an action happening in the near future.",
+        "tips": "For near future actions, use 'are watching'."
+    },
+    {
+        "id": 37,
+        "question": "Fill in the blank ___:",
+        "text": "He ___ breakfast every morning.",
+        "options": ["eats", "ate", "will eat"],
+        "explanation": "The answer is 'eats' because it refers to a daily routine in the present.",
+        "tips": "'Every morning' shows it's a daily action."
+    },
+    {
+        "id": 38,
+        "question": "Fill in the blank ___:",
+        "text": "She ___ to the park right now.",
+        "options": ["is going", "goes", "will go"],
+        "explanation": "The answer is 'is going' because it refers to an action happening at this moment.",
+        "tips": "'Right now' means it's happening now."
+    },
+    {
+        "id": 39,
+        "question": "Fill in the blank ___:",
+        "text": "We ___ a test next week.",
+        "options": ["will take", "take", "taking"],
+        "explanation": "The answer is 'will take' because it refers to a future event.",
+        "tips": "'Next week' shows it's a future event."
+    },
+    {
+        "id": 40,
+        "question": "Fill in the blank ___:",
+        "text": "They ___ to the beach last summer.",
+        "options": ["went", "go", "will go"],
+        "explanation": "The answer is 'went' because it refers to a completed action in the past.",
+        "tips": "'Last summer' tells you it's the past."
+    },
+	{
+        "id": 41,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "He like to read books.",
+            "She likes to read books.",
+            "They like to read books."
+        ],
+        "explanation": "It is incorrect because the verb should be in the third-person singular form (adding -s or -es) when the subject is 'he,' 'she,' or 'it.'",
+        "tips": "Use 'likes' with he, she, or it."
+    },
+    {
+        "id": 42,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "I is going to school.",
+            "I am going to school.",
+            "She is going to school."
+        ],
+        "explanation": "It is incorrect because 'I' is followed by 'am', not 'is'.",
+        "tips": "Use 'am' with 'I'."
+    },
+    {
+        "id": 43,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "They plays basketball on Sundays.",
+            "She plays basketball on Sundays.",
+            "We play basketball on Sundays."
+        ],
+        "explanation": "It is incorrect because the verb should be in the third-person singular form (adding -s or -es) when the subject is 'he,' 'she,' or 'it,' but not for 'they'.",
+        "tips": "Use 'play' with they."
+    },
+    {
+        "id": 44,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "My father drink coffee in the morning.",
+            "My father drinks coffee in the morning.",
+            "My father drinks tea in the morning."
+        ],
+        "explanation": "It is incorrect because the verb should be in the third-person singular form (adding -s or -es) when the subject is 'he,' 'she,' or 'it.'",
+        "tips": "Use 'drinks' with he, she, or it."
+    },
+    {
+        "id": 45,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "We likes playing with our dog.",
+            "He likes playing with his dog.",
+            "I like playing with my dog."
+        ],
+        "explanation": "It is incorrect because 'like' is used with 'we', not 'likes'.",
+        "tips": "Use 'like' with we."
+    },
+    {
+        "id": 46,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "They is eating lunch now.",
+            "She is eating lunch now.",
+            "I am eating lunch now."
+        ],
+        "explanation": "It is incorrect because 'they' should be followed by 'are', not 'is'.",
+        "tips": "Use 'are' with they."
+    },
+    {
+        "id": 47,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "He go to school by bus.",
+            "She goes to school by bus.",
+            "I go to school by bus."
+        ],
+        "explanation": "It is incorrect because the verb should be in the third-person singular form (adding -s or -es) when the subject is 'he,' 'she,' or 'it.'",
+        "tips": "Use 'goes' with he, she, or it."
+    },
+    {
+        "id": 48,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "I is playing soccer.",
+            "We are playing soccer.",
+            "He is playing soccer."
+        ],
+        "explanation": "It is incorrect because 'I' is followed by 'am', not 'is'.",
+        "tips": "Use 'am' with 'I'."
+    },
+    {
+        "id": 49,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "She are watching TV.",
+            "They are watching TV.",
+            "I am watching TV."
+        ],
+        "explanation": "It is incorrect because 'she' should be followed by 'is', not 'are'.",
+        "tips": "Use 'is' for she, he, or it."
+    },
+    {
+        "id": 50,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "They can swims fast.",
+            "She can swim fast.",
+            "I can swim fast."
+        ],
+        "explanation": "It is incorrect because we do not add -s to 'swim' with 'they'.",
+        "tips": "Use 'swim' with they."
+    },
+    {
+        "id": 51,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "He is eating a apple.",
+            "She is eating an apple.",
+            "They are eating an apple."
+        ],
+        "explanation": "It is incorrect because 'a' should be 'an' before a vowel sound ('apple').",
+        "tips": "Use 'an' before vowel sounds."
+    },
+    {
+        "id": 52,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "I have an car.",
+            "She has a car.",
+            "They have a car."
+        ],
+        "explanation": "It is incorrect because 'a' should be 'an' before a vowel sound ('car').",
+        "tips": "Use 'an' before vowel sounds."
+    },
+    {
+        "id": 53,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "I need a apple.",
+            "She needs a apple.",
+            "They need an apple."
+        ],
+        "explanation": "It is incorrect because 'a' should be 'an' before a vowel sound ('apple').",
+        "tips": "Use 'an' before vowel sounds."
+    },
+    {
+        "id": 54,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "She is a best student.",
+            "He is the best student.",
+            "I am the best student."
+        ],
+        "explanation": "It is incorrect because 'a' should not be used with superlatives like 'best'. We use 'the' with superlatives.",
+        "tips": "Use 'the' with superlatives."
+    },
+    {
+        "id": 55,
+        "question": "Pick the wrong one out.",
+        "options": [
+            "She saw a elephant.",
+            "I saw an elephant.",
+            "They saw an elephant."
+        ],
+        "explanation": "It is incorrect because 'a' should be 'an' before a vowel sound ('elephant').",
+        "tips": "Use 'an' before vowel sounds."
+    }
+  ]
+  

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+    <h1>HJ Quiz Results</h1>
+    <p id="results"></p>
+
+    <script>
+    const correctAnswersCount = localStorage.getItem('correctAnswersCount');
+    const totalQuestions = localStorage.getItem('totalQuestions');
+    
+    const resultsElement = document.getElementById('results');
+    resultsElement.textContent = `You answered ${correctAnswersCount} out of ${totalQuestions} correctly!`;
+
+    // Apply inline styles to enlarge the font
+    resultsElement.style.fontSize = "24px";  // Adjust the font size as needed
+</script>
+<p id="results" style="font-size: 24px; font-weight: bold;">
+    <!-- Result text will be added here -->
+</p>
+
+</body>
+</html>

@@ -69,7 +69,6 @@ main {
 	font-size: 70%;
 	font-weight: 900;
 	text-align: center;
-	cursor: pointer;
 	transform: rotate(88deg);
 	transform-origin: 60% 60%;
 	transition: color 0.3s;
@@ -202,9 +201,6 @@ main {
 	transition: box-shadow 0.3s;
 }
 
-.card:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 /* STUDENTS: Start of recommended modifications */
 /* You can alter colours, fonts, sizing, or layout for .card-front and .card-back below. */
@@ -213,8 +209,17 @@ main {
 .card-front {
 	color: #11222d;
 	/* Additional styles here (e.g., background-color: #bbccdd;) */
+	display: flex; /* Enables Flexbox layout */
+	flex-direction: row; /* Ensure the buttons are stacked vertically */
+    justify-content: space-between; /* Distributes buttons with space between them */
+    gap: 10px; /* Creates consistent spacing between buttons */
 }
 
+.question-container {
+	display: flex; /* Enables Flexbox layout */
+	flex-direction: column; /* Aligns elements horizontally */
+	gap: 10px; /* Creates spacing between the elements */
+}
 /* Add styles for additional elements on the front side here. Here is an example: */
 
 #front-word {
@@ -265,20 +270,30 @@ main {
 	gap: 0.5rem;
 }
 
+/* Styles for all buttons */
 button {
-	appearance: none;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 0.5rem 2rem;
-	border-radius: 0.5rem;
-	background-color: #ddf5ff;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	transition: background-color 0.3s, box-shadow 0.3s;
-	cursor: pointer;
+    appearance: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 2rem;  /* Adjust the padding to make the button smaller */
+    font-size: 20px;        /* Reduce the font size for a smaller button */
+    border-radius: 0.5rem;
+    background-color: #ddf5ff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
+/* Hover effect */
 button:hover {
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	background-color: #c1eaff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #c1eaff;
+}
+
+/* Optional: A specific class for the "Start Quiz" button to give it unique styles */
+#start-quiz-button {
+    padding: 0.5rem 1rem;  /* Adjust padding */
+    font-size: 30px;        /* Smaller font size */
+    margin-top: 20px;       /* Optional margin */
 }
 
 #btns-progress {
@@ -297,4 +312,24 @@ button:hover {
 
 #btn-easy {
 	background-color: #ccccff;
+}
+
+#question {
+	/* Style for the question text on the front side */
+}
+
+.option {
+    margin: 10px; /* Adds space around each button */
+}
+
+.option:hover {
+	/* Style when you move the mouse over the option buttons */
+}
+
+#correctness {
+	/* Style for the result text on the back side */
+}
+
+#explanation {
+	/* Style for the explanation text on the back side */
 }
