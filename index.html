@@ -1,52 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJ Grammar Quiz</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <main>
-        <h1 id="header">HJ Grammar Quiz</h1>
-        <div id="progress-container">
-            <div id="progress-bar">
-                <div id="progress-bar-inner"></div>
-            </div>
-            <div id="progress-text"></div>
-        </div>
-        <section id="flashcard">
-            <input type="checkbox" id="flip-card-checkbox" style="display: none;">
-            <div id="card-inner">
-                <div class="card card-front">
-                    <div class="question-container">
-                        <div id="question-text"></div>
-                        <div id="text"></div>
-                    </div>
-                    <div class="card-buttons">
-                        <button id="option-1"></button>
-                        <button id="option-2"></button>
-                        <button id="option-3"></button>
-                        <button id="btn-hint">Hint</button>
-                        <button id="btn-audio">🔊</button>
-                    </div>
-                    <div id="hint-text"></div>
-                </div>
-                <div class="card card-back">
-                    <div id="correctness"></div>
-                    <div id="explanation"></div>
-                    <div class="card-buttons">
-                        <button id="btn-audio-back">🔊</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div id="actions">
-            <button id="btn-home">Back to Home</button>
-            <button id="btn-try-again">Try Again</button>
-            <button id="btn-next-question">Next Question</button>
-        </div>
-    </main>
-    <script src="index.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HJ Grammar Quiz</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- The font used for the flashcard app. You can change this to any other font. -->
+		<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet" />
+		<!-- This line loads the CSS file containing the styles for the flashcard app. It can be modified to change the appearance of the app. -->
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<!-- These hidden checkboxes store the toggling state of the entries panel and the flashcard. Don't remove them. -->
+		<input type="checkbox" id="toggle-entries-checkbox" hidden />
+		<input type="checkbox" id="flip-card-checkbox" hidden />
+		<main>
+			<!-- The header includes a button to show/hide all flashcard entries. -->
+			<h1 id="header">
+				<label for="toggle-entries-checkbox" id="toggle-entries" title="Show All Entries">|||</label>
+				HJ Grammar Quiz
+			</h1>
+			
+			<!-- This section displays a table of all cards for quick access. -->
+			<section id="entries">
+				<div id="entries-inner">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Word</th>
+								<th>Due Date</th>
+							</tr>
+						</thead>
+						<tbody id="entries-body"></tbody>
+					</table>
+				</div>
+			</section>
+			<!-- The main flashcard section. Clicking flips between front and back. -->
+			<section id="flashcard">
+				<div id="card-inner">
+					<!-- STUDENTS: Start of recommended modifications -->
+					<!-- Add and rearrange HTML elements inside .card-front and .card-back below. -->
+					<div class="card card-front">
+						<div class="question-container">
+							<h2 id="question-text"></h2>
+							<br>
+							<p id="text"></p>
+						</div>
+						<button id="option-1" class="option"></button>
+						<button id="option-2" class="option"></button>
+						<button id="option-3" class="option"></button>
+					</div>
+					<div class="card card-back">
+						<p>
+							<span id="back-definition"></span>
+						</p>
+						<h2 id="correctness"></h2>
+						<p id="explanation"></p>
+						<button id="btn-next-question" style="display: none;">Next Question</button>
+						<button id="btn-try-again" style="display: none;">Try Again</button>
+						<!-- Remove the above attributes as needed. -->
+					</div>
+					<!-- STUDENTS: End of recommended modifications -->
+				</div>
+			</section>
+			<!-- Navigation and learning progress buttons for the current flashcard. -->
+			<div id="actions">
+				<button id="btn-back"> Back</button>
+				<button id="btn-home">Back to Home</button>
+				<button id="btn-next">Next </button>
+			</div>
+		</main>
+		<!-- This line imports the JavaScript file containing the logic for the flashcard app. It can be modified to add functionality to the app. -->
+		<script src="./index.js" type="module"></script>
+		<script>
+			// Redirect from index.html to home.html
+			window.location.href = 'home.html';
+		  </script>
+		  
+	</body>
 </html>

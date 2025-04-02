@@ -1,200 +1,238 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const progressBarInner = document.getElementById('progress-bar-inner');
-    const progressText = document.getElementById('progress-text');
-    const questionText = document.getElementById('question-text');
-    const textElement = document.getElementById('text');
-    const optionButtons = [
-        document.getElementById('option-1'),
-        document.getElementById('option-2'),
-        document.getElementById('option-3')
-    ];
-    const hintButton = document.getElementById('btn-hint');
-    const hintText = document.getElementById('hint-text');
-    const audioButton = document.getElementById('btn-audio');
-    const audioBackButton = document.getElementById('btn-audio-back');
-    const correctness = document.getElementById('correctness');
-    const explanation = document.getElementById('explanation');
-    const flipCardCheckbox = document.getElementById('flip-card-checkbox');
-    const cardInner = document.getElementById('card-inner');
-    const tryAgainButton = document.getElementById('btn-try-again');
-    const nextQuestionButton = document.getElementById('btn-next-question');
-    const homeButton = document.getElementById('btn-home');
+import example from "./data/questions.json" with { type: "json" };
 
-    let selectedQuestionIds = [];
-    let currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex')) || 0;
-    const totalQuestions = 10;
-    let hintUsed = false;
-    let shuffledOptions = [];
+/** Loads flashcard progress from local storage if available. */
+function loadProgress() {
+	const stored = localStorage.getItem("flashcardProgress");
+	return stored ? JSON.parse(stored) : {};
+}
 
-    async function loadQuestions() {
-        try {
-            selectedQuestionIds = JSON.parse(localStorage.getItem('selectedQuestionIds')) || [];
-            const difficulty = localStorage.getItem('difficulty') || 'easy';
-            document.body.className = '';
-            document.body.classList.add(difficulty);
-            console.log(`[loadQuestions] Applied background: ${difficulty}`);
-            if (!selectedQuestionIds.length) {
-                const [mcResponse, reResponse] = await Promise.all([
-                    fetch('data/questions.json'),
-                    fetch('data/rearrange.json')
-                ]);
-                const questions = await mcResponse.json();
-                const rearrangeQuestions = await reResponse.json();
-                const filteredMC = questions.filter(q => q.difficulty === difficulty);
-                const filteredRe = rearrangeQuestions.filter(q => q.difficulty === difficulty);
-                selectedQuestionIds = getRandomQuestions(filteredMC, filteredRe, 5);
-                localStorage.setItem('selectedQuestionIds', JSON.stringify(selectedQuestionIds));
-            }
-            console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
-            displayQuestion();
-        } catch (error) {
-            console.error('[loadQuestions] Error loading questions:', error);
-            questionText.textContent = 'Error loading questions';
-            textElement.textContent = '';
-        }
+/** Saves the current progress back to local storage. */
+function saveProgress(progress) {
+	localStorage.setItem("flashcardProgress", JSON.stringify(progress));
+}
+
+// Sorts the flashcards by their due date to prioritise learning.
+const progressData = loadProgress();
+const cards = example
+	.sort((a, b) => {
+		// Put cards without a dueDate at the last
+		const dateA = progressData[a.id]?.dueDate ? new Date(progressData[a.id].dueDate) : Infinity;
+		const dateB = progressData[b.id]?.dueDate ? new Date(progressData[b.id].dueDate) : Infinity;
+		return dateA - dateB;
+	});
+
+let currentIndex = 0;
+
+const entriesBody = document.getElementById("entries-body");
+
+/** Creates a table row for each card, allowing quick navigation. */
+function initEntries() {
+	// Build table rows
+	cards.forEach((card, i) => {
+		const row = document.createElement("tr");
+		row.addEventListener("click", () => {
+			currentIndex = i;
+			renderCard();
+		});
+		const cellId = document.createElement("td");
+		cellId.textContent = card.id;
+		const cellWord = document.createElement("td");
+		cellWord.textContent = card.text;
+		const cellDue = document.createElement("td");
+		cellDue.textContent = progressData[card.id]?.dueDate || "Unseen"; // If the card has not been learnt before, mark it as "Unseen"
+
+		row.appendChild(cellId);
+		row.appendChild(cellWord);
+		row.appendChild(cellDue);
+		entriesBody.appendChild(row);
+	});
+}
+
+/** Updates highlighted row and due dates each time we render or change data. */
+function updateEntries() {
+	// Update row highlight and due dates
+	cards.forEach((card, i) => {
+		const row = entriesBody.children[i];
+		row.classList.toggle("row-highlight", i === currentIndex);
+
+		const cellDue = row.children[row.childElementCount - 1];
+		const dueDateString = progressData[card.id]?.dueDate;
+		if (dueDateString) {
+			cellDue.textContent = dueDateString;
+			// If the due date is earlier than today, mark it as overdue
+			const dueDate = new Date(dueDateString);
+			const today = new Date();
+			cellDue.classList.toggle("overdue-date", dueDate.setHours(0, 0, 0, 0) < today.setHours(0, 0, 0, 0));
+		} else {
+			cellDue.textContent = "Unseen";
+			cellDue.classList.remove("overdue-date");
+		}
+	});
+}
+
+
+
+// Grabs references to the flashcard UI elements needed to display data.
+const text = document.getElementById("text");
+const questionText = document.getElementById("question-text");
+const backImage = document.getElementById("back-image");
+const backAudio = document.getElementById("back-audio");
+const backVideo = document.getElementById("back-video");
+
+const flipCardCheckbox = document.getElementById("flip-card-checkbox");
+const cardInner = document.getElementById("card-inner");
+const transitionHalfDuration = parseFloat(getComputedStyle(cardInner).transitionDuration) * 1000 / 2;
+const option1Element = document.getElementById("option-1");
+const option2Element = document.getElementById("option-2");
+const option3Element = document.getElementById("option-3");
+
+const correctnessElement = document.getElementById("correctness");
+const explanationElement = document.getElementById("explanation");
+
+const nextQuestionButton = document.getElementById("btn-next-question"); // The "Next Question" button
+const tryAgainButton = document.getElementById("btn-try-again"); // The "Try Again" button
+
+let correctAnswersCount = 0;  // Track the number of correct answers
+const totalQuestions = cards.length;  // Total number of flashcards
+
+function checkAnswer() {
+	// Flip the flashcard to the back side
+	flipCardCheckbox.checked = true;
+
+	// Compare the selected answer with the correct one and show appropriate feedback
+	const currentCard = cards[currentIndex];
+	const selection = this.textContent;
+	const correctAnswer = currentCard.options[0];  // The first option is always the correct answer
+
+	if (selection === correctAnswer) {
+		correctnessElement.textContent = "Correct!";
+		// Increment correct answers count
+		correctAnswersCount++;
+		// Use backticks for template literals
+		explanationElement.innerHTML = `You’ve got this!<br><br>${currentCard.explanation}`;
+		nextQuestionButton.style.display = "block";
+		tryAgainButton.style.display = "none";
+		saveProgress(data);
+	} else {
+		correctnessElement.textContent = "Incorrect!";
+		// Use backticks for template literals
+		explanationElement.innerHTML = `Not quite!<br><br>${currentCard.tips}`;
+		nextQuestionButton.style.display = "none";
+		tryAgainButton.style.display = "block";	
+	}
+}
+
+nextQuestionButton.addEventListener("click", () => {
+    nextCard(); // Move to the next card
+    console.log(currentIndex, cards.length - 1);  // Log current index and last card index
+    if (currentIndex === cards.length - 1) {
+        console.log("Redirecting to results page...");
+        // Store results in localStorage
+        localStorage.setItem('correctAnswersCount', correctAnswersCount);
+        localStorage.setItem('totalQuestions', totalQuestions);
+        window.location.href = 'results.html';  // Navigate to results page
+    } else {
+        renderCard(); // Render the new card
+        nextQuestionButton.style.display = "none"; // Hide the button again after moving to the next card
     }
-
-    function getRandomQuestions(mcQuestions, reQuestions, countPerType) {
-        const shuffledMC = mcQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'questions.json' }));
-        const shuffledRe = reQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'rearrange.json' }));
-        const interleaved = [];
-        for (let i = 0; i < countPerType; i++) {
-            if (i < shuffledMC.length) interleaved.push(shuffledMC[i]);
-            if (i < shuffledRe.length) interleaved.push(shuffledRe[i]);
-        }
-        console.log(`[getRandomQuestions] MC Questions: ${shuffledMC.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Re Questions: ${shuffledRe.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Interleaved: ${interleaved.map(q => `${q.id} (${q.source})`).join(', ')}`);
-        return interleaved;
-    }
-
-    function shuffleArray(array) {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    }
-
-    function readText(text) {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
-        utterance.rate = 0.7; // Slower rate for younger users
-        window.speechSynthesis.speak(utterance);
-    }
-
-    function displayQuestion() {
-        const question = selectedQuestionIds[currentQuestionIndex];
-        console.log(`[displayQuestion] Question ID: ${question.id}, Source: ${question.source}, Index: ${currentQuestionIndex}`);
-        if (question.source === 'rearrange.json') {
-            localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-            window.location.href = 'rearrange.html';
-            return;
-        }
-        questionText.textContent = question.question;
-        textElement.textContent = question.text;
-        shuffledOptions = shuffleArray(question.options);
-        optionButtons.forEach((button, index) => {
-            button.textContent = shuffledOptions[index];
-            button.disabled = false;
-            button.classList.remove('error');
-        });
-        hintText.textContent = '';
-        hintButton.disabled = false;
-        audioButton.disabled = false;
-        audioBackButton.disabled = true;
-        hintUsed = false;
-        correctness.textContent = '';
-        explanation.textContent = '';
-        flipCardCheckbox.checked = false;
-        cardInner.classList.remove('flipped');
-        updateProgress();
-    }
-
-    function showHint() {
-        if (hintUsed) return;
-        const question = selectedQuestionIds[currentQuestionIndex];
-        const partialTip = question.tips.split('.')[0] + '.';
-        hintText.textContent = partialTip;
-        hintButton.disabled = true;
-        hintUsed = true;
-        console.log(`[showHint] Hint displayed: ${partialTip}`);
-    }
-
-    function checkAnswer(selectedOption) {
-        const question = selectedQuestionIds[currentQuestionIndex];
-        const isCorrect = selectedOption === question.options[0];
-        correctness.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
-        explanation.textContent = question.explanation;
-        optionButtons.forEach(button => {
-            button.disabled = true;
-            if (button.textContent !== question.options[0]) {
-                button.classList.add('error');
-            }
-        });
-        flipCardCheckbox.checked = true;
-        cardInner.classList.add('flipped');
-        tryAgainButton.classList.toggle('active', !isCorrect);
-        nextQuestionButton.classList.toggle('active', isCorrect);
-        audioBackButton.disabled = false;
-        console.log(`[checkAnswer] Correctness: ${correctness.textContent}, Explanation: ${explanation.textContent}, Flipped: ${cardInner.classList.contains('flipped')}`);
-    }
-
-    function updateProgress() {
-        const progressPercent = (currentQuestionIndex / totalQuestions) * 100;
-        progressBarInner.style.width = '0%';
-        progressBarInner.offsetWidth;
-        progressBarInner.style.width = `${progressPercent}%`;
-        progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
-        progressText.classList.add('pulse');
-        setTimeout(() => progressText.classList.remove('pulse'), 300);
-        console.log(`[updateProgress] Progress: ${progressText.textContent}, Width: ${progressPercent}%, Pulse: ${progressText.classList.contains('pulse')}`);
-    }
-
-    optionButtons.forEach(button => {
-        button.addEventListener('click', () => checkAnswer(button.textContent));
-    });
-
-    hintButton.addEventListener('click', showHint);
-
-    audioButton.addEventListener('click', () => {
-        const question = selectedQuestionIds[currentQuestionIndex];
-        readText(`${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
-        console.log(`[audioButton] Played: ${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
-    });
-
-    audioBackButton.addEventListener('click', () => {
-        const question = selectedQuestionIds[currentQuestionIndex];
-        readText(`${correctness.textContent} ${question.explanation}`);
-        console.log(`[audioBackButton] Played: ${correctness.textContent} ${question.explanation}`);
-    });
-
-    tryAgainButton.addEventListener('click', () => {
-        flipCardCheckbox.checked = false;
-        cardInner.classList.remove('flipped');
-        displayQuestion();
-        console.log(`[tryAgainButton] Reset card, Index: ${currentQuestionIndex}`);
-    });
-
-    nextQuestionButton.addEventListener('click', () => {
-        currentQuestionIndex++;
-        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-        if (currentQuestionIndex < totalQuestions) {
-            displayQuestion();
-        } else {
-            localStorage.removeItem('selectedQuestionIds');
-            localStorage.removeItem('currentQuestionIndex');
-            window.location.href = 'results.html?type=multiple-choice';
-        }
-        console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
-    });
-
-    homeButton.addEventListener('click', () => {
-        localStorage.clear();
-        window.location.href = 'home.html';
-        console.log('[homeButton] Cleared storage, redirected to home');
-    });
-
-    loadQuestions();
 });
+
+
+tryAgainButton.addEventListener("click", () => {
+    renderCard(); // Render the new card
+    tryAgainButton.style.display = "none"; // Hide the button again after moving to the next card
+});
+
+// Trigger the function when the option buttons are clicked
+option1Element.addEventListener("click", checkAnswer);
+option2Element.addEventListener("click", checkAnswer);
+option3Element.addEventListener("click", checkAnswer);
+
+// Fisher-Yates Shuffle function
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+
+/** Renders the current card on both front and back. */
+function renderCard() {
+	// STUDENTS: Start of recommended modifications
+	// If there are more fields in the dataset (e.g., synonyms, example sentences),
+	// display them here (e.g., backSynonym.textContent = currentCard.synonym).
+
+	// Update the front side with the current card's word
+	const currentCard = cards[currentIndex];
+	text.textContent = currentCard.text;
+	questionText.textContent = currentCard.question;
+
+	const options = [...currentCard.options]; // Clone the array to avoid modifying the original options array
+    shuffleArray(options); // Shuffle the options
+	option1Element.textContent = options[0] || "";  // If options[0] exists, set it; otherwise, leave empty
+	option2Element.textContent = options[1] || "";  // Same for option 2
+	option3Element.textContent = options[2] || "";  // Same for option 3
+
+	// Reset flashcard to the front side
+	flipCardCheckbox.checked = false;
+
+	// Wait for the back side to become invisible before updating the content
+	setTimeout(() => {
+
+		if (currentCard.image) {
+			backImage.src = currentCard.image;
+			backImage.style.display = "block";
+		} else {
+			backImage.style.display = "none";
+		}
+
+		if (currentCard.audio) {
+			backAudio.src = currentCard.audio;
+			backAudio.style.display = "block";
+		} else {
+			backAudio.style.display = "none";
+		}
+
+		if (currentCard.video) {
+			backVideo.src = currentCard.video;
+			backVideo.style.display = "block";
+		} else {
+			backVideo.style.display = "none";
+		}
+	}, transitionHalfDuration);
+	// STUDENTS: End of recommended modifications
+
+	updateEntries();
+}
+
+// Add event listener to "Back to Home" button
+document.getElementById("btn-home").addEventListener("click", () => {
+    window.location.href = "home.html";  // Navigate to home page
+});
+
+
+/** Navigates to the previous card. */
+function previousCard() {
+	currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+}
+
+/** Navigates to the next card. */
+function nextCard() {
+	currentIndex = (currentIndex + 1) % cards.length;
+}
+
+document.getElementById("btn-back").addEventListener("click", () => {
+	previousCard();
+	renderCard();
+});
+document.getElementById("btn-next").addEventListener("click", () => {
+	nextCard();
+	renderCard();
+});
+
+
+
+// Initial render
+initEntries();
+renderCard();
