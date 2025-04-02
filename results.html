@@ -100,59 +100,14 @@
 
     // Elements
     const resultsElement = document.getElementById('results');
-    const starsElement = document.getElementById('stars');
-    const messageElement = document.getElementById('message');
-    const incorrectListElement = document.getElementById('incorrect-list');
+    resultsElement.textContent = `You answered ${correctAnswersCount} out of ${totalQuestions} correctly!`;
 
-    // Display results
-    if (resultsElement) {
-      resultsElement.textContent = `You answered ${score} out of ${total} correctly in the ${type} quiz!`;
-    }
+    // Apply inline styles to enlarge the font
+    resultsElement.style.fontSize = "24px";  // Adjust the font size as needed
+</script>
+<p id="results" style="font-size: 24px; font-weight: bold;">
+    <!-- Result text will be added here -->
+</p>
 
-    // Display stars
-    if (starsElement) {
-      const maxStars = 5;
-      const starsEarned = total > 0 ? Math.round((score / total) * maxStars) : 0;
-      starsElement.innerHTML = '⭐'.repeat(starsEarned) + '☆'.repeat(maxStars - starsEarned);
-    }
-
-    // Encouraging message
-    if (messageElement) {
-      let message;
-      if (score === total && total > 0) {
-        message = "Wow, you're a grammar superstar!";
-      } else if (total > 0 && score >= total / 2) {
-        message = "Great job, you're almost there!";
-      } else {
-        message = "Nice try! Let's practice some more!";
-      }
-      messageElement.textContent = message;
-    }
-
-    // Display incorrect answers (for multiple-choice quiz)
-    if (incorrectListElement && incorrectAnswers.length > 0 && type === 'multiple-choice') {
-      incorrectListElement.innerHTML = '<h3>Incorrect Answers:</h3>' + incorrectAnswers
-        .map(item => `<p><strong>Question:</strong> ${item.question}<br><strong>Your Answer:</strong> ${item.userAnswer}<br><strong>Correct Answer:</strong> ${item.correctAnswer}</p>`)
-        .join('');
-    } else {
-      incorrectListElement.style.display = 'none'; // Hide for rearranging quiz
-    }
-
-    // Button handlers
-    const tryAgainButton = document.getElementById('btn-try-again');
-    if (tryAgainButton) {
-      tryAgainButton.addEventListener('click', () => {
-        window.location.href = type === 'rearrange' ? 'rearrange.html' : 'index.html';
-      });
-    }
-
-    const homeButton = document.getElementById('btn-home');
-    if (homeButton) {
-      homeButton.addEventListener('click', () => {
-        window.location.href = 'home.html';
-      });
-    }
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932ca5f3fe36b038',t:'MTc0NTA2ODI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
