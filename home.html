@@ -1,22 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HJ Grammar Quiz - Home</title>
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Welcome to the HJ Grammar Quiz</h1>
-      <button id="start-quiz-button">Start Quiz</button>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HJ Quiz Home</title>
+  <link rel="stylesheet" href="./index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+    body.home::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Classroom */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+    h1, h2 {
+      color: #1a3c5e;
+    }
+    .mascot {
+      width: 130px;
+      margin: 0 auto;
+      animation: bounce 2s infinite;
+    }
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border-radius: 9999px;
+      transition: transform 0.2s, background-color 0.2s;
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+    .btn:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    .welcome-text {
+      font-size: 1.25rem;
+      color: #1f2937;
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @media (max-width: 360px) {
+      body.home::before {
+        background-size: contain;
+        background-position: top center;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body class="home">
+  <div class="container">
+    <img src="./assets/mascot.png" alt="Grammar Mascot" class="mascot" />
+    <h1 class="text-4xl font-bold mb-4">Welcome to HJ Quiz! 🎉</h1>
+    <p class="welcome-text">Let’s make grammar fun! Choose a difficulty to play quiz. 🌟</p>
 
-    <script>
-      // Add event listener for the "Start Quiz" button
-      document.getElementById("start-quiz-button").addEventListener("click", () => {
-        window.location.href = "index.html"; // Navigate to quiz page
-      });
-    </script>
-  </body>
+    <div class="button-group flex flex-col items-center gap-4">
+      <h2 class="text-2xl font-bold">Choose Difficulty</h2>
+      <div class="difficulty-group flex flex-row flex-wrap justify-center gap-4 mb-4">
+        <button id="btn-easy" class="btn bg-green-500 text-white hover:bg-green-600" aria-label="Start Easy Quiz">Easy</button>
+        <button id="btn-medium" class="btn bg-yellow-500 text-white hover:bg-yellow-600" aria-label="Start Medium Quiz">Medium</button>
+        <button id="btn-hard" class="btn bg-red-500 text-white hover:bg-red-600" aria-label="Start Hard Quiz">Hard</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js" type="module"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932ca5f3e9f244e8',t:'MTc0NTA2ODI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
 </html>

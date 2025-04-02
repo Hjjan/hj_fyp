@@ -2,16 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBarInner = document.getElementById('progress-bar-inner');
     const progressText = document.getElementById('progress-text');
     const questionText = document.getElementById('question-text');
-    const textElement = document.getElementById('text');
-    const optionButtons = [
-        document.getElementById('option-1'),
-        document.getElementById('option-2'),
-        document.getElementById('option-3')
-    ];
+    const sentenceWords = document.getElementById('sentence-words');
+    const sentenceBuilderArea = document.getElementById('sentence-builder-area');
+    const submitButton = document.getElementById('submit-answer');
+    const resetButton = document.getElementById('btn-reset');
     const hintButton = document.getElementById('btn-hint');
-    const hintText = document.getElementById('hint-text');
     const audioButton = document.getElementById('btn-audio');
     const audioBackButton = document.getElementById('btn-audio-back');
+    const hintText = document.getElementById('hint-text');
     const correctness = document.getElementById('correctness');
     const explanation = document.getElementById('explanation');
     const flipCardCheckbox = document.getElementById('flip-card-checkbox');
@@ -23,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedQuestionIds = [];
     let currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex')) || 0;
     const totalQuestions = 10;
+    let builtSentence = [];
     let hintUsed = false;
     let shuffledOptions = [];
 
@@ -34,38 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add(difficulty);
             console.log(`[loadQuestions] Applied background: ${difficulty}`);
             if (!selectedQuestionIds.length) {
-                const [mcResponse, reResponse] = await Promise.all([
-                    fetch('data/questions.json'),
-                    fetch('data/rearrange.json')
-                ]);
-                const questions = await mcResponse.json();
-                const rearrangeQuestions = await reResponse.json();
-                const filteredMC = questions.filter(q => q.difficulty === difficulty);
-                const filteredRe = rearrangeQuestions.filter(q => q.difficulty === difficulty);
-                selectedQuestionIds = getRandomQuestions(filteredMC, filteredRe, 5);
-                localStorage.setItem('selectedQuestionIds', JSON.stringify(selectedQuestionIds));
+                console.error('[loadQuestions] No questions in localStorage, redirecting to index.html');
+                window.location.href = 'index.html';
+                return;
             }
             console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
             displayQuestion();
         } catch (error) {
             console.error('[loadQuestions] Error loading questions:', error);
             questionText.textContent = 'Error loading questions';
-            textElement.textContent = '';
         }
-    }
-
-    function getRandomQuestions(mcQuestions, reQuestions, countPerType) {
-        const shuffledMC = mcQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'questions.json' }));
-        const shuffledRe = reQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'rearrange.json' }));
-        const interleaved = [];
-        for (let i = 0; i < countPerType; i++) {
-            if (i < shuffledMC.length) interleaved.push(shuffledMC[i]);
-            if (i < shuffledRe.length) interleaved.push(shuffledRe[i]);
-        }
-        console.log(`[getRandomQuestions] MC Questions: ${shuffledMC.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Re Questions: ${shuffledRe.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Interleaved: ${interleaved.map(q => `${q.id} (${q.source})`).join(', ')}`);
-        return interleaved;
     }
 
     function shuffleArray(array) {
@@ -87,18 +64,22 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayQuestion() {
         const question = selectedQuestionIds[currentQuestionIndex];
         console.log(`[displayQuestion] Question ID: ${question.id}, Source: ${question.source}, Index: ${currentQuestionIndex}`);
-        if (question.source === 'rearrange.json') {
+        if (question.source === 'questions.json') {
             localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-            window.location.href = 'rearrange.html';
+            window.location.href = 'index.html';
             return;
         }
         questionText.textContent = question.question;
-        textElement.textContent = question.text;
+        sentenceWords.innerHTML = '';
+        sentenceBuilderArea.innerHTML = '';
+        builtSentence = [];
         shuffledOptions = shuffleArray(question.options);
-        optionButtons.forEach((button, index) => {
-            button.textContent = shuffledOptions[index];
-            button.disabled = false;
-            button.classList.remove('error');
+        shuffledOptions.forEach(word => {
+            const wordElement = document.createElement('div');
+            wordElement.className = 'sentence-word';
+            wordElement.textContent = word;
+            wordElement.addEventListener('click', () => moveWordToBuilder(word, wordElement));
+            sentenceWords.appendChild(wordElement);
         });
         hintText.textContent = '';
         hintButton.disabled = false;
@@ -122,23 +103,40 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`[showHint] Hint displayed: ${partialTip}`);
     }
 
-    function checkAnswer(selectedOption) {
+    function moveWordToBuilder(word, wordElement) {
+        builtSentence.push(word);
+        sentenceBuilderArea.appendChild(wordElement);
+        wordElement.className = 'sentence-builder-word';
+        wordElement.addEventListener('click', () => moveWordBack(word, wordElement));
+        sentenceWords.removeChild(wordElement);
+    }
+
+    function moveWordBack(word, wordElement) {
+        builtSentence = builtSentence.filter(w => w !== word);
+        sentenceWords.appendChild(wordElement);
+        wordElement.className = 'sentence-word';
+        wordElement.addEventListener('click', () => moveWordToBuilder(word, wordElement));
+        sentenceBuilderArea.removeChild(wordElement);
+    }
+
+    function checkAnswer() {
         const question = selectedQuestionIds[currentQuestionIndex];
-        const isCorrect = selectedOption === question.options[0];
+        const isCorrect = builtSentence.every((word, index) => word === question.options[question.correctOrder[index]]);
         correctness.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
         explanation.textContent = question.explanation;
-        optionButtons.forEach(button => {
-            button.disabled = true;
-            if (button.textContent !== question.options[0]) {
-                button.classList.add('error');
-            }
-        });
+        submitButton.disabled = true;
+        resetButton.disabled = true;
         flipCardCheckbox.checked = true;
         cardInner.classList.add('flipped');
         tryAgainButton.classList.toggle('active', !isCorrect);
         nextQuestionButton.classList.toggle('active', isCorrect);
         audioBackButton.disabled = false;
         console.log(`[checkAnswer] Correctness: ${correctness.textContent}, Explanation: ${explanation.textContent}, Flipped: ${cardInner.classList.contains('flipped')}`);
+    }
+
+    function resetSentence() {
+        displayQuestion();
+        console.log(`[resetSentence] Reset sentence, Index: ${currentQuestionIndex}`);
     }
 
     function updateProgress() {
@@ -152,16 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`[updateProgress] Progress: ${progressText.textContent}, Width: ${progressPercent}%, Pulse: ${progressText.classList.contains('pulse')}`);
     }
 
-    optionButtons.forEach(button => {
-        button.addEventListener('click', () => checkAnswer(button.textContent));
-    });
-
+    submitButton.addEventListener('click', checkAnswer);
+    resetButton.addEventListener('click', resetSentence);
     hintButton.addEventListener('click', showHint);
-
     audioButton.addEventListener('click', () => {
         const question = selectedQuestionIds[currentQuestionIndex];
-        readText(`${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
-        console.log(`[audioButton] Played: ${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
+        readText(`${question.question} ${shuffledOptions.join(', ')}`);
+        console.log(`[audioButton] Played: ${question.question} ${shuffledOptions.join(', ')}`);
     });
 
     audioBackButton.addEventListener('click', () => {
@@ -185,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             localStorage.removeItem('selectedQuestionIds');
             localStorage.removeItem('currentQuestionIndex');
-            window.location.href = 'results.html?type=multiple-choice';
+            window.location.href = 'results.html?type=rearrange';
         }
         console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
     });

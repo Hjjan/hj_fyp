@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJ Grammar Quiz</title>
+    <title>HJ Grammar Quiz - Rearrange</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -21,12 +21,12 @@
                 <div class="card card-front">
                     <div class="question-container">
                         <div id="question-text"></div>
-                        <div id="text"></div>
                     </div>
+                    <div class="sentence-words" id="sentence-words"></div>
+                    <div class="sentence-builder-area" id="sentence-builder-area"></div>
                     <div class="card-buttons">
-                        <button id="option-1"></button>
-                        <button id="option-2"></button>
-                        <button id="option-3"></button>
+                        <button id="submit-answer">Submit</button>
+                        <button id="btn-reset">Reset</button>
                         <button id="btn-hint">Hint</button>
                         <button id="btn-audio">🔊</button>
                     </div>
@@ -47,6 +47,6 @@
             <button id="btn-next-question">Next Question</button>
         </div>
     </main>
-    <script src="index.js"></script>
+    <script src="rearrange.js"></script>
 </body>
 </html>
