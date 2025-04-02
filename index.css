@@ -333,3 +333,35 @@ button:hover {
 #explanation {
 	/* Style for the explanation text on the back side */
 }
+
+#progress-container {
+	width: 100%;
+	background-color: #f4f8fb;
+	height: 20px;
+	margin-top: 20px;
+  }
+  
+  #progress-bar {
+	width: 0%;
+	background-color: #007acc;
+  }
+  
+  #progress-text {
+	text-align: center;
+	font-size: 26px;
+	color: #333;
+  }
+  
+  /* Adjust font size and padding for small screens */
+@media only screen and (max-width: 600px) {
+	#header {
+	  font-size: 20px;
+	}
+	#flashcard {
+	  padding: 1rem;
+	}
+	button {
+	  padding: 0.3rem 1.5rem;
+	  font-size: 16px;
+	}
+  }
