@@ -25,10 +25,30 @@ let currentIndex = 0;
 
 const entriesBody = document.getElementById("entries-body");
 
+// Function to pick random cards from a range
+function pickRandomCardsFromRange(rangeStart, rangeEnd, count) {
+    // Filter cards by ID range
+    const filteredCards = cards.filter(card => card.id >= rangeStart && card.id <= rangeEnd);
+    
+    // Shuffle the filtered cards and pick the first 'count' cards
+    shuffleArray(filteredCards);
+    return filteredCards.slice(0, count);
+}
+
+const selectedCards = [
+    ...pickRandomCardsFromRange(1, 20, 5),  // Pick 5 from ID 1-20
+    ...pickRandomCardsFromRange(21, 40, 5), // Pick 5 from ID 21-40
+    ...pickRandomCardsFromRange(41, 55, 5)  // Pick 5 from ID 41-55
+];
+// Shuffle the final list of selected cards
+shuffleArray(selectedCards);
+console.log(selectedCards); // Add this line to check if selectedCards is populated
+
+
 /** Creates a table row for each card, allowing quick navigation. */
 function initEntries() {
 	// Build table rows
-	cards.forEach((card, i) => {
+	selectedCards.forEach((card, i) => {
 		const row = document.createElement("tr");
 		row.addEventListener("click", () => {
 			currentIndex = i;
@@ -40,7 +60,6 @@ function initEntries() {
 		cellWord.textContent = card.text;
 		const cellDue = document.createElement("td");
 		cellDue.textContent = progressData[card.id]?.dueDate || "Unseen"; // If the card has not been learnt before, mark it as "Unseen"
-
 		row.appendChild(cellId);
 		row.appendChild(cellWord);
 		row.appendChild(cellDue);
@@ -51,7 +70,7 @@ function initEntries() {
 /** Updates highlighted row and due dates each time we render or change data. */
 function updateEntries() {
 	// Update row highlight and due dates
-	cards.forEach((card, i) => {
+	selectedCards.forEach((card, i) => {
 		const row = entriesBody.children[i];
 		row.classList.toggle("row-highlight", i === currentIndex);
 
@@ -69,8 +88,6 @@ function updateEntries() {
 		}
 	});
 }
-
-
 
 // Grabs references to the flashcard UI elements needed to display data.
 const text = document.getElementById("text");
@@ -93,14 +110,37 @@ const nextQuestionButton = document.getElementById("btn-next-question"); // The 
 const tryAgainButton = document.getElementById("btn-try-again"); // The "Try Again" button
 
 let correctAnswersCount = 0;  // Track the number of correct answers
-const totalQuestions = cards.length;  // Total number of flashcards
+const totalQuestions = selectedCards.length;  // Total number of flashcards
+
+// Update progress bar based on the current index of the selected cards
+function updateProgress() {
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+
+    // Calculate the percentage based on the current index
+    const progress = ((currentIndex + 1) / selectedCards.length) * 100; // currentIndex + 1 to count the first card as 1
+    progressBar.style.width = `${progress}%`;
+
+    // Update the text with current question and total questions
+    progressText.textContent = `Question ${currentIndex + 1} of ${selectedCards.length}`;
+}
+
+let incorrectAnswers = JSON.parse(localStorage.getItem("incorrectAnswers")) || [];
+
+// Store incorrect answers after each wrong attempt
+function storeIncorrectAnswer(cardId) {
+  if (!incorrectAnswers.includes(cardId)) {
+    incorrectAnswers.push(cardId);
+    localStorage.setItem("incorrectAnswers", JSON.stringify(incorrectAnswers));
+  }
+}
 
 function checkAnswer() {
 	// Flip the flashcard to the back side
 	flipCardCheckbox.checked = true;
 
 	// Compare the selected answer with the correct one and show appropriate feedback
-	const currentCard = cards[currentIndex];
+	const currentCard = selectedCards[currentIndex];
 	const selection = this.textContent;
 	const correctAnswer = currentCard.options[0];  // The first option is always the correct answer
 
@@ -112,7 +152,9 @@ function checkAnswer() {
 		explanationElement.innerHTML = `You’ve got this!<br><br>${currentCard.explanation}`;
 		nextQuestionButton.style.display = "block";
 		tryAgainButton.style.display = "none";
-		saveProgress(data);
+		saveProgress(progressData);
+		// Move to the next question after answering
+		updateProgress();   // Update the progress bar
 	} else {
 		correctnessElement.textContent = "Incorrect!";
 		// Use backticks for template literals
@@ -120,23 +162,24 @@ function checkAnswer() {
 		nextQuestionButton.style.display = "none";
 		tryAgainButton.style.display = "block";	
 	}
+	
 }
 
 nextQuestionButton.addEventListener("click", () => {
-    nextCard(); // Move to the next card
-    console.log(currentIndex, cards.length - 1);  // Log current index and last card index
-    if (currentIndex === cards.length - 1) {
+    if (currentIndex === selectedCards.length - 1) {
         console.log("Redirecting to results page...");
         // Store results in localStorage
         localStorage.setItem('correctAnswersCount', correctAnswersCount);
         localStorage.setItem('totalQuestions', totalQuestions);
         window.location.href = 'results.html';  // Navigate to results page
     } else {
-        renderCard(); // Render the new card
-        nextQuestionButton.style.display = "none"; // Hide the button again after moving to the next card
+		// Increment currentIndex to go to the next question
+        currentIndex++;
+        renderCard();  // Render the new card
+        updateProgress(); // Update progress bar
+        nextQuestionButton.style.display = "none";  // Hide the "Next Question" button after moving to the next card
     }
 });
-
 
 tryAgainButton.addEventListener("click", () => {
     renderCard(); // Render the new card
@@ -156,55 +199,48 @@ function shuffleArray(array) {
     }
 }
 
-
 /** Renders the current card on both front and back. */
 function renderCard() {
-	// STUDENTS: Start of recommended modifications
-	// If there are more fields in the dataset (e.g., synonyms, example sentences),
-	// display them here (e.g., backSynonym.textContent = currentCard.synonym).
+    const currentCard = selectedCards[currentIndex];
+    text.textContent = currentCard.text;
+    questionText.textContent = currentCard.question;
 
-	// Update the front side with the current card's word
-	const currentCard = cards[currentIndex];
-	text.textContent = currentCard.text;
-	questionText.textContent = currentCard.question;
+    const options = [...currentCard.options];  // Clone the options array to avoid modifying the original options
+    shuffleArray(options);  // Shuffle the options
+    option1Element.textContent = options[0] || "";  // If options[0] exists, set it; otherwise, leave empty
+    option2Element.textContent = options[1] || "";  // Same for option 2
+    option3Element.textContent = options[2] || "";  // Same for option 3
 
-	const options = [...currentCard.options]; // Clone the array to avoid modifying the original options array
-    shuffleArray(options); // Shuffle the options
-	option1Element.textContent = options[0] || "";  // If options[0] exists, set it; otherwise, leave empty
-	option2Element.textContent = options[1] || "";  // Same for option 2
-	option3Element.textContent = options[2] || "";  // Same for option 3
+    // Reset flashcard to the front side
+    flipCardCheckbox.checked = false;
 
-	// Reset flashcard to the front side
-	flipCardCheckbox.checked = false;
+    // Wait for the back side to become invisible before updating the content
+    setTimeout(() => {
+        if (currentCard.image) {
+            backImage.src = currentCard.image;
+            backImage.style.display = "block";
+        } else {
+            backImage.style.display = "none";
+        }
 
-	// Wait for the back side to become invisible before updating the content
-	setTimeout(() => {
+        if (currentCard.audio) {
+            backAudio.src = currentCard.audio;
+            backAudio.style.display = "block";
+        } else {
+            backAudio.style.display = "none";
+        }
 
-		if (currentCard.image) {
-			backImage.src = currentCard.image;
-			backImage.style.display = "block";
-		} else {
-			backImage.style.display = "none";
-		}
+        if (currentCard.video) {
+            backVideo.src = currentCard.video;
+            backVideo.style.display = "block";
+        } else {
+            backVideo.style.display = "none";
+        }
+    }, transitionHalfDuration);
 
-		if (currentCard.audio) {
-			backAudio.src = currentCard.audio;
-			backAudio.style.display = "block";
-		} else {
-			backAudio.style.display = "none";
-		}
-
-		if (currentCard.video) {
-			backVideo.src = currentCard.video;
-			backVideo.style.display = "block";
-		} else {
-			backVideo.style.display = "none";
-		}
-	}, transitionHalfDuration);
-	// STUDENTS: End of recommended modifications
-
-	updateEntries();
+    updateEntries();
 }
+
 
 // Add event listener to "Back to Home" button
 document.getElementById("btn-home").addEventListener("click", () => {
@@ -214,25 +250,31 @@ document.getElementById("btn-home").addEventListener("click", () => {
 
 /** Navigates to the previous card. */
 function previousCard() {
-	currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+	currentIndex = (currentIndex - 1 + selectedCards.length) % selectedCards.length;
 }
 
 /** Navigates to the next card. */
 function nextCard() {
-	currentIndex = (currentIndex + 1) % cards.length;
+	console.log("Current index:", currentIndex);
+	console.log("Current card:", selectedCards[currentIndex]);
+		// Randomly select a new card ID that isn't the current card's ID
+    currentIndex = (currentIndex + 1) % selectedCards.length; // This moves to the next card in sequence
+    renderCard(); // Render the new card
 }
 
 document.getElementById("btn-back").addEventListener("click", () => {
 	previousCard();
 	renderCard();
 });
-document.getElementById("btn-next").addEventListener("click", () => {
-	nextCard();
-	renderCard();
-});
 
-
+// Handle Review Mistakes button click
+document.getElementById("review-mistakes-button").addEventListener("click", () => {
+	const mistakeCards = selectedCards.filter((card) => incorrectAnswers.includes(card.id));
+	renderCards(mistakeCards); // Render only the mistake cards
+  });
+  
 
 // Initial render
 initEntries();
 renderCard();
+updateProgress();
