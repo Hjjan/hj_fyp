@@ -21,7 +21,11 @@
 				<label for="toggle-entries-checkbox" id="toggle-entries" title="Show All Entries">|||</label>
 				HJ Grammar Quiz
 			</h1>
-			
+			<div id="progress-container">
+				<div id="progress-bar"></div>
+				<p id="progress-text">Question 1 of 10</p>
+			  </div>
+			  
 			<!-- This section displays a table of all cards for quick access. -->
 			<section id="entries">
 				<div id="entries-inner">
@@ -69,10 +73,11 @@
 			<div id="actions">
 				<button id="btn-back"> Back</button>
 				<button id="btn-home">Back to Home</button>
-				<button id="btn-next">Next </button>
+				<button id="review-mistakes-button">Review Mistakes</button>
 			</div>
 		</main>
 		<!-- This line imports the JavaScript file containing the logic for the flashcard app. It can be modified to add functionality to the app. -->
 		<script src="./index.js" type="module"></script>
+		
 	</body>
 </html>
