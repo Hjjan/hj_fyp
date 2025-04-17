@@ -61,28 +61,47 @@ body::before {
     transition: opacity 0.5s ease-in-out;
 }
 
-body.easy::before {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Sunny meadow */
+/* Styles the header with a title and a toggle button for the entries list. */
+#header {
+	color: #002a44;
+	line-height: 1;
 }
 
-body.medium::before {
-    background-image: url('https://images.unsplash.com/photo-1541959833400-049d37f98ccd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Jungle */
+#toggle-entries {
+	display: inline-block;
+	width: 2.5rem;
+	font-size: 70%;
+	font-weight: 900;
+	text-align: center;
+	transform: rotate(88deg);
+	transform-origin: 60% 60%;
+	transition: color 0.3s;
+	color: #007acc;
 }
 
-body.hard::before {
-    background-image: url('https://images.unsplash.com/photo-1606247357835-d27fe83fc6a3?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Starry night */
+#toggle-entries:hover {
+	color: #005488;
 }
 
-main {
-    padding: 0.8rem;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    row-gap: 0.5rem;
-    max-width: 65rem;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
+/* The entries list, which is overlaid on top of the flashcard area. */
+#entries {
+	position: relative;
+	grid-row: 2 / 3;
+	grid-column: 1 / 2;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	display: none;
+	opacity: 0;
+	transition: display 0.3s allow-discrete, opacity 0.3s;
+	z-index: 1;
+	border-radius: 1rem;
+}
+
+#entries-inner {
+	position: absolute;
+	inset: 0;
+	overflow-y: auto;
 }
 
 .container {
@@ -120,47 +139,32 @@ main {
     grid-row: 2 / 3;
 }
 
-#progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #f4f8fb;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+#entries tbody tr:hover {
+	background-color: #f1f1f1;
 }
 
-#progress-bar:hover {
-    box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
-    transform: scale(1.02);
+/* The #toggle-entries element acts as a label for #toggle-entries-checkbox. 
+	Clicking #toggle-entries changes the state of #toggle-entries-checkbox.
+	When #toggle-entries-checkbox is checked, this ruleset is in effect, and the #entries table becomes visible.
+	Otherwise, the previous rules (display: none; opacity: 0;) inside the #entries ruleset remain effective, and the table is hidden. */
+#toggle-entries-checkbox:checked ~ main #entries {
+	display: block;
+	opacity: 1;
+	@starting-style {
+		opacity: 0;
+	}
 }
 
-#progress-bar-inner {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(to right, #007acc, #00cc88);
-    border-radius: 8px;
-    transition: width 0.5s ease-in-out;
+.row-highlight {
+	background-color: #fff3cd;
 }
 
-#progress-text {
-    text-align: center;
-    font-size: 2rem;
-    color: #007acc;
-    background-color: rgba(255, 202, 40, 0.15);
-    border: 1px solid #ffca28;
-    border-radius: 5px;
-    padding: 0.3rem 0.8rem;
-    margin: 0;
-    font-weight: bold;
-    min-height: 2.5rem;
-    z-index: 10;
-    position: relative;
+.overdue-date {
+	color: #d9534f;
+	font-weight: bold;
 }
 
-#progress-text.pulse {
-    animation: pulseProgress 0.3s ease-in-out;
-}
-
+/* The flashcard container, which uses perspective to allow a 3D flip animation. */
 #flashcard {
     grid-row: 3 / 4;
     height: auto;
@@ -172,116 +176,86 @@ main {
 }
 
 #card-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.6s;
+	cursor: pointer;
 }
 
-#flip-card-checkbox:checked ~ * #card-inner,
-#flip-card-checkbox:checked + #flashcard #card-inner,
-#card-inner.flipped {
-    transform: rotateY(180deg);
+/* Rotates the card around the Y-axis when the checkbox is checked such that the back side is visible.
+	It makes use of the same technique as the entries list to toggle the checkbox state when the card is clicked.
+	When the checkbox is no longer checked, the card is rotated back to the front side. */
+#flip-card-checkbox:checked ~ main #card-inner {
+	transform: rotateY(180deg);
 }
 
 .card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    background-color: #fff9e6;
-    border: 2px solid #ffca28;
-    font-size: 1.6rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
-    z-index: 3;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	background-color: #fefefe;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	font-size: 150%;
+	border-radius: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: box-shadow 0.3s;
 }
 
-.card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
 
+/* STUDENTS: Start of recommended modifications */
+/* You can alter colours, fonts, sizing, or layout for .card-front and .card-back below. */
+
+/* Styles for the front side of the card. */
 .card-front {
-    color: #1a3c5e;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.8rem;
+	color: #11222d;
+	/* Additional styles here (e.g., background-color: #bbccdd;) */
+	display: flex; /* Enables Flexbox layout */
+	flex-direction: row; /* Ensure the buttons are stacked vertically */
+    justify-content: space-between; /* Distributes buttons with space between them */
+    gap: 10px; /* Creates consistent spacing between buttons */
 }
 
 .question-container {
-    display: flex !important;
-    flex-direction: column;
-    gap: 0.8rem;
-    text-align: center;
+	display: flex; /* Enables Flexbox layout */
+	flex-direction: column; /* Aligns elements horizontally */
+	gap: 10px; /* Creates spacing between the elements */
+}
+/* Add styles for additional elements on the front side here. Here is an example: */
+
+#front-word {
+	font-size: 200%;
 }
 
-#text {
-    display: block !important;
-    font-size: 2.2rem;
-    font-weight: 700;
-}
-
-#question-text {
-    display: block !important;
-    font-size: 1.4rem;
-    color: #1a3c5e;
-}
-
+/* Styles for the back side of the card. */
 .card-back {
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+	transform: rotateY(180deg);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 0.5rem;
+	/* Additional styles here (e.g., background-color: #bbddcc;) */
 }
 
-#correctness {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #d81b60;
+/* Add styles for additional elements on the back side here. Here are some examples: */
+
+#back-pos {
+	padding: 1px 3px;
+	color: #777;
+	border: 1px solid #777;
+	border-radius: 2px;
+	font-size: 90%;
 }
 
-#explanation {
-    font-size: 1.4rem;
-    color: #555;
-}
-
-.card-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-#option-1,
-#option-2,
-#option-3,
-#submit-answer,
-#btn-reset,
-#btn-hint,
-#btn-audio,
-#btn-audio-back {
-    appearance: none;
-    display: block !important;
-    border: 2px solid #ffca28;
-    padding: 0.6rem 1.8rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-    background: #ffeb3b;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
-    cursor: pointer;
-    color: #1a3c5e;
-    margin: 0.3rem;
+#back-image {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
 }
 
 #btn-hint,
@@ -304,31 +278,9 @@ main {
     transform: translateY(-3px);
 }
 
-#btn-hint:hover,
-#btn-audio:hover,
-#btn-audio-back:hover {
-    background-color: #64b5f6;
-}
+/* STUDENTS: End of recommended modifications */
 
-#option-1:disabled,
-#option-2:disabled,
-#option-3:disabled,
-#submit-answer:disabled,
-#btn-reset:disabled,
-#btn-hint:disabled,
-#btn-audio:disabled,
-#btn-audio-back:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-#hint-text {
-    font-size: 1.2rem;
-    color: #007acc;
-    margin: 0.5rem;
-    text-align: center;
-}
-
+/* The actions area, which contains buttons for different actions. */
 #actions {
     grid-row: 4 / 5;
     display: flex;
@@ -341,90 +293,36 @@ main {
 
 button {
     appearance: none;
-    border: 2px solid #ffca28;
-    padding: 0.7rem 2.2rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-    background-color: #ffeb3b;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 2rem;  /* Adjust the padding to make the button smaller */
+    font-size: 20px;        /* Reduce the font size for a smaller button */
+    border-radius: 0.5rem;
+    background-color: #ddf5ff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
-    color: #1a3c5e;
-    display: block;
 }
 
 button:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: #ffd700;
-    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #c1eaff;
 }
 
-#btn-next-question,
-#btn-try-again,
-#btn-home {
-    background-color: #90caf9;
-    border-color: #64b5f6;
-    font-size: 1rem;
-    padding: 0.7rem 2.2rem;
-    z-index: 5;
+/* Optional: A specific class for the "Start Quiz" button to give it unique styles */
+#start-quiz-button {
+    padding: 0.5rem 1rem;  /* Adjust padding */
+    font-size: 30px;        /* Smaller font size */
+    margin-top: 20px;       /* Optional margin */
 }
 
-#btn-next-question:hover,
-#btn-try-again:hover,
-#btn-home:hover {
-    background-color: #64b5f6;
+#btns-progress {
+	display: flex;
+	gap: 0.5rem;
 }
 
-#btn-next-question,
-#btn-try-again {
-    display: none;
-}
-
-#btn-next-question.active,
-#btn-try-again.active {
-    display: block !important;
-}
-
-h1 {
-    font-size: 36px;
-    color: #007acc;
-    margin-bottom: 10px;
-    animation: pulse 1s ease-in-out;
-}
-
-.welcome-text {
-    font-size: 22px;
-    color: #333;
-    margin: 15px 0;
-    animation: fadeIn 1s ease-in;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.btn {
-    font-family: "Comic Neue", sans-serif;
-    font-size: 18px;
-    padding: 12px 24px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn:hover {
-    background-color: #005f99;
-    transform: scale(1.05);
-}
-
-.btn:active {
-    transform: scale(0.95);
+/* Different background colours help distinguish button actions. */
+#btn-again {
+	background-color: #ffcccc;
 }
 
 .btn:disabled {
@@ -475,35 +373,8 @@ h1 {
     animation: twinkle 2s infinite;
 }
 
-.message-text {
-    font-size: 20px;
-    color: #007acc;
-    margin: 12px 0;
-}
-
-.incorrect-list {
-    font-size: 18px;
-    color: #d81b60;
-    margin: 15px 0;
-}
-
-.sentence-words {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0.8rem 0;
-    justify-content: center;
-}
-
-.sentence-word {
-    padding: 0.6rem 1.2rem;
-    border: 2px solid #ffca28;
-    border-radius: 8px;
-    background-color: #bbdefb;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #1a3c5e;
-    transition: background-color 0.2s, transform 0.2s;
+.option {
+    margin: 10px; /* Adds space around each button */
 }
 
 .sentence-word:hover {
@@ -649,46 +520,47 @@ h1 {
 	background-color: #f4f8fb;
 	height: 20px;
 	margin-top: 20px;
-  }
-  
-  #progress-bar {
+}
+
+#progress-bar {
 	width: 0%;
 	background-color: #007acc;
-  }
-  
-  #progress-text {
+}
+
+#progress-text {
 	text-align: center;
 	font-size: 26px;
 	color: #333;
-  }
-  
-  /* Adjust font size and padding for small screens */
-@media only screen and (max-width: 600px) {
-	#header {
-	  font-size: 20px;
-	}
-	#flashcard {
-	  padding: 1rem;
-	}
-	button {
-	  padding: 0.3rem 1.5rem;
-	  font-size: 16px;
-	}
-  }
-
-  #word-container .draggable-word {
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
-    cursor: pointer;
 }
 
-#drop-container .drop-slot {
-    width: 100px;
-    height: 30px;
-    border: 1px dashed #000;
-    margin: 10px;
-    background-color: #e0e0e0;
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
+/* Adjust font size and padding for small screens */
+@media only screen and (max-width: 600px) {
+	#header {
+		font-size: 20px;
+	}
+	#flashcard {
+		padding: 1rem;
+	}
+	button {
+		padding: 0.3rem 1.5rem;
+		font-size: 16px;
+	}
+}
+
+/* Rearrange section */
+.rearrange-box {
+	display: flex;
+	gap: 10px;
+	margin: 20px 0;
+}
+
+.rearrange-item {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.drag-over {
+	background-color: #e0e0e0;
+}

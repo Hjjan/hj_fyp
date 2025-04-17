@@ -1,113 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HJ Quiz Results</title>
-  <link rel="stylesheet" href="./index.css" />
-  <style>
-    body.results::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Celebration */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.9;
-      transition: opacity 0.5s ease-in-out;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(5px);
-    }
-    h1 {
-      color: #ffffff;
-    }
-    .results-text {
-      color: #ffffff;
-    }
-    .message-text {
-      color: #ffca28;
-    }
-    .btn {
-      padding: 12px 24px;
-      font-size: 1.2rem;
-      border-radius: 9999px;
-      transition: transform 0.2s, background-color 0.2s;
-      margin: 0.5rem;
-      cursor: pointer;
-      background-color: #007acc;
-      color: white;
-      border: none;
-    }
-    .btn:hover {
-      background-color: #005f99;
-      transform: scale(1.1);
-    }
-    .btn:focus {
-      outline: 2px solid #3b82f6;
-      outline-offset: 2px;
-    }
-    @media (max-width: 360px) {
-      body.results::before {
-        background-size: contain;
-        background-position: top center;
-      }
-      .container {
-        padding: 1rem;
-      }
-      .btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="./index.css" />
 </head>
-<body class="results">
-  <div class="container">
+<body>
     <h1>HJ Quiz Results</h1>
+    <p id="results"></p>
 
-    <div id="results" class="results-text"></div>
-    <div id="stars" class="stars-container"></div>
-    <div id="message" class="message-text"></div>
-
-    <div id="incorrect-list" class="incorrect-list"></div>
-
-    <div class="button-group">
-      <button id="btn-try-again" class="btn">Try Again</button>
-      <button id="btn-home" class="btn">Go to Home</button>
-    </div>
-  </div>
-
-  <script>
-    // Parse URL query parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = parseInt(urlParams.get('score')) || 0;
-    const total = parseInt(urlParams.get('total')) || 5; // Default to 5 if missing
-    const type = urlParams.get('type') || 'quiz'; // e.g., 'rearrange' or 'multiple-choice'
-    const incorrectAnswers = JSON.parse(decodeURIComponent(urlParams.get('incorrectAnswers') || '[]')); // For multiple-choice
-
-    // Elements
+    <script>
+    const correctAnswersCount = localStorage.getItem('correctAnswersCount');
+    const totalQuestions = localStorage.getItem('totalQuestions');
+    
     const resultsElement = document.getElementById('results');
     resultsElement.textContent = `You answered ${correctAnswersCount} out of ${totalQuestions} correctly!`;
 
     // Apply inline styles to enlarge the font
     resultsElement.style.fontSize = "24px";  // Adjust the font size as needed
-</script>
-<p id="results" style="font-size: 24px; font-weight: bold;">
-    <!-- Result text will be added here -->
-</p>
+    </script>
 
+    <p id="results" style="font-size: 24px; font-weight: bold;">
+        <!-- Result text will be added here -->
+    </p>
+
+    <!-- Add a button to go back to home page -->
+    <button onclick="window.location.href='home.html';" style="font-size: 18px; padding: 10px 20px; margin-top: 20px;">
+        Go to Home
+    </button>
 </body>
 </html>

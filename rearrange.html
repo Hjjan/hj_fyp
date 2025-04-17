@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HJ Grammar Quiz - Rearrange</title>
@@ -50,3 +51,53 @@
     <script src="rearrange.js"></script>
 </body>
 </html>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HJ Rearranging Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h1 id="header">HJ Rearranging Quiz</h1>
+
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+        <p id="progress-text">Question 1 of 1</p>
+      </div>
+
+      <section id="rearrange-section">
+        <!-- Question container -->
+        <div id="question-container">
+          <h2 id="question-text">Rearrange the words into a meaningful sentence.</h2>
+        </div>
+
+        <!-- Sentence builder -->
+        <div id="sentence-words" class="sentence-words"></div> <!-- For word bank -->
+        <div id="sentence-builder-area" class="sentence-builder-area"></div> <!-- For sentence being built -->
+
+        <!-- Submit button -->
+        <button id="submit-answer" class="option">Submit Answer</button>
+        <section id="result-container" style="display:none;">
+          <p id="correctness"></p>
+          <p id="explanation"></p>
+          <button id="btn-next-question" style="display:none;">Next Question</button>
+          <button id="btn-try-again">Try Again</button>
+        </section>
+      </section>
+
+      <!-- Action buttons -->
+      <div id="actions">
+        <button id="btn-home" onclick="window.location.href='home.html'">Back to Home</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="rearrange.js" type="module"></script>
+</body>
+</html>
+>>>>>>> 6fb5d81 (Implement rearranging quiz feature with new HTML, JS, and JSON files; update home and results pages.)

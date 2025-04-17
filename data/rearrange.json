@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "id": 1,
     "question": "Rearrange the words in correct order",
@@ -522,3 +523,17 @@
     "difficulty": "hard"
   }
 ]
+=======
+    {
+      "question": "Rearrange the words in correct order",
+      "options": ["dog", "running.", "is", "The"],
+      "correctOrder": [3, 0, 2, 1]
+    },
+    {
+    "question": "Rearrange the words in correct order",
+    "options": ["homework", "doing", "I", "now.", "am"],
+      "correctOrder": [2, 4, 1, 0, 3]
+    }
+  ]
+  
+>>>>>>> 6fb5d81 (Implement rearranging quiz feature with new HTML, JS, and JSON files; update home and results pages.)
