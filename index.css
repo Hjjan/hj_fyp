@@ -12,7 +12,10 @@ html {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+<<<<<<< HEAD
     transition: opacity 0.5s ease-in-out;
+=======
+>>>>>>> 4070cfd (nice)
 }
 
 img, picture, video, canvas, svg {
@@ -33,16 +36,25 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom styles */
 html {
     font-family: "Comic Neue", "Open Sans", sans-serif;
+<<<<<<< HEAD
     font-size: clamp(16px, 0.8vw + 12px, 18px);
+=======
+    font-size: clamp(14px, 0.7vw + 10px, 16px);
+>>>>>>> 4070cfd (nice)
     width: 100%;
     height: 100%;
     display: grid;
     place-items: center;
+<<<<<<< HEAD
+=======
+    background-color: #e6f3ff;
+>>>>>>> 4070cfd (nice)
     overflow: hidden;
 }
 
 body {
     display: contents;
+<<<<<<< HEAD
     position: relative;
 }
 
@@ -59,14 +71,31 @@ body::before {
     background-repeat: no-repeat;
     opacity: 0.9;
     transition: opacity 0.5s ease-in-out;
+=======
+}
+
+/* Arranges the main content into rows for header, flashcard area, and actions. */
+main {
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 0.5rem;
+    max-width: 65rem;
+>>>>>>> 4070cfd (nice)
 }
 
 /* Styles the header with a title and a toggle button for the entries list. */
 #header {
-	color: #002a44;
-	line-height: 1;
+    color: #002b5c;
+    line-height: 1.2;
+    font-size: 1.8rem;
+    margin-bottom: 0.1rem;
+    grid-row: 1 / 2;
 }
 
+<<<<<<< HEAD
 #toggle-entries {
 	display: inline-block;
 	width: 2.5rem;
@@ -84,26 +113,25 @@ body::before {
 }
 
 /* The entries list, which is overlaid on top of the flashcard area. */
+=======
+/* The entries list, hidden from users. */
+>>>>>>> 4070cfd (nice)
 #entries {
-	position: relative;
-	grid-row: 2 / 3;
-	grid-column: 1 / 2;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.9);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	display: none;
-	opacity: 0;
-	transition: display 0.3s allow-discrete, opacity 0.3s;
-	z-index: 1;
-	border-radius: 1rem;
+    display: none;
 }
 
-#entries-inner {
-	position: absolute;
-	inset: 0;
-	overflow-y: auto;
+/* Progress bar */
+#progress-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.2rem;
+    grid-row: 2 / 3;
 }
 
+<<<<<<< HEAD
 .container {
     max-width: 600px;
     width: 100%;
@@ -165,6 +193,40 @@ body::before {
 }
 
 /* The flashcard container, which uses perspective to allow a 3D flip animation. */
+=======
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #f4f8fb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#progress-bar-inner {
+    width: 0%;
+    height: 100%;
+    background-color: #007acc;
+    transition: width 0.3s ease-in-out;
+}
+
+#progress-text {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #007acc;
+    background-color: rgba(255, 202, 40, 0.15);
+    border: 1px solid #ffca28;
+    border-radius: 5px;
+    padding: 0.2rem 0.7rem;
+    margin: 0;
+    font-weight: bold;
+    min-height: 2rem;
+    z-index: 10;
+    position: relative;
+    animation: pulse 0.3s ease-in-out;
+}
+
+/* Styles for the flashcard container */
+>>>>>>> 4070cfd (nice)
 #flashcard {
     grid-row: 3 / 4;
     height: auto;
@@ -172,40 +234,56 @@ body::before {
     position: relative;
     perspective: 80rem;
     z-index: 1;
+<<<<<<< HEAD
     margin-bottom: 0;
+=======
+>>>>>>> 4070cfd (nice)
 }
 
 #card-inner {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	transform-style: preserve-3d;
-	transition: transform 0.6s;
-	cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
 }
 
+<<<<<<< HEAD
 /* Rotates the card around the Y-axis when the checkbox is checked such that the back side is visible.
 	It makes use of the same technique as the entries list to toggle the checkbox state when the card is clicked.
 	When the checkbox is no longer checked, the card is rotated back to the front side. */
 #flip-card-checkbox:checked ~ main #card-inner {
 	transform: rotateY(180deg);
+=======
+#flip-card-checkbox:checked ~ * #card-inner,
+#flip-card-checkbox:checked + #flashcard #card-inner,
+#card-inner.flipped {
+    transform: rotateY(180deg);
+>>>>>>> 4070cfd (nice)
 }
 
 .card {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 2rem;
-	background-color: #fefefe;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	font-size: 150%;
-	border-radius: 1rem;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	transition: box-shadow 0.3s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #fff9e6;
+    border: 2px solid #ffca28;
+    font-size: 1.4rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    z-index: 3;
+}
+
+.card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -214,6 +292,7 @@ body::before {
 
 /* Styles for the front side of the card. */
 .card-front {
+<<<<<<< HEAD
 	color: #11222d;
 	/* Additional styles here (e.g., background-color: #bbccdd;) */
 	display: flex; /* Enables Flexbox layout */
@@ -226,15 +305,38 @@ body::before {
 	display: flex; /* Enables Flexbox layout */
 	flex-direction: column; /* Aligns elements horizontally */
 	gap: 10px; /* Creates spacing between the elements */
+=======
+    color: #1a3c5e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.question-container {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+>>>>>>> 4070cfd (nice)
 }
 /* Add styles for additional elements on the front side here. Here is an example: */
 
-#front-word {
-	font-size: 200%;
+#text {
+    display: block !important;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+#question-text {
+    display: block !important;
+    font-size: 1.4rem;
+    color: #1a3c5e;
 }
 
 /* Styles for the back side of the card. */
 .card-back {
+<<<<<<< HEAD
 	transform: rotateY(180deg);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -251,13 +353,27 @@ body::before {
 	border: 1px solid #777;
 	border-radius: 2px;
 	font-size: 90%;
+=======
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
 }
 
-#back-image {
-	grid-column: 2 / 3;
-	grid-row: 1 / 2;
+#correctness {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #d81b60;
+>>>>>>> 4070cfd (nice)
 }
 
+#explanation {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+<<<<<<< HEAD
 #btn-hint,
 #btn-audio,
 #btn-audio-back {
@@ -281,18 +397,75 @@ body::before {
 /* STUDENTS: End of recommended modifications */
 
 /* The actions area, which contains buttons for different actions. */
+=======
+/* Card buttons */
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Option buttons */
+#option-1,
+#option-2,
+#option-3,
+#submit-answer,
+#btn-reset {
+    appearance: none;
+    display: block !important;
+    border: 2px solid #ffca28;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 1rem;
+    background-color: #ffeb3b;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    cursor: pointer;
+    color: #1a3c5e;
+    margin: 0.3rem;
+}
+
+#option-1:hover,
+#option-2:hover,
+#option-3:hover,
+#submit-answer:hover,
+#btn-reset:hover {
+    background-color: #ffd700;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+#option-1:disabled,
+#option-2:disabled,
+#option-3:disabled,
+#submit-answer:disabled,
+#btn-reset:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* The actions area */
+>>>>>>> 4070cfd (nice)
 #actions {
     grid-row: 4 / 5;
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
     gap: 1.5rem;
     margin-top: 0;
     min-height: 3rem;
+=======
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+    min-height: 2.5rem;
+>>>>>>> 4070cfd (nice)
     z-index: 5;
 }
 
 button {
     appearance: none;
+<<<<<<< HEAD
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem 2rem;  /* Adjust the padding to make the button smaller */
     font-size: 20px;        /* Reduce the font size for a smaller button */
@@ -313,13 +486,42 @@ button:hover {
     padding: 0.5rem 1rem;  /* Adjust padding */
     font-size: 30px;        /* Smaller font size */
     margin-top: 20px;       /* Optional margin */
+=======
+    border: 2px solid #ffca28;
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+    border-radius: 1rem;
+    background-color: #ffeb3b;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    cursor: pointer;
+    color: #1a3c5e;
+    display: block;
 }
 
-#btns-progress {
-	display: flex;
-	gap: 0.5rem;
+button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffd700;
+    transform: translateY(-3px);
 }
 
+/* Styles for specific buttons */
+#btn-next-question,
+#btn-try-again,
+#btn-home {
+    background-color: #90caf9;
+    border-color: #64b5f6;
+    z-index: 5;
+>>>>>>> 4070cfd (nice)
+}
+
+#btn-next-question:hover,
+#btn-try-again:hover,
+#btn-home:hover {
+    background-color: #64b5f6;
+}
+
+<<<<<<< HEAD
 /* Different background colours help distinguish button actions. */
 #btn-again {
 	background-color: #ffcccc;
@@ -513,54 +715,233 @@ button:hover {
         background-size: contain;
         background-position: top center;
     }
+=======
+/* Fix for button visibility */
+#btn-next-question,
+#btn-try-again {
+    display: none !important;
 }
 
-#progress-container {
-	width: 100%;
-	background-color: #f4f8fb;
-	height: 20px;
-	margin-top: 20px;
+#btn-next-question.active,
+#btn-try-again.active {
+    display: block !important;
 }
 
-#progress-bar {
-	width: 0%;
-	background-color: #007acc;
+/* Home page */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#progress-text {
-	text-align: center;
-	font-size: 26px;
-	color: #333;
+h1 {
+    font-size: 32px;
+    color: #007acc;
+    margin-bottom: 10px;
+    animation: pulse 1s ease-in-out;
 }
 
-/* Adjust font size and padding for small screens */
-@media only screen and (max-width: 600px) {
-	#header {
-		font-size: 20px;
-	}
-	#flashcard {
-		padding: 1rem;
-	}
-	button {
-		padding: 0.3rem 1.5rem;
-		font-size: 16px;
-	}
+.welcome-text {
+    font-size: 20px;
+    color: #333;
+    margin: 15px 0;
+    animation: fadeIn 1s ease-in;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn {
+    font-family: "Comic Neue", sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+>>>>>>> 4070cfd (nice)
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Results page */
+.results-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+}
+
+.stars-container {
+    font-size: 28px;
+    margin: 8px 0;
+    color: #ffca28;
+    animation: twinkle 2s infinite;
+}
+
+.message-text {
+    font-size: 18px;
+    color: #007acc;
+    margin: 12px 0;
+}
+
+.incorrect-list {
+    font-size: 16px;
+    color: #d81b60;
+    margin: 15px 0;
 }
 
 /* Rearrange section */
-.rearrange-box {
-	display: flex;
-	gap: 10px;
-	margin: 20px 0;
+.sentence-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+    justify-content: center;
 }
 
-.rearrange-item {
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	cursor: pointer;
+.sentence-word {
+    padding: 0.5rem 1rem;
+    border: 2px solid #ffca28;
+    border-radius: 8px;
+    background-color: #bbdefb;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #1a3c5e;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.drag-over {
-	background-color: #e0e0e0;
+.sentence-word:hover {
+    background-color: #90caf9;
+    transform: scale(1.05);
+}
+
+.sentence-builder-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    background-color: rgba(255, 202, 40, 0.1);
+    border: 2px dashed #ffca28;
+    min-height: 3rem;
+    justify-content: center;
+}
+
+.sentence-builder-word {
+    padding: 0.5rem 1rem;
+    border: 2px solid #ffca28;
+    border-radius: 8px;
+    background-color: #90caf9;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #1a3c5e;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.sentence-builder-word:hover {
+    background-color: #64b5f6;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.card.incorrect {
+    animation: shake 0.3s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Error styling */
+#text.error,
+#question-text.error {
+    color: #d81b60;
+    font-weight: bold;
+}
+
+/* Media query for small screens */
+@media (max-width: 360px) {
+    #header {
+        font-size: 1.6rem;
+    }
+    #progress-text {
+        font-size: 1.4rem;
+        padding: 0.2rem 0.5rem;
+    }
+    #progress-bar {
+        height: 8px;
+    }
+    .card {
+        padding: 1.2rem;
+        font-size: 1.2rem;
+    }
+    #question-text {
+        font-size: 1.2rem;
+    }
+    #correctness {
+        font-size: 1.4rem;
+    }
+    #explanation {
+        font-size: 1rem;
+    }
+    #option-1,
+    #option-2,
+    #option-3,
+    #submit-answer,
+    #btn-reset {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+        margin: 0.2rem;
+    }
+    button {
+        padding: 0.5rem 1.8rem;
+        font-size: 0.8rem;
+    }
+    .sentence-word,
+    .sentence-builder-word {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
 }

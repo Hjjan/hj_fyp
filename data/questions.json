@@ -4,63 +4,98 @@
         "question": "Please choose the correct article: ",
         "text": "I have ___ apple in my bag.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
         "tips": "Use 'an' for things like apple or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'apple' starts with a vowel sound.",
+        "tips": "Use 'an' for words like apple or elephant."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 2,
         "question": "Please choose the correct article: ",
         "text": "He is ___ good student.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'good' starts with a 'g' sound.",
         "tips": "Use 'a' for things like good or cat.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'good' starts with a consonant sound.",
+        "tips": "Use 'a' for words like good or cat."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 3,
         "question": "Please choose the correct article: ",
         "text": "We are going to ___ park this afternoon.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean one special park.",
         "tips": "Use 'the' for special places like a park.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific park.",
+        "tips": "Use 'the' for specific places like a park."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 4,
         "question": "Please choose the correct article: ",
         "text": "She is eating ___ sandwich for lunch.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'sandwich' starts with an 's' sound.",
         "tips": "Use 'a' for things like sandwich or book.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'sandwich' starts with a consonant sound.",
+        "tips": "Use 'a' for words like sandwich or book."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 5,
         "question": "Please choose the correct article: ",
         "text": "I want to buy ___ pencil from the store.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'pencil' is any pencil.",
         "tips": "Use 'a' for any pencil or toy.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'pencil' is not specific.",
+        "tips": "Use 'a' for any pencil or book."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 6,
         "question": "Please choose the correct article: ",
         "text": "Tim sees ___ elephant at the zoo.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'elephant' starts with an 'e' sound.",
         "tips": "Use 'an' for things like elephant or apple.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'elephant' starts with a vowel sound.",
+        "tips": "Use 'an' for words like elephant or apple."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 7,
         "question": "Please choose the correct article: ",
         "text": "He is ___ tall boy in our class.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean one special boy.",
         "tips": "Use 'the' for one special person or thing.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific boy.",
+        "tips": "Use 'the' for one special person or thing."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 8,
@@ -68,125 +103,194 @@
         "text": "I have ___ book about animals.",
         "options": ["a", "an", "the"],
         "explanation": "The answer is 'a' because it’s any book.",
+<<<<<<< HEAD
         "tips": "Use 'a' for any book or toy.",
         "difficulty": "easy"
+=======
+        "tips": "Use 'a' for any book or toy."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 9,
         "question": "Please choose the correct article: ",
         "text": "I saw ___ owl in the tree.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'owl' starts with an 'o' sound.",
         "tips": "Use 'an' for things like owl or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'owl' starts with a vowel sound.",
+        "tips": "Use 'an' for words like owl or egg."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 10,
         "question": "Please choose the correct article: ",
         "text": "My father is ___ engineer.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'engineer' starts with an 'e' sound.",
         "tips": "Use 'an' for things like engineer or ant.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'engineer' starts with a vowel sound.",
+        "tips": "Use 'an' for words like engineer or ant."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 11,
         "question": "Please choose the correct article: ",
         "text": "She has ___ cat at home.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'cat' starts with a 'c' sound.",
         "tips": "Use 'a' for things like cat or dog.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'cat' starts with a consonant sound.",
+        "tips": "Use 'a' for words like cat or dog."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 12,
         "question": "Please choose the correct article: ",
         "text": "I want to be ___ artist when I grow up.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'artist' starts with an 'a' sound.",
         "tips": "Use 'an' for things like artist or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'artist' starts with a vowel sound.",
+        "tips": "Use 'an' for words like artist or egg."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 13,
         "question": "Please choose the correct article: ",
         "text": "He is ___ best player in the team.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean one special player.",
         "tips": "Use 'the' for someone special like the best.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific player.",
+        "tips": "Use 'the' for someone special like the best."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 14,
         "question": "Please choose the correct article: ",
         "text": "I have ___ idea for the project.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'idea' starts with an 'i' sound.",
         "tips": "Use 'an' for things like idea or orange.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'idea' starts with a vowel sound.",
+        "tips": "Use 'an' for words like idea or orange."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 15,
         "question": "Please choose the correct article: ",
         "text": "She gave me ___ apple.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
         "tips": "Use 'an' for things like apple or ant.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'apple' starts with a vowel sound.",
+        "tips": "Use 'an' for words like apple or ant."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 16,
         "question": "Please choose the correct article: ",
         "text": "He is playing with ___ ball.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'ball' starts with a 'b' sound.",
         "tips": "Use 'a' for things like ball or pen.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'ball' starts with a consonant sound.",
+        "tips": "Use 'a' for words like ball or pen."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 17,
         "question": "Please choose the correct article: ",
         "text": "I would like to order ___ sandwich.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'sandwich' starts with an 's' sound.",
         "tips": "Use 'a' for things like sandwich or toy.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'sandwich' starts with a consonant sound.",
+        "tips": "Use 'a' for words like sandwich or toy."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 18,
         "question": "Please choose the correct article: ",
         "text": "She is wearing ___ red dress.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'red' starts with an 'r' sound.",
         "tips": "Use 'a' for things like red or big.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'red' starts with a consonant sound.",
+        "tips": "Use 'a' for words like red or big."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 19,
         "question": "Please choose the correct article: ",
         "text": "We saw ___ sun in the sky.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean the special sun.",
         "tips": "Use 'the' for special things like the sun.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific sun.",
+        "tips": "Use 'the' for special things like the sun."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 20,
         "question": "Please choose the correct article: ",
         "text": "There is ___ interesting story in the book.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'interesting' starts with an 'i' sound.",
         "tips": "Use 'an' for things like interesting or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'interesting' starts with a vowel sound.",
+        "tips": "Use 'an' for words like interesting or egg."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 21,
         "question": "Fill in the blank ___:",
         "text": "He ___ to school every day.",
         "options": ["goes", "going", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'goes' because he does it every day.",
         "tips": "'Every day' means he always does it, so use 'goes'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'goes' because it shows a habit.",
+        "tips": "'Every day' means a habit, so use 'goes'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 22,
@@ -194,44 +298,68 @@
         "text": "She ___ her homework right now.",
         "options": ["is doing", "does", "will do"],
         "explanation": "The answer is 'is doing' because it’s happening now.",
+<<<<<<< HEAD
         "tips": "'Right now' means use 'is doing'.",
         "difficulty": "medium"
+=======
+        "tips": "'Right now' means use 'is doing'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 23,
         "question": "Fill in the blank ___:",
         "text": "We ___ to the park tomorrow.",
         "options": ["will go", "going", "go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'will go' because it’s tomorrow.",
         "tips": "'Tomorrow' means use 'will go'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'will go' because it’s in the future.",
+        "tips": "'Tomorrow' means use 'will go'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 24,
         "question": "Fill in the blank ___:",
         "text": "They ___ a movie yesterday.",
         "options": ["watched", "watch", "will watch"],
+<<<<<<< HEAD
         "explanation": "The answer is 'watched' because it was yesterday.",
         "tips": "'Yesterday' means use 'watched'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'watched' because it happened yesterday.",
+        "tips": "'Yesterday' means use 'watched'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 25,
         "question": "Fill in the blank ___:",
         "text": "She ___ to the shop every day.",
         "options": ["goes", "going", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'goes' because she does it every day.",
         "tips": "'Every day' means she always does it, so use 'goes'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'goes' because it’s a habit.",
+        "tips": "'Every day' means use 'goes'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 26,
         "question": "Fill in the blank ___:",
         "text": "He ___ to the library every week.",
         "options": ["goes", "going", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'goes' because he does it every week.",
         "tips": "'Every week' means he always does it, so use 'goes'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'goes' because it’s a habit.",
+        "tips": "'Every week' means use 'goes'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 27,
@@ -239,17 +367,26 @@
         "text": "They ___ TV right now.",
         "options": ["are watching", "watch", "will watch"],
         "explanation": "The answer is 'are watching' because it’s happening now.",
+<<<<<<< HEAD
         "tips": "'Right now' means use 'are watching'.",
         "difficulty": "medium"
+=======
+        "tips": "'Right now' means use 'are watching'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 28,
         "question": "Fill in the blank ___:",
         "text": "We ___ a new book tomorrow.",
         "options": ["will read", "reading", "read"],
+<<<<<<< HEAD
         "explanation": "The answer is 'will read' because it’s tomorrow.",
         "tips": "'Tomorrow' means use 'will read'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'will read' because it’s in the future.",
+        "tips": "'Tomorrow' means use 'will read'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 29,
@@ -257,44 +394,68 @@
         "text": "He ___ his homework now.",
         "options": ["is doing", "does", "will do"],
         "explanation": "The answer is 'is doing' because it’s happening now.",
+<<<<<<< HEAD
         "tips": "'Now' means use 'is doing'.",
         "difficulty": "medium"
+=======
+        "tips": "'Now' means use 'is doing'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 30,
         "question": "Fill in the blank ___:",
         "text": "She ___ a pizza yesterday.",
         "options": ["ate", "will eat", "eats"],
+<<<<<<< HEAD
         "explanation": "The answer is 'ate' because it was yesterday.",
         "tips": "'Yesterday' means use 'ate'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'ate' because it happened yesterday.",
+        "tips": "'Yesterday' means use 'ate'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 31,
         "question": "Fill in the blank ___:",
         "text": "I ___ to school every day.",
         "options": ["go", "going", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'go' because I do it every day.",
         "tips": "'Every day' means I always do it, so use 'go'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'go' because it’s a habit.",
+        "tips": "'Every day' means use 'go'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 32,
         "question": "Fill in the blank ___:",
         "text": "They ___ to the market every Saturday.",
         "options": ["go", "will go", "going"],
+<<<<<<< HEAD
         "explanation": "The answer is 'go' because they do it every Saturday.",
         "tips": "'Every Saturday' means they always do it, so use 'go'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'go' because it’s a habit.",
+        "tips": "'Every Saturday' means use 'go'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 33,
         "question": "Fill in the blank ___:",
         "text": "He ___ his lunch every day.",
         "options": ["eats", "ate", "will eat"],
+<<<<<<< HEAD
         "explanation": "The answer is 'eats' because he does it every day.",
         "tips": "'Every day' means he always does it, so use 'eats'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'eats' because it’s a habit.",
+        "tips": "'Every day' means use 'eats'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 34,
@@ -302,35 +463,54 @@
         "text": "She ___ her shoes right now.",
         "options": ["is wearing", "wore", "wear"],
         "explanation": "The answer is 'is wearing' because it’s happening now.",
+<<<<<<< HEAD
         "tips": "'Right now' means use 'is wearing'.",
         "difficulty": "medium"
+=======
+        "tips": "'Right now' means use 'is wearing'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 35,
         "question": "Fill in the blank ___:",
         "text": "We ___ to the zoo tomorrow.",
         "options": ["will go", "going", "go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'will go' because it’s tomorrow.",
         "tips": "'Tomorrow' means use 'will go'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'will go' because it’s in the future.",
+        "tips": "'Tomorrow' means use 'will go'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 36,
         "question": "Fill in the blank ___:",
         "text": "They ___ a movie tonight.",
         "options": ["will watch", "watch", "are watching"],
+<<<<<<< HEAD
         "explanation": "The answer is 'will watch' because it’s tonight.",
         "tips": "'Tonight' means use 'will watch'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'will watch' because it’s in the future.",
+        "tips": "'Tonight' means use 'will watch'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 37,
         "question": "Fill in the blank ___:",
         "text": "He ___ breakfast every morning.",
         "options": ["eats", "ate", "will eat"],
+<<<<<<< HEAD
         "explanation": "The answer is 'eats' because he does it every morning.",
         "tips": "'Every morning' means he always does it, so use 'eats'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'eats' because it’s a habit.",
+        "tips": "'Every morning' means use 'eats'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 38,
@@ -338,26 +518,40 @@
         "text": "She ___ to the park right now.",
         "options": ["is going", "goes", "will go"],
         "explanation": "The answer is 'is going' because it’s happening now.",
+<<<<<<< HEAD
         "tips": "'Right now' means use 'is going'.",
         "difficulty": "medium"
+=======
+        "tips": "'Right now' means use 'is going'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 39,
         "question": "Fill in the blank ___:",
         "text": "We ___ a test next week.",
         "options": ["will take", "take", "taking"],
+<<<<<<< HEAD
         "explanation": "The answer is 'will take' because it’s next week.",
         "tips": "'Next week' means use 'will take'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'will take' because it’s in the future.",
+        "tips": "'Next week' means use 'will take'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 40,
         "question": "Fill in the blank ___:",
         "text": "They ___ to the beach last summer.",
         "options": ["went", "go", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'went' because it was last summer.",
         "tips": "'Last summer' means use 'went'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'went' because it happened in the past.",
+        "tips": "'Last summer' means use 'went'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 41,
@@ -369,8 +563,12 @@
             "She likes books."
         ],
         "explanation": "The answer is 'He like books' because 'he' needs 'likes'.",
+<<<<<<< HEAD
         "tips": "Use 'likes' with he or she, not 'like'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'likes' with he or she."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 42,
@@ -382,8 +580,12 @@
             "She is going to school."
         ],
         "explanation": "The answer is 'I is going to school' because 'I' needs 'am'.",
+<<<<<<< HEAD
         "tips": "Use 'am' with I, not 'is'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'am' with I."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 43,
@@ -395,8 +597,12 @@
             "We play basketball."
         ],
         "explanation": "The answer is 'They plays basketball' because 'they' needs 'play'.",
+<<<<<<< HEAD
         "tips": "Use 'play' with they or we, not 'plays'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'play' with they or we."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 44,
@@ -408,8 +614,12 @@
             "My father drinks tea."
         ],
         "explanation": "The answer is 'My father drink coffee' because 'father' needs 'drinks'.",
+<<<<<<< HEAD
         "tips": "Use 'drinks' with he or she, not 'drink'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'drinks' with he or she."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 45,
@@ -421,8 +631,12 @@
             "I like playing."
         ],
         "explanation": "The answer is 'We likes playing' because 'we' needs 'like'.",
+<<<<<<< HEAD
         "tips": "Use 'like' with we or I, not 'likes'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'like' with we or I."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 46,
@@ -434,8 +648,12 @@
             "I am eating lunch."
         ],
         "explanation": "The answer is 'They is eating lunch' because 'they' needs 'are'.",
+<<<<<<< HEAD
         "tips": "Use 'are' with they, not 'is'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'are' with they."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 47,
@@ -447,8 +665,12 @@
             "I go to school."
         ],
         "explanation": "The answer is 'He go to school' because 'he' needs 'goes'.",
+<<<<<<< HEAD
         "tips": "Use 'goes' with he or she, not 'go'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'goes' with he or she."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 48,
@@ -460,8 +682,12 @@
             "He is playing soccer."
         ],
         "explanation": "The answer is 'I is playing soccer' because 'I' needs 'am'.",
+<<<<<<< HEAD
         "tips": "Use 'am' with I, not 'is'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'am' with I."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 49,
@@ -473,8 +699,12 @@
             "I am watching TV."
         ],
         "explanation": "The answer is 'She are watching TV' because 'she' needs 'is'.",
+<<<<<<< HEAD
         "tips": "Use 'is' with she or he, not 'are'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'is' with she or he."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 50,
@@ -486,79 +716,123 @@
             "I can swim fast."
         ],
         "explanation": "The answer is 'They can swims fast' because 'they' needs 'swim'.",
+<<<<<<< HEAD
         "tips": "Use 'swim' with they or we, not 'swims'.",
         "difficulty": "hard"
+=======
+        "tips": "Use 'swim' with they or we."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 51,
         "question": "Please choose the correct article: ",
         "text": "He is eating ___ apple.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
         "tips": "Use 'an' for things like apple or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'apple' starts with a vowel sound.",
+        "tips": "Use 'an' for words like apple or elephant."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 52,
         "question": "Please choose the correct article: ",
         "text": "She has ___ car.",
         "options": ["a", "an", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'a' because 'car' starts with a 'c' sound.",
         "tips": "Use 'a' for things like car or dog.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'a' because 'car' starts with a consonant sound.",
+        "tips": "Use 'a' for words like car or dog."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 53,
         "question": "Please choose the correct article: ",
         "text": "They need ___ apple.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
         "tips": "Use 'an' for things like apple or orange.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'apple' starts with a vowel sound.",
+        "tips": "Use 'an' for words like apple or orange."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 54,
         "question": "Please choose the correct article: ",
         "text": "He is ___ best student.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean one special student.",
         "tips": "Use 'the' for someone special like the best.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific student.",
+        "tips": "Use 'the' for someone special like the best."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 55,
         "question": "Please choose the correct article: ",
         "text": "I saw ___ elephant at the zoo.",
         "options": ["an", "a", "the"],
+<<<<<<< HEAD
         "explanation": "The answer is 'an' because 'elephant' starts with an 'e' sound.",
         "tips": "Use 'an' for things like elephant or egg.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'an' because 'elephant' starts with a vowel sound.",
+        "tips": "Use 'an' for words like elephant or egg."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 56,
         "question": "Please choose the correct article: ",
         "text": "We saw ___ moon last night.",
         "options": ["the", "a", "an"],
+<<<<<<< HEAD
         "explanation": "The answer is 'the' because we mean the special moon.",
         "tips": "Use 'the' for special things like the moon.",
         "difficulty": "easy"
+=======
+        "explanation": "The answer is 'the' because we mean a specific moon.",
+        "tips": "Use 'the' for special things like the moon."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 57,
         "question": "Fill in the blank ___:",
         "text": "She ___ a dog every day.",
         "options": ["feeds", "feeding", "will feed"],
+<<<<<<< HEAD
         "explanation": "The answer is 'feeds' because she does it every day.",
         "tips": "'Every day' means she always does it, so use 'feeds'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'feeds' because it’s a habit.",
+        "tips": "'Every day' means use 'feeds'."
+>>>>>>> 4070cfd (nice)
     },
     {
         "id": 58,
         "question": "Fill in the blank ___:",
         "text": "They ___ to the park last weekend.",
         "options": ["went", "go", "will go"],
+<<<<<<< HEAD
         "explanation": "The answer is 'went' because it was last weekend.",
         "tips": "'Last weekend' means use 'went'.",
         "difficulty": "medium"
+=======
+        "explanation": "The answer is 'went' because it happened in the past.",
+        "tips": "'Last weekend' means use 'went'."
+>>>>>>> 4070cfd (nice)
     }
 ]

@@ -1,5 +1,6 @@
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   {
     "id": 1,
     "question": "Rearrange the words in correct order",
@@ -537,3 +538,106 @@
   ]
   
 >>>>>>> 6fb5d81 (Implement rearranging quiz feature with new HTML, JS, and JSON files; update home and results pages.)
+=======
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["The", "dog", "is", "running."],
+      "correctOrder": [0, 1, 2, 3]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["The", "cat", "is", "sleeping."],
+      "correctOrder": [0, 1, 2, 3]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["I", "go", "to", "school."],
+      "correctOrder": [0, 1, 2, 3]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["He", "is", "playing", "ball."],
+      "correctOrder": [0, 1, 2, 3]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["We", "eat", "a", "cake."],
+      "correctOrder": [0, 1, 2, 3]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["She", "is", "reading", "a", "book."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["They", "went", "to", "the", "zoo."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["I", "am", "eating", "an", "apple."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["He", "is", "writing", "with", "pen."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["We", "are", "at", "school", "now."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["The", "bird", "is", "flying", "high."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["She", "has", "a", "dog", "pet."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["They", "play", "with", "toys", "daily."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["He", "is", "driving", "a", "car."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["I", "read", "a", "book", "daily."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["She", "is", "singing", "a", "song."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["We", "eat", "pizza", "on", "Friday."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["I", "am", "drinking", "milk", "now."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["They", "went", "to", "beach", "yesterday."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  },
+  {
+      "question": "Rearrange the words in correct order",
+      "options": ["He", "feeds", "the", "dog", "daily."],
+      "correctOrder": [0, 1, 2, 3, 4]
+  }
+]
+>>>>>>> 4070cfd (nice)

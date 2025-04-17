@@ -6,16 +6,14 @@
 		<title>HJ Grammar Quiz</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- The font used for the flashcard app. You can change this to any other font. -->
 		<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet" />
-		<!-- This line loads the CSS file containing the styles for the flashcard app. It can be modified to change the appearance of the app. -->
 		<link rel="stylesheet" href="./index.css" />
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 	</head>
 	<body>
-		<!-- These hidden checkboxes store the toggling state of the entries panel and the flashcard. Don't remove them. -->
-		<input type="checkbox" id="toggle-entries-checkbox" hidden />
 		<input type="checkbox" id="flip-card-checkbox" hidden />
 		<main>
+<<<<<<< HEAD
 			<!-- The header includes a button to show/hide all flashcard entries. -->
 			<h1 id="header">
 				<label for="toggle-entries-checkbox" id="toggle-entries" title="Show All Entries">|||</label>
@@ -38,10 +36,14 @@
 				</div>
 			</section>
 			<!-- The main flashcard section. Clicking flips between front and back. -->
+=======
+			<h1 id="header">HJ Grammar Quiz</h1>
+			<div id="progress-container">
+				<p id="progress-text">Question 1 of 6</p>
+			</div>
+>>>>>>> 4070cfd (nice)
 			<section id="flashcard">
 				<div id="card-inner">
-					<!-- STUDENTS: Start of recommended modifications -->
-					<!-- Add and rearrange HTML elements inside .card-front and .card-back below. -->
 					<div class="card card-front">
 						<div class="question-container">
 							<h2 id="question-text"></h2>
@@ -53,31 +55,28 @@
 						<button id="option-3" class="option"></button>
 					</div>
 					<div class="card card-back">
-						<p>
-							<span id="back-definition"></span>
-						</p>
+						<p><span id="back-definition"></span></p>
 						<h2 id="correctness"></h2>
+						<div id="stars" class="stars-container"></div>
 						<p id="explanation"></p>
 						<button id="btn-next-question" style="display: none;">Next Question</button>
 						<button id="btn-try-again" style="display: none;">Try Again</button>
-						<!-- Remove the above attributes as needed. -->
 					</div>
-					<!-- STUDENTS: End of recommended modifications -->
 				</div>
 			</section>
-			<!-- Navigation and learning progress buttons for the current flashcard. -->
 			<div id="actions">
-				<button id="btn-back"> Back</button>
 				<button id="btn-home">Back to Home</button>
 				<button id="review-mistakes-button">Review Mistakes</button>
 			</div>
 		</main>
-		<!-- This line imports the JavaScript file containing the logic for the flashcard app. It can be modified to add functionality to the app. -->
 		<script src="./index.js" type="module"></script>
+<<<<<<< HEAD
 		<script>
 			// Redirect from index.html to home.html
 			window.location.href = 'home.html';
 		  </script>
 		  
+=======
+>>>>>>> 4070cfd (nice)
 	</body>
 </html>

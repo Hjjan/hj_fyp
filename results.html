@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
@@ -29,5 +30,91 @@
     <button onclick="window.location.href='home.html';" style="font-size: 18px; padding: 10px 20px; margin-top: 20px;">
         Go to Home
     </button>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HJ Quiz Results</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>HJ Quiz Results</h1>
+
+    <div id="results" class="results-text"></div>
+    <div id="stars" class="stars-container"></div>
+    <div id="message" class="message-text"></div>
+
+    <div id="incorrect-list" class="incorrect-list"></div>
+
+    <div class="button-group">
+      <button id="btn-try-again" class="btn">Try Again</button>
+      <button id="btn-home" class="btn">Go to Home</button>
+    </div>
+  </div>
+
+  <script>
+    // Parse URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = parseInt(urlParams.get('score')) || 0;
+    const total = parseInt(urlParams.get('total')) || 5; // Default to 5 if missing
+    const type = urlParams.get('type') || 'quiz'; // e.g., 'rearrange' or 'multiple-choice'
+    const incorrectAnswers = JSON.parse(urlParams.get('incorrectAnswers') || '[]'); // For multiple-choice
+
+    // Elements
+    const resultsElement = document.getElementById('results');
+    const starsElement = document.getElementById('stars');
+    const messageElement = document.getElementById('message');
+    const incorrectListElement = document.getElementById('incorrect-list');
+
+    // Display results
+    if (resultsElement) {
+      resultsElement.textContent = `You answered ${score} out of ${total} correctly in the ${type} quiz!`;
+    }
+
+    // Display stars
+    if (starsElement) {
+      const maxStars = 5;
+      const starsEarned = total > 0 ? Math.round((score / total) * maxStars) : 0;
+      starsElement.innerHTML = '⭐'.repeat(starsEarned) + '☆'.repeat(maxStars - starsEarned);
+    }
+
+    // Encouraging message
+    if (messageElement) {
+      let message;
+      if (score === total && total > 0) {
+        message = "Wow, you're a grammar superstar!";
+      } else if (total > 0 && score >= total / 2) {
+        message = "Great job, you're almost there!";
+      } else {
+        message = "Nice try! Let's practice some more!";
+      }
+      messageElement.textContent = message;
+    }
+
+    // Display incorrect answers (for multiple-choice quiz)
+    if (incorrectListElement && incorrectAnswers.length > 0 && type === 'multiple-choice') {
+      incorrectListElement.innerHTML = '<h3>Incorrect Answers:</h3>' + incorrectAnswers
+        .map(item => `<p><strong>Question:</strong> ${item.question}<br><strong>Your Answer:</strong> ${item.userAnswer}<br><strong>Correct Answer:</strong> ${item.correctAnswer}</p>`)
+        .join('');
+    } else {
+      incorrectListElement.style.display = 'none'; // Hide for rearranging quiz
+    }
+
+    // Button handlers
+    const tryAgainButton = document.getElementById('btn-try-again');
+    if (tryAgainButton) {
+      tryAgainButton.addEventListener('click', () => {
+        window.location.href = type === 'rearrange' ? 'rearrange.html' : 'index.html';
+      });
+    }
+
+    const homeButton = document.getElementById('btn-home');
+    if (homeButton) {
+      homeButton.addEventListener('click', () => {
+        window.location.href = 'home.html';
+      });
+    }
+  </script>
+>>>>>>> 4070cfd (nice)
 </body>
 </html>

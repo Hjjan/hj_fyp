@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  
 document.addEventListener('DOMContentLoaded', () => {
     const progressBarInner = document.getElementById('progress-bar-inner');
@@ -196,8 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 import questions from './data/rearrange.json' assert { type: 'json' };
 
+=======
+>>>>>>> 4070cfd (nice)
 let currentQuestionIndex = 0;
-let currentQuestion = questions[currentQuestionIndex];
+let questions = [];
+let currentQuestion;
 let builtSentence = [];
 let sentenceGameCompleted = 0;
 let sentenceGameCorrect = 0;
@@ -205,6 +209,7 @@ let sentenceGameCorrect = 0;
 const sentenceWordsContainer = document.getElementById("sentence-words");
 const sentenceBuilderArea = document.getElementById("sentence-builder-area");
 const submitButton = document.getElementById("submit-answer");
+const resetButton = document.getElementById("btn-reset");
 const resultContainer = document.getElementById("result-container");
 const correctnessText = document.getElementById("correctness");
 const explanationText = document.getElementById("explanation");
@@ -212,22 +217,57 @@ const progressText = document.getElementById("progress-text");
 const questionText = document.getElementById("question-text");
 const nextButton = document.getElementById("btn-next-question");
 const tryAgainButton = document.getElementById("btn-try-again");
+const flipCardCheckbox = document.getElementById("flip-card-checkbox");
+
+// Fetch and randomize questions
+async function fetchQuestions() {
+  try {
+    // Reset game state
+    sentenceGameCorrect = 0;
+    sentenceGameCompleted = 0;
+    currentQuestionIndex = 0;
+
+    const response = await fetch('./data/rearrange.json');
+    if (!response.ok) throw new Error('Failed to load questions');
+    const allQuestions = await response.json();
+    
+    // Randomly select 5 questions
+    questions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 5);
+    
+    if (questions.length === 0) throw new Error('No questions selected');
+    currentQuestion = questions[currentQuestionIndex];
+    loadQuestion();
+  } catch (error) {
+    console.error("Error loading questions:", error);
+    questionText.textContent = "Error loading question";
+  }
+}
 
 // Load the current question
 function loadQuestion() {
-  currentQuestion = questions[currentQuestionIndex];
-  
-  // Ensure the question is valid
-  if (!currentQuestion || !currentQuestion.question || !currentQuestion.options) {
-    console.error("Invalid question data:", currentQuestion);
+  if (!questions.length) {
+    console.error("No questions loaded");
     return;
   }
 
-  // Clear previous content
+  currentQuestion = questions[currentQuestionIndex];
+  
+  if (!currentQuestion || !currentQuestion.question || !currentQuestion.options) {
+    console.error("Invalid question data:", currentQuestion);
+    questionText.textContent = "Invalid question data";
+    return;
+  }
+
+  // Reset state
   builtSentence = [];
   sentenceBuilderArea.innerHTML = '';
   sentenceWordsContainer.innerHTML = '';
   resultContainer.style.display = 'none';
+  submitButton.style.display = 'block';
+  resetButton.style.display = 'block';
+  nextButton.classList.remove('active');
+  tryAgainButton.classList.remove('active');
+  flipCardCheckbox.checked = false;
 
   questionText.textContent = currentQuestion.question;
   progressText.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
@@ -241,26 +281,26 @@ function loadQuestion() {
     wordElement.textContent = word;
     wordElement.dataset.word = word;
     
-    // Add click event to add word to sentence
     wordElement.addEventListener('click', function() {
       addWordToSentence(this);
     });
     
     sentenceWordsContainer.appendChild(wordElement);
   });
+
+  updateProgress();
+  console.log("loadQuestion: next =", nextButton.classList.contains('active'), "try =", tryAgainButton.classList.contains('active'));
 }
 
 // Add word to the sentence builder
 function addWordToSentence(wordElement) {
   const word = wordElement.dataset.word;
   
-  // Create a new word element in the sentence area
   const sentenceWord = document.createElement('div');
   sentenceWord.className = 'sentence-builder-word';
   sentenceWord.textContent = word;
   sentenceWord.dataset.word = word;
   
-  // Add click event to remove word from sentence
   sentenceWord.addEventListener('click', function() {
     removeWordFromSentence(this);
   });
@@ -268,7 +308,6 @@ function addWordToSentence(wordElement) {
   sentenceBuilderArea.appendChild(sentenceWord);
   builtSentence.push(word);
   
-  // Remove word from the available word bank
   wordElement.remove();
 }
 
@@ -276,75 +315,119 @@ function addWordToSentence(wordElement) {
 function removeWordFromSentence(wordElement) {
   const word = wordElement.dataset.word;
   
-  // Create a new word element in the word bank
   const newWordElement = document.createElement('div');
   newWordElement.className = 'sentence-word';
   newWordElement.textContent = word;
   newWordElement.dataset.word = word;
   
-  // Add click event to add word to sentence
   newWordElement.addEventListener('click', function() {
     addWordToSentence(this);
   });
   
   sentenceWordsContainer.appendChild(newWordElement);
   
-  // Remove word from built sentence
   wordElement.remove();
   builtSentence = builtSentence.filter(w => w !== word);
 }
 
-// Check if the sentence is correct
-submitButton.addEventListener('click', () => {
-  const builtSentenceStr = builtSentence.join(' ');
+// Reset sentence builder
+resetButton.addEventListener('click', () => {
+  const words = [...builtSentence];
+  builtSentence = [];
+  sentenceBuilderArea.innerHTML = '';
+  
+  words.forEach(word => {
+    const wordElement = document.createElement('div');
+    wordElement.className = 'sentence-word';
+    wordElement.textContent = word;
+    wordElement.dataset.word = word;
+    
+    wordElement.addEventListener('click', function() {
+      addWordToSentence(this);
+    });
+    
+    sentenceWordsContainer.appendChild(wordElement);
+  });
+});
+
+// Check answer logic
+function checkAnswer() {
+  nextButton.classList.remove('active');
+  tryAgainButton.classList.remove('active');
 
   if (builtSentence.length === 0) {
     correctnessText.textContent = "Please build a sentence first!";
-    resultContainer.style.display = 'block';
+    explanationText.textContent = "";
+    tryAgainButton.classList.add('active');
+    console.log("checkAnswer (empty): next =", nextButton.classList.contains('active'), "try =", tryAgainButton.classList.contains('active'));
     return;
   }
 
-  // Check if the sentence matches the correct order
-  if (builtSentenceStr === currentQuestion.correctOrder) {
+  const correctWords = currentQuestion.correctOrder.map(index => currentQuestion.options[index]);
+  const builtSentenceStr = builtSentence.join(' ');
+  const correctSentenceStr = correctWords.join(' ');
+
+  if (builtSentenceStr === correctSentenceStr) {
     correctnessText.textContent = "Correct!";
-    explanationText.textContent = 'Well done, the sentence is correct!';
+    explanationText.textContent = `Great job! The sentence "${correctSentenceStr}" is correct.`;
     sentenceGameCorrect++;
+    if (currentQuestionIndex + 1 < questions.length) {
+      nextButton.classList.add('active');
+      tryAgainButton.classList.remove('active');
+    } else {
+      nextButton.classList.remove('active');
+      tryAgainButton.classList.remove('active');
+      setTimeout(() => {
+        window.location.href = `results.html?score=${sentenceGameCorrect}&total=${questions.length}&type=rearrange`;
+      }, 1000);
+    }
   } else {
     correctnessText.textContent = "Incorrect!";
-    explanationText.textContent = 'Try again, the order is not correct.';
-    sentenceGameCorrect = 0;  // Reset score if incorrect
+    explanationText.textContent = `Not quite! The correct sentence is "${correctSentenceStr}". Try again!`;
+    nextButton.classList.remove('active');
+    tryAgainButton.classList.add('active');
   }
 
-  // Increment completed game counter
   sentenceGameCompleted++;
-  progressText.textContent = `Progress: ${sentenceGameCompleted}/10 completed`;
+  console.log("checkAnswer: next =", nextButton.classList.contains('active'), "try =", tryAgainButton.classList.contains('active'));
+}
 
-  // Show result
-  resultContainer.style.display = 'block';
+// Submit answer
+submitButton.addEventListener('click', () => {
   submitButton.style.display = 'none';
-  nextButton.style.display = currentQuestionIndex + 1 < questions.length ? 'block' : 'none';
-  tryAgainButton.style.display = 'block';
+  resetButton.style.display = 'none';
+  checkAnswer();
+  setTimeout(() => {
+    resultContainer.style.display = 'block';
+    flipCardCheckbox.checked = true;
+  }, 50);
 });
 
-// Next question button functionality
+// Next question button
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     loadQuestion();
-    resultContainer.style.display = 'none';
-    submitButton.style.display = 'block';
   } else {
-    alert('Quiz Complete!');
-    window.location.href = 'home.html'; // Redirect to home page
+    window.location.href = `results.html?score=${sentenceGameCorrect}&total=${questions.length}&type=rearrange`;
   }
 });
 
-// Try again button functionality
+// Try again button
 tryAgainButton.addEventListener('click', () => {
   loadQuestion();
-  resultContainer.style.display = 'none';
-  submitButton.style.display = 'block';
 });
 
-// Load the first question on page load
-loadQuestion();
+// Update progress bar
+function updateProgress() {
+  const progressBarInner = document.getElementById("progress-bar-inner");
+  if (!progressBarInner) {
+    console.warn("Progress bar element not found!");
+    return;
+  }
+  const percentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+  progressBarInner.style.width = `${percentage}%`;
+}
+
+// Load questions when DOM is ready
+document.addEventListener('DOMContentLoaded', fetchQuestions);

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HJ Grammar Quiz - Home</title>
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Welcome to the HJ Grammar Quiz</h1>
-      <button id="start-quiz-button">Start Quiz</button>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HJ Quiz Home</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <h1>Welcome to HJ Quiz</h1>
 
-    <script>
-      // Add event listener for the "Start Quiz" button
-      document.getElementById("start-quiz-button").addEventListener("click", () => {
-        window.location.href = "index.html"; // Navigate to quiz page
-      });
-    </script>
-  </body>
+  <div style="margin-top: 40px;">
+    <button
+      onclick="window.location.href='index.html';"
+      style="font-size: 20px; padding: 15px 30px; margin-right: 20px;"
+    >
+      Multiple Choice
+    </button>
+
+    <button
+      onclick="window.location.href='rearrange.html';"
+      style="font-size: 20px; padding: 15px 30px;"
+    >
+      Rearranging
+    </button>
+  </div>
+</body>
 </html>
