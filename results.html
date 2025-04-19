@@ -1,36 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link rel="stylesheet" href="./index.css" />
-</head>
-<body>
-    <h1>HJ Quiz Results</h1>
-    <p id="results"></p>
-
-    <script>
-    const correctAnswersCount = localStorage.getItem('correctAnswersCount');
-    const totalQuestions = localStorage.getItem('totalQuestions');
-    
-    const resultsElement = document.getElementById('results');
-    resultsElement.textContent = `You answered ${correctAnswersCount} out of ${totalQuestions} correctly!`;
-
-    // Apply inline styles to enlarge the font
-    resultsElement.style.fontSize = "24px";  // Adjust the font size as needed
-    </script>
-
-    <p id="results" style="font-size: 24px; font-weight: bold;">
-        <!-- Result text will be added here -->
-    </p>
-
-    <!-- Add a button to go back to home page -->
-    <button onclick="window.location.href='home.html';" style="font-size: 18px; padding: 10px 20px; margin-top: 20px;">
-        Go to Home
-    </button>
-=======
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HJ Quiz Results</title>
@@ -124,7 +94,7 @@
     // Parse URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const score = parseInt(urlParams.get('score')) || 0;
-    const total = parseInt(urlParams.get('total')) || 10; // Default to 10 if missing
+    const total = parseInt(urlParams.get('total')) || 5; // Default to 5 if missing
     const type = urlParams.get('type') || 'quiz'; // e.g., 'rearrange' or 'multiple-choice'
     const incorrectAnswers = JSON.parse(decodeURIComponent(urlParams.get('incorrectAnswers') || '[]')); // For multiple-choice
 
@@ -183,10 +153,6 @@
       });
     }
   </script>
-<<<<<<< HEAD
->>>>>>> 4070cfd (nice)
-=======
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932ca5f3fe36b038',t:'MTc0NTA2ODI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
->>>>>>> e43f3dd (new changes)
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932df5e9fc9484c6',t:'MTc0NTA4MjA1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let selectedQuestionIds = [];
   let currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex')) || 0;
-  let totalQuestions = 10;
+  const totalQuestions = 10;
   let builtSentence = [];
   let hintUsed = false;
   let shuffledOptions = [];
@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
           selectedQuestionIds = JSON.parse(localStorage.getItem('selectedQuestionIds')) || [];
           const difficulty = localStorage.getItem('difficulty') || 'easy';
-          // Apply themed background
-          document.body.className = ''; // Clear existing classes
+          document.body.className = '';
           document.body.classList.add(difficulty);
           console.log(`[loadQuestions] Applied background: ${difficulty}`);
           if (!selectedQuestionIds.length) {
@@ -58,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function readText(text) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
+      utterance.rate = 0.7; // Slower rate for younger users
       window.speechSynthesis.speak(utterance);
   }
 
@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateProgress() {
       const progressPercent = (currentQuestionIndex / totalQuestions) * 100;
-      progressBarInner.style.width = '0%'; // Reset to trigger animation
-      progressBarInner.offsetWidth; // Force reflow
+      progressBarInner.style.width = '0%';
+      progressBarInner.offsetWidth;
       progressBarInner.style.width = `${progressPercent}%`;
       progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
       progressText.classList.add('pulse');
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
           localStorage.removeItem('selectedQuestionIds');
           localStorage.removeItem('currentQuestionIndex');
-          window.location.href = 'results.html';
+          window.location.href = 'results.html?type=rearrange';
       }
       console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
   });
