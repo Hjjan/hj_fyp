@@ -1,112 +1,177 @@
-import example from "./data/questions.json" with { type: "json" };
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBarInner = document.getElementById('progress-bar-inner');
+    const progressText = document.getElementById('progress-text');
+    const questionText = document.getElementById('question-text');
+    const textElement = document.getElementById('text');
+    const optionButtons = [
+        document.getElementById('option-1'),
+        document.getElementById('option-2'),
+        document.getElementById('option-3')
+    ];
+    const hintButton = document.getElementById('btn-hint');
+    const hintText = document.getElementById('hint-text');
+    const audioButton = document.getElementById('btn-audio');
+    const audioBackButton = document.getElementById('btn-audio-back');
+    const correctness = document.getElementById('correctness');
+    const explanation = document.getElementById('explanation');
+    const flipCardCheckbox = document.getElementById('flip-card-checkbox');
+    const cardInner = document.getElementById('card-inner');
+    const tryAgainButton = document.getElementById('btn-try-again');
+    const nextQuestionButton = document.getElementById('btn-next-question');
+    const homeButton = document.getElementById('btn-home');
 
-/** Loads flashcard progress from local storage if available. */
-function loadProgress() {
-	try {
-		const stored = localStorage.getItem("flashcardProgress");
-		return stored ? JSON.parse(stored) : {};
-	} catch (e) {
-		console.error("Error loading progress:", e);
-		return {};
-	}
-}
+    let selectedQuestionIds = [];
+    let currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex')) || 0;
+	//Modify as needed
+    const totalQuestions = 10;
+    let hintUsed = false;
+    let shuffledOptions = [];
 
-/** Saves the current progress back to local storage. */
-function saveProgress(progress) {
-	try {
-		localStorage.setItem("flashcardProgress", JSON.stringify(progress));
-	} catch (e) {
-		console.error("Error saving progress:", e);
-	}
-}
+    async function loadQuestions() {
+        try {
+            selectedQuestionIds = JSON.parse(localStorage.getItem('selectedQuestionIds')) || [];
+            const difficulty = localStorage.getItem('difficulty') || 'easy';
+            document.body.className = '';
+            document.body.classList.add(difficulty);
+            console.log(`[loadQuestions] Applied background: ${difficulty}`);
+            if (!selectedQuestionIds.length) {
+                const [mcResponse, reResponse] = await Promise.all([
+                    fetch('data/questions.json'),
+                    fetch('data/rearrange.json')
+                ]);
+                const questions = await mcResponse.json();
+                const rearrangeQuestions = await reResponse.json();
+                const filteredMC = questions.filter(q => q.difficulty === difficulty);
+                const filteredRe = rearrangeQuestions.filter(q => q.difficulty === difficulty);
+                selectedQuestionIds = getRandomQuestions(filteredMC, filteredRe, 5);
+                localStorage.setItem('selectedQuestionIds', JSON.stringify(selectedQuestionIds));
+            }
+            console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
+            displayQuestion();
+        } catch (error) {
+            console.error('[loadQuestions] Error loading questions:', error);
+            questionText.textContent = 'Error loading questions';
+            textElement.textContent = '';
+        }
+    }
 
-const progressData = loadProgress();
-// Ensure cards is an array and log its length for debugging
-const cards = Array.isArray(example) ? example : [];
-console.log("Total cards loaded:", cards.length);
+    function getRandomQuestions(mcQuestions, reQuestions, countPerType) {
+        const shuffledMC = mcQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'questions.json' }));
+        const shuffledRe = reQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'rearrange.json' }));
+        const interleaved = [];
+        for (let i = 0; i < countPerType; i++) {
+            if (i < shuffledMC.length) interleaved.push(shuffledMC[i]);
+            if (i < shuffledRe.length) interleaved.push(shuffledRe[i]);
+        }
+        console.log(`[getRandomQuestions] MC Questions: ${shuffledMC.map(q => q.id).join(', ')}`);
+        console.log(`[getRandomQuestions] Re Questions: ${shuffledRe.map(q => q.id).join(', ')}`);
+        console.log(`[getRandomQuestions] Interleaved: ${interleaved.map(q => `${q.id} (${q.source})`).join(', ')}`);
+        return interleaved;
+    }
 
-const sortedCards = cards.sort((a, b) => {
-	const dateA = progressData[a.id]?.dueDate ? new Date(progressData[a.id].dueDate) : new Date(9999, 0, 1);
-	const dateB = progressData[b.id]?.dueDate ? new Date(progressData[b.id].dueDate) : new Date(9999, 0, 1);
-	return dateA - dateB;
-});
+    function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
 
-let currentIndex = 0;
-const incorrectAnswers = [];
+    function readText(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.7; // Slower rate for younger users
+        window.speechSynthesis.speak(utterance);
+    }
 
-function pickRandomCardsFromRange(rangeStart, rangeEnd, count) {
-	const filteredCards = sortedCards.filter(card => 
-		card.id >= rangeStart && 
-		card.id <= rangeEnd && 
-		(rangeStart >= 41 || card.text) && // Require text for ranges < 41
-		card.question && 
-		Array.isArray(card.options) && 
-		card.options.length >= 3
-	);
-	console.log(`Range ${rangeStart}-${rangeEnd}: ${filteredCards.length} valid cards`);
-	shuffleArray(filteredCards);
-	return filteredCards.slice(0, Math.min(count, filteredCards.length));
-}
+    function displayQuestion() {
+        const question = selectedQuestionIds[currentQuestionIndex];
+        console.log(`[displayQuestion] Question ID: ${question.id}, Source: ${question.source}, Index: ${currentQuestionIndex}`);
+        if (question.source === 'rearrange.json') {
+            localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
+            window.location.href = 'rearrange.html';
+            return;
+        }
+        questionText.textContent = question.question;
+        textElement.textContent = question.text;
+        shuffledOptions = shuffleArray(question.options);
+        optionButtons.forEach((button, index) => {
+            button.textContent = shuffledOptions[index];
+            button.disabled = false;
+            button.classList.remove('error');
+        });
+        hintText.textContent = '';
+        hintButton.disabled = false;
+        audioButton.disabled = false;
+        audioBackButton.disabled = true;
+        hintUsed = false;
+        correctness.textContent = '';
+        explanation.textContent = '';
+        flipCardCheckbox.checked = false;
+        cardInner.classList.remove('flipped');
+        updateProgress();
+    }
 
-const TARGET_QUESTION_COUNT = 6; // Adjustable (e.g., 5, 20)
-function ensureCards() {
-	const selectedCards = [];
-	const ranges = [
-		{ start: 1, end: 20, count: Math.ceil(TARGET_QUESTION_COUNT / 3) },
-		{ start: 21, end: 40, count: Math.ceil(TARGET_QUESTION_COUNT / 3) },
-		{ start: 41, end: 58, count: Math.ceil(TARGET_QUESTION_COUNT / 3) }
-	];
+    function showHint() {
+        if (hintUsed) return;
+        const question = selectedQuestionIds[currentQuestionIndex];
+        const partialTip = question.tips.split('.')[0] + '.';
+        hintText.textContent = partialTip;
+        hintButton.disabled = true;
+        hintUsed = true;
+        console.log(`[showHint] Hint displayed: ${partialTip}`);
+    }
 
-	// Try primary ranges
-	for (const range of ranges) {
-		const cards = pickRandomCardsFromRange(range.start, range.end, range.count);
-		selectedCards.push(...cards);
-	}
+    function checkAnswer(selectedOption) {
+        const question = selectedQuestionIds[currentQuestionIndex];
+        const isCorrect = selectedOption === question.options[0];
+        correctness.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
+        explanation.textContent = question.explanation;
+        optionButtons.forEach(button => {
+            button.disabled = true;
+            if (button.textContent !== question.options[0]) {
+                button.classList.add('error');
+            }
+        });
+        flipCardCheckbox.checked = true;
+        cardInner.classList.add('flipped');
+        tryAgainButton.classList.toggle('active', !isCorrect);
+        nextQuestionButton.classList.toggle('active', isCorrect);
+        audioBackButton.disabled = false;
+        console.log(`[checkAnswer] Correctness: ${correctness.textContent}, Explanation: ${explanation.textContent}, Flipped: ${cardInner.classList.contains('flipped')}`);
+    }
 
-	// If fewer than TARGET_QUESTION_COUNT cards, fill from all valid cards
-	if (selectedCards.length < TARGET_QUESTION_COUNT) {
-		const needed = TARGET_QUESTION_COUNT - selectedCards.length;
-		const currentIds = new Set(selectedCards.map(card => card.id));
-		const availableCards = sortedCards.filter(card => 
-			!currentIds.has(card.id) && 
-			(card.id >= 41 || card.text) && // Require text for IDs < 41
-			card.question && 
-			Array.isArray(card.options) && 
-			card.options.length >= 3
-		);
-		shuffleArray(availableCards);
-		selectedCards.push(...availableCards.slice(0, needed));
-	}
+    function updateProgress() {
+        const progressPercent = (currentQuestionIndex / totalQuestions) * 100;
+        progressBarInner.style.width = '0%';
+        progressBarInner.offsetWidth;
+        progressBarInner.style.width = `${progressPercent}%`;
+        progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+        progressText.classList.add('pulse');
+        setTimeout(() => progressText.classList.remove('pulse'), 300);
+        console.log(`[updateProgress] Progress: ${progressText.textContent}, Width: ${progressPercent}%, Pulse: ${progressText.classList.contains('pulse')}`);
+    }
 
-	// Ensure exactly TARGET_QUESTION_COUNT cards
-	if (selectedCards.length > TARGET_QUESTION_COUNT) {
-		selectedCards.length = TARGET_QUESTION_COUNT;
-	}
+    optionButtons.forEach(button => {
+        button.addEventListener('click', () => checkAnswer(button.textContent));
+    });
 
-	return selectedCards;
-}
+    hintButton.addEventListener('click', showHint);
 
-const selectedCards = ensureCards();
-shuffleArray(selectedCards);
-console.log("Selected cards:", selectedCards.map(card => card.id), `Total: ${selectedCards.length}`);
+    audioButton.addEventListener('click', () => {
+        const question = selectedQuestionIds[currentQuestionIndex];
+        readText(`${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
+        console.log(`[audioButton] Played: ${question.question} ${question.text} ${shuffledOptions.join(', ')}`);
+    });
 
-const text = document.getElementById("text");
-const questionText = document.getElementById("question-text");
-const backImage = document.getElementById("back-image");
-const backAudio = document.getElementById("back-audio");
-const backVideo = document.getElementById("back-video");
-const flipCardCheckbox = document.getElementById("flip-card-checkbox");
-const cardInner = document.getElementById("card-inner");
-const transitionHalfDuration = cardInner ? parseFloat(getComputedStyle(cardInner).transitionDuration) * 1000 / 2 : 300;
-const option1Element = document.getElementById("option-1");
-const option2Element = document.getElementById("option-2");
-const option3Element = document.getElementById("option-3");
-const correctnessElement = document.getElementById("correctness");
-const explanationElement = document.getElementById("explanation");
-const nextQuestionButton = document.getElementById("btn-next-question");
-const tryAgainButton = document.getElementById("btn-try-again");
-const backButton = document.getElementById("btn-back");
+    audioBackButton.addEventListener('click', () => {
+        const question = selectedQuestionIds[currentQuestionIndex];
+        readText(`${correctness.textContent} ${question.explanation}`);
+        console.log(`[audioBackButton] Played: ${correctness.textContent} ${question.explanation}`);
+    });
 
+<<<<<<< HEAD
 let correctAnswersCount = 0;  // Track the number of correct answers
 const totalQuestions = selectedCards.length;  // Total number of flashcards
 
@@ -356,3 +421,33 @@ updateProgress();
 	updateProgress();
 });
 >>>>>>> 4070cfd (nice)
+=======
+    tryAgainButton.addEventListener('click', () => {
+        flipCardCheckbox.checked = false;
+        cardInner.classList.remove('flipped');
+        displayQuestion();
+        console.log(`[tryAgainButton] Reset card, Index: ${currentQuestionIndex}`);
+    });
+
+    nextQuestionButton.addEventListener('click', () => {
+        currentQuestionIndex++;
+        localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
+        if (currentQuestionIndex < totalQuestions) {
+            displayQuestion();
+        } else {
+            localStorage.removeItem('selectedQuestionIds');
+            localStorage.removeItem('currentQuestionIndex');
+            window.location.href = 'results.html?type=multiple-choice';
+        }
+        console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
+    });
+
+    homeButton.addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'home.html';
+        console.log('[homeButton] Cleared storage, redirected to home');
+    });
+
+    loadQuestions();
+});
+>>>>>>> e43f3dd (new changes)

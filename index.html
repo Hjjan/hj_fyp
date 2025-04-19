@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -79,4 +80,55 @@
 =======
 >>>>>>> 4070cfd (nice)
 	</body>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HJ Grammar Quiz</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+        <h1 id="header">HJ Grammar Quiz</h1>
+        <div id="progress-container">
+            <div id="progress-bar">
+                <div id="progress-bar-inner"></div>
+            </div>
+            <div id="progress-text"></div>
+        </div>
+        <section id="flashcard">
+            <input type="checkbox" id="flip-card-checkbox" style="display: none;">
+            <div id="card-inner">
+                <div class="card card-front">
+                    <div class="question-container">
+                        <div id="question-text"></div>
+                        <div id="text"></div>
+                    </div>
+                    <div class="card-buttons">
+                        <button id="option-1"></button>
+                        <button id="option-2"></button>
+                        <button id="option-3"></button>
+                        <button id="btn-hint">Hint</button>
+                        <button id="btn-audio">🔊</button>
+                    </div>
+                    <div id="hint-text"></div>
+                </div>
+                <div class="card card-back">
+                    <div id="correctness"></div>
+                    <div id="explanation"></div>
+                    <div class="card-buttons">
+                        <button id="btn-audio-back">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="actions">
+            <button id="btn-home">Back to Home</button>
+            <button id="btn-try-again">Try Again</button>
+            <button id="btn-next-question">Next Question</button>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+>>>>>>> e43f3dd (new changes)
 </html>

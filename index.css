@@ -13,9 +13,13 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 <<<<<<< HEAD
+<<<<<<< HEAD
     transition: opacity 0.5s ease-in-out;
 =======
 >>>>>>> 4070cfd (nice)
+=======
+    transition: opacity 0.5s ease-in-out;
+>>>>>>> e43f3dd (new changes)
 }
 
 img, picture, video, canvas, svg {
@@ -37,24 +41,34 @@ h1, h2, h3, h4, h5, h6 {
 html {
     font-family: "Comic Neue", "Open Sans", sans-serif;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: clamp(16px, 0.8vw + 12px, 18px);
 =======
     font-size: clamp(14px, 0.7vw + 10px, 16px);
 >>>>>>> 4070cfd (nice)
+=======
+    font-size: clamp(16px, 0.8vw + 12px, 18px);
+>>>>>>> e43f3dd (new changes)
     width: 100%;
     height: 100%;
     display: grid;
     place-items: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     background-color: #e6f3ff;
 >>>>>>> 4070cfd (nice)
+=======
+>>>>>>> e43f3dd (new changes)
     overflow: hidden;
 }
 
 body {
     display: contents;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e43f3dd (new changes)
     position: relative;
 }
 
@@ -71,30 +85,62 @@ body::before {
     background-repeat: no-repeat;
     opacity: 0.9;
     transition: opacity 0.5s ease-in-out;
+<<<<<<< HEAD
+=======
 =======
 }
 
-/* Arranges the main content into rows for header, flashcard area, and actions. */
+body.easy::before {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Sunny meadow */
+}
+
+body.medium::before {
+    background-image: url('https://images.unsplash.com/photo-1541959833400-049d37f98ccd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Jungle */
+}
+
+body.hard::before {
+    background-image: url('https://images.unsplash.com/photo-1606247357835-d27fe83fc6a3?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Starry night */
+>>>>>>> e43f3dd (new changes)
+}
+
 main {
     padding: 0.8rem;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: auto auto 1fr auto;
-    gap: 0.5rem;
+    row-gap: 0.5rem;
     max-width: 65rem;
+<<<<<<< HEAD
 >>>>>>> 4070cfd (nice)
+=======
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
-/* Styles the header with a title and a toggle button for the entries list. */
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+>>>>>>> e43f3dd (new changes)
+}
+
 #header {
     color: #002b5c;
     line-height: 1.2;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 0.1rem;
     grid-row: 1 / 2;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #toggle-entries {
 	display: inline-block;
@@ -116,11 +162,12 @@ main {
 =======
 /* The entries list, hidden from users. */
 >>>>>>> 4070cfd (nice)
+=======
+>>>>>>> e43f3dd (new changes)
 #entries {
     display: none;
 }
 
-/* Progress bar */
 #progress-container {
     width: 100%;
     display: flex;
@@ -200,33 +247,46 @@ main {
     background-color: #f4f8fb;
     border-radius: 8px;
     overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#progress-bar:hover {
+    box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+    transform: scale(1.02);
 }
 
 #progress-bar-inner {
     width: 0%;
     height: 100%;
-    background-color: #007acc;
-    transition: width 0.3s ease-in-out;
+    background: linear-gradient(to right, #007acc, #00cc88);
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
 }
 
 #progress-text {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #007acc;
     background-color: rgba(255, 202, 40, 0.15);
     border: 1px solid #ffca28;
     border-radius: 5px;
-    padding: 0.2rem 0.7rem;
+    padding: 0.3rem 0.8rem;
     margin: 0;
     font-weight: bold;
-    min-height: 2rem;
+    min-height: 2.5rem;
     z-index: 10;
     position: relative;
-    animation: pulse 0.3s ease-in-out;
 }
 
+<<<<<<< HEAD
 /* Styles for the flashcard container */
 >>>>>>> 4070cfd (nice)
+=======
+#progress-text.pulse {
+    animation: pulseProgress 0.3s ease-in-out;
+}
+
+>>>>>>> e43f3dd (new changes)
 #flashcard {
     grid-row: 3 / 4;
     height: auto;
@@ -235,9 +295,13 @@ main {
     perspective: 80rem;
     z-index: 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-bottom: 0;
 =======
 >>>>>>> 4070cfd (nice)
+=======
+    margin-bottom: 0;
+>>>>>>> e43f3dd (new changes)
 }
 
 #card-inner {
@@ -275,7 +339,7 @@ main {
     padding: 1.5rem;
     background-color: #fff9e6;
     border: 2px solid #ffca28;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     border-radius: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s;
@@ -286,11 +350,14 @@ main {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
+<<<<<<< HEAD
 
 /* STUDENTS: Start of recommended modifications */
 /* You can alter colours, fonts, sizing, or layout for .card-front and .card-back below. */
 
 /* Styles for the front side of the card. */
+=======
+>>>>>>> e43f3dd (new changes)
 .card-front {
 <<<<<<< HEAD
 	color: #11222d;
@@ -334,7 +401,10 @@ main {
     color: #1a3c5e;
 }
 
+<<<<<<< HEAD
 /* Styles for the back side of the card. */
+=======
+>>>>>>> e43f3dd (new changes)
 .card-back {
 <<<<<<< HEAD
 	transform: rotateY(180deg);
@@ -362,17 +432,18 @@ main {
 }
 
 #correctness {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #d81b60;
 >>>>>>> 4070cfd (nice)
 }
 
 #explanation {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #555;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 #btn-hint,
 #btn-audio,
@@ -399,6 +470,8 @@ main {
 /* The actions area, which contains buttons for different actions. */
 =======
 /* Card buttons */
+=======
+>>>>>>> e43f3dd (new changes)
 .card-buttons {
     display: flex;
     justify-content: center;
@@ -406,19 +479,21 @@ main {
     margin-top: 0.5rem;
 }
 
-/* Option buttons */
 #option-1,
 #option-2,
 #option-3,
 #submit-answer,
-#btn-reset {
+#btn-reset,
+#btn-hint,
+#btn-audio,
+#btn-audio-back {
     appearance: none;
     display: block !important;
     border: 2px solid #ffca28;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.8rem;
+    font-size: 1rem;
     border-radius: 1rem;
-    background-color: #ffeb3b;
+    background: #ffeb3b;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
     cursor: pointer;
@@ -426,31 +501,61 @@ main {
     margin: 0.3rem;
 }
 
+#btn-hint,
+#btn-audio,
+#btn-audio-back {
+    background-color: #90caf9;
+    border-color: #64b5f6;
+}
+
 #option-1:hover,
 #option-2:hover,
 #option-3:hover,
 #submit-answer:hover,
-#btn-reset:hover {
+#btn-reset:hover,
+#btn-hint:hover,
+#btn-audio:hover,
+#btn-audio-back:hover {
     background-color: #ffd700;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-3px);
+}
+
+#btn-hint:hover,
+#btn-audio:hover,
+#btn-audio-back:hover {
+    background-color: #64b5f6;
 }
 
 #option-1:disabled,
 #option-2:disabled,
 #option-3:disabled,
 #submit-answer:disabled,
-#btn-reset:disabled {
+#btn-reset:disabled,
+#btn-hint:disabled,
+#btn-audio:disabled,
+#btn-audio-back:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
 
+<<<<<<< HEAD
 /* The actions area */
 >>>>>>> 4070cfd (nice)
+=======
+#hint-text {
+    font-size: 1.2rem;
+    color: #007acc;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+>>>>>>> e43f3dd (new changes)
 #actions {
     grid-row: 4 / 5;
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
 <<<<<<< HEAD
     gap: 1.5rem;
     margin-top: 0;
@@ -460,6 +565,11 @@ main {
     margin-top: 0.5rem;
     min-height: 2.5rem;
 >>>>>>> 4070cfd (nice)
+=======
+    gap: 1.5rem;
+    margin-top: 0;
+    min-height: 3rem;
+>>>>>>> e43f3dd (new changes)
     z-index: 5;
 }
 
@@ -488,8 +598,8 @@ button:hover {
     margin-top: 20px;       /* Optional margin */
 =======
     border: 2px solid #ffca28;
-    padding: 0.6rem 2rem;
-    font-size: 0.9rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1rem;
     border-radius: 1rem;
     background-color: #ffeb3b;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
@@ -505,12 +615,13 @@ button:hover {
     transform: translateY(-3px);
 }
 
-/* Styles for specific buttons */
 #btn-next-question,
 #btn-try-again,
 #btn-home {
     background-color: #90caf9;
     border-color: #64b5f6;
+    font-size: 1rem;
+    padding: 0.7rem 2.2rem;
     z-index: 5;
 >>>>>>> 4070cfd (nice)
 }
@@ -521,6 +632,7 @@ button:hover {
     background-color: #64b5f6;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* Different background colours help distinguish button actions. */
 #btn-again {
@@ -717,9 +829,11 @@ button:hover {
     }
 =======
 /* Fix for button visibility */
+=======
+>>>>>>> e43f3dd (new changes)
 #btn-next-question,
 #btn-try-again {
-    display: none !important;
+    display: none;
 }
 
 #btn-next-question.active,
@@ -727,27 +841,15 @@ button:hover {
     display: block !important;
 }
 
-/* Home page */
-.container {
-    max-width: 600px;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 h1 {
-    font-size: 32px;
+    font-size: 36px;
     color: #007acc;
     margin-bottom: 10px;
     animation: pulse 1s ease-in-out;
 }
 
 .welcome-text {
-    font-size: 20px;
+    font-size: 22px;
     color: #333;
     margin: 15px 0;
     animation: fadeIn 1s ease-in;
@@ -762,8 +864,8 @@ h1 {
 
 .btn {
     font-family: "Comic Neue", sans-serif;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 12px 24px;
     background-color: #007acc;
     color: white;
     border: none;
@@ -787,34 +889,61 @@ h1 {
     cursor: not-allowed;
 }
 
-/* Results page */
+.difficulty-group .btn {
+    width: 140px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 12px;
+}
+
+#btn-easy {
+    background-color: #4caf50;
+    border: none;
+}
+#btn-easy:hover {
+    background-color: #388e3c;
+}
+#btn-medium {
+    background-color: #f59e0b;
+    border: none;
+}
+#btn-medium:hover {
+    background-color: #d97706;
+}
+#btn-hard {
+    background-color: #ef4444;
+    border: none;
+}
+#btn-hard:hover {
+    background-color: #dc2626;
+}
+
 .results-text {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     color: #333;
     margin: 15px 0;
 }
 
 .stars-container {
-    font-size: 28px;
+    font-size: 30px;
     margin: 8px 0;
     color: #ffca28;
     animation: twinkle 2s infinite;
 }
 
 .message-text {
-    font-size: 18px;
+    font-size: 20px;
     color: #007acc;
     margin: 12px 0;
 }
 
 .incorrect-list {
-    font-size: 16px;
+    font-size: 18px;
     color: #d81b60;
     margin: 15px 0;
 }
 
-/* Rearrange section */
 .sentence-words {
     display: flex;
     flex-wrap: wrap;
@@ -824,12 +953,12 @@ h1 {
 }
 
 .sentence-word {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border: 2px solid #ffca28;
     border-radius: 8px;
     background-color: #bbdefb;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #1a3c5e;
     transition: background-color 0.2s, transform 0.2s;
 }
@@ -852,12 +981,12 @@ h1 {
 }
 
 .sentence-builder-word {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border: 2px solid #ffca28;
     border-radius: 8px;
     background-color: #90caf9;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #1a3c5e;
     transition: background-color 0.2s, transform 0.2s;
 }
@@ -867,7 +996,6 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Animations */
 @keyframes twinkle {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
@@ -879,13 +1007,15 @@ h1 {
     75% { transform: translateX(5px); }
 }
 
-.card.incorrect {
-    animation: shake 0.3s;
-}
-
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulseProgress {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
@@ -894,54 +1024,79 @@ h1 {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Error styling */
 #text.error,
 #question-text.error {
     color: #d81b60;
     font-weight: bold;
 }
 
-/* Media query for small screens */
 @media (max-width: 360px) {
     #header {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     #progress-text {
-        font-size: 1.4rem;
-        padding: 0.2rem 0.5rem;
+        font-size: 1.6rem;
+        padding: 0.2rem 0.6rem;
     }
     #progress-bar {
         height: 8px;
     }
+    #progress-bar:hover {
+        transform: scale(1.01);
+    }
+    #progress-text.pulse {
+        animation: pulseProgress 0.4s ease-in-out;
+    }
     .card {
         padding: 1.2rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     #question-text {
         font-size: 1.2rem;
     }
+    #text {
+        font-size: 2.2rem;
+    }
     #correctness {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     #explanation {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     #option-1,
     #option-2,
     #option-3,
     #submit-answer,
-    #btn-reset {
-        padding: 0.4rem 1.2rem;
-        font-size: 0.8rem;
+    #btn-reset,
+    #btn-hint,
+    #btn-audio,
+    #btn-audio-back {
+        padding: 0.5rem 1.4rem;
+        font-size: 0.9rem;
         margin: 0.2rem;
     }
-    button {
-        padding: 0.5rem 1.8rem;
-        font-size: 0.8rem;
+    #btn-next-question,
+    #btn-try-again,
+    #btn-home {
+        padding: 0.6rem 2rem;
+        font-size: 0.9rem;
     }
     .sentence-word,
     .sentence-builder-word {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .difficulty-group .btn {
+        width: 120px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+    body::before {
+        background-size: contain;
+        background-position: top center;
     }
 }

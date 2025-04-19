@@ -35,8 +35,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HJ Quiz Results</title>
   <link rel="stylesheet" href="./index.css" />
+  <style>
+    body.results::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Celebration */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+    h1 {
+      color: #ffffff;
+    }
+    .results-text {
+      color: #ffffff;
+    }
+    .message-text {
+      color: #ffca28;
+    }
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border-radius: 9999px;
+      transition: transform 0.2s, background-color 0.2s;
+      margin: 0.5rem;
+      cursor: pointer;
+      background-color: #007acc;
+      color: white;
+      border: none;
+    }
+    .btn:hover {
+      background-color: #005f99;
+      transform: scale(1.1);
+    }
+    .btn:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    @media (max-width: 360px) {
+      body.results::before {
+        background-size: contain;
+        background-position: top center;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="results">
   <div class="container">
     <h1>HJ Quiz Results</h1>
 
@@ -56,9 +124,9 @@
     // Parse URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const score = parseInt(urlParams.get('score')) || 0;
-    const total = parseInt(urlParams.get('total')) || 5; // Default to 5 if missing
+    const total = parseInt(urlParams.get('total')) || 10; // Default to 10 if missing
     const type = urlParams.get('type') || 'quiz'; // e.g., 'rearrange' or 'multiple-choice'
-    const incorrectAnswers = JSON.parse(urlParams.get('incorrectAnswers') || '[]'); // For multiple-choice
+    const incorrectAnswers = JSON.parse(decodeURIComponent(urlParams.get('incorrectAnswers') || '[]')); // For multiple-choice
 
     // Elements
     const resultsElement = document.getElementById('results');
@@ -115,6 +183,10 @@
       });
     }
   </script>
+<<<<<<< HEAD
 >>>>>>> 4070cfd (nice)
+=======
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932ca5f3fe36b038',t:'MTc0NTA2ODI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+>>>>>>> e43f3dd (new changes)
 </body>
 </html>
