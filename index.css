@@ -12,14 +12,7 @@ html {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
-<<<<<<< HEAD
     transition: opacity 0.5s ease-in-out;
-=======
->>>>>>> 4070cfd (nice)
-=======
-    transition: opacity 0.5s ease-in-out;
->>>>>>> e43f3dd (new changes)
 }
 
 img, picture, video, canvas, svg {
@@ -40,35 +33,16 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom styles */
 html {
     font-family: "Comic Neue", "Open Sans", sans-serif;
-<<<<<<< HEAD
-<<<<<<< HEAD
     font-size: clamp(16px, 0.8vw + 12px, 18px);
-=======
-    font-size: clamp(14px, 0.7vw + 10px, 16px);
->>>>>>> 4070cfd (nice)
-=======
-    font-size: clamp(16px, 0.8vw + 12px, 18px);
->>>>>>> e43f3dd (new changes)
     width: 100%;
     height: 100%;
     display: grid;
     place-items: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    background-color: #e6f3ff;
->>>>>>> 4070cfd (nice)
-=======
->>>>>>> e43f3dd (new changes)
     overflow: hidden;
 }
 
 body {
     display: contents;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e43f3dd (new changes)
     position: relative;
 }
 
@@ -85,9 +59,6 @@ body::before {
     background-repeat: no-repeat;
     opacity: 0.9;
     transition: opacity 0.5s ease-in-out;
-<<<<<<< HEAD
-=======
-=======
 }
 
 body.easy::before {
@@ -100,7 +71,6 @@ body.medium::before {
 
 body.hard::before {
     background-image: url('https://images.unsplash.com/photo-1606247357835-d27fe83fc6a3?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Starry night */
->>>>>>> e43f3dd (new changes)
 }
 
 main {
@@ -111,74 +81,10 @@ main {
     grid-template-rows: auto auto 1fr auto;
     row-gap: 0.5rem;
     max-width: 65rem;
-<<<<<<< HEAD
->>>>>>> 4070cfd (nice)
-=======
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
 
-.container {
-    max-width: 600px;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
->>>>>>> e43f3dd (new changes)
-}
-
-#header {
-    color: #002b5c;
-    line-height: 1.2;
-    font-size: 2rem;
-    margin-bottom: 0.1rem;
-    grid-row: 1 / 2;
-}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-#toggle-entries {
-	display: inline-block;
-	width: 2.5rem;
-	font-size: 70%;
-	font-weight: 900;
-	text-align: center;
-	transform: rotate(88deg);
-	transform-origin: 60% 60%;
-	transition: color 0.3s;
-	color: #007acc;
-}
-
-#toggle-entries:hover {
-	color: #005488;
-}
-
-/* The entries list, which is overlaid on top of the flashcard area. */
-=======
-/* The entries list, hidden from users. */
->>>>>>> 4070cfd (nice)
-=======
->>>>>>> e43f3dd (new changes)
-#entries {
-    display: none;
-}
-
-#progress-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    margin-top: 0.2rem;
-    grid-row: 2 / 3;
-}
-
-<<<<<<< HEAD
 .container {
     max-width: 600px;
     width: 100%;
@@ -214,33 +120,6 @@ main {
     grid-row: 2 / 3;
 }
 
-#entries tbody tr:hover {
-	background-color: #f1f1f1;
-}
-
-/* The #toggle-entries element acts as a label for #toggle-entries-checkbox. 
-	Clicking #toggle-entries changes the state of #toggle-entries-checkbox.
-	When #toggle-entries-checkbox is checked, this ruleset is in effect, and the #entries table becomes visible.
-	Otherwise, the previous rules (display: none; opacity: 0;) inside the #entries ruleset remain effective, and the table is hidden. */
-#toggle-entries-checkbox:checked ~ main #entries {
-	display: block;
-	opacity: 1;
-	@starting-style {
-		opacity: 0;
-	}
-}
-
-.row-highlight {
-	background-color: #fff3cd;
-}
-
-.overdue-date {
-	color: #d9534f;
-	font-weight: bold;
-}
-
-/* The flashcard container, which uses perspective to allow a 3D flip animation. */
-=======
 #progress-bar {
     width: 100%;
     height: 10px;
@@ -278,15 +157,10 @@ main {
     position: relative;
 }
 
-<<<<<<< HEAD
-/* Styles for the flashcard container */
->>>>>>> 4070cfd (nice)
-=======
 #progress-text.pulse {
     animation: pulseProgress 0.3s ease-in-out;
 }
 
->>>>>>> e43f3dd (new changes)
 #flashcard {
     grid-row: 3 / 4;
     height: auto;
@@ -294,14 +168,7 @@ main {
     position: relative;
     perspective: 80rem;
     z-index: 1;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-bottom: 0;
-=======
->>>>>>> 4070cfd (nice)
-=======
-    margin-bottom: 0;
->>>>>>> e43f3dd (new changes)
 }
 
 #card-inner {
@@ -313,18 +180,10 @@ main {
     z-index: 2;
 }
 
-<<<<<<< HEAD
-/* Rotates the card around the Y-axis when the checkbox is checked such that the back side is visible.
-	It makes use of the same technique as the entries list to toggle the checkbox state when the card is clicked.
-	When the checkbox is no longer checked, the card is rotated back to the front side. */
-#flip-card-checkbox:checked ~ main #card-inner {
-	transform: rotateY(180deg);
-=======
 #flip-card-checkbox:checked ~ * #card-inner,
 #flip-card-checkbox:checked + #flashcard #card-inner,
 #card-inner.flipped {
     transform: rotateY(180deg);
->>>>>>> 4070cfd (nice)
 }
 
 .card {
@@ -350,29 +209,7 @@ main {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-<<<<<<< HEAD
-
-/* STUDENTS: Start of recommended modifications */
-/* You can alter colours, fonts, sizing, or layout for .card-front and .card-back below. */
-
-/* Styles for the front side of the card. */
-=======
->>>>>>> e43f3dd (new changes)
 .card-front {
-<<<<<<< HEAD
-	color: #11222d;
-	/* Additional styles here (e.g., background-color: #bbccdd;) */
-	display: flex; /* Enables Flexbox layout */
-	flex-direction: row; /* Ensure the buttons are stacked vertically */
-    justify-content: space-between; /* Distributes buttons with space between them */
-    gap: 10px; /* Creates consistent spacing between buttons */
-}
-
-.question-container {
-	display: flex; /* Enables Flexbox layout */
-	flex-direction: column; /* Aligns elements horizontally */
-	gap: 10px; /* Creates spacing between the elements */
-=======
     color: #1a3c5e;
     display: flex;
     flex-direction: column;
@@ -385,9 +222,7 @@ main {
     flex-direction: column;
     gap: 0.8rem;
     text-align: center;
->>>>>>> 4070cfd (nice)
 }
-/* Add styles for additional elements on the front side here. Here is an example: */
 
 #text {
     display: block !important;
@@ -401,29 +236,7 @@ main {
     color: #1a3c5e;
 }
 
-<<<<<<< HEAD
-/* Styles for the back side of the card. */
-=======
->>>>>>> e43f3dd (new changes)
 .card-back {
-<<<<<<< HEAD
-	transform: rotateY(180deg);
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 0.5rem;
-	/* Additional styles here (e.g., background-color: #bbddcc;) */
-}
-
-/* Add styles for additional elements on the back side here. Here are some examples: */
-
-#back-pos {
-	padding: 1px 3px;
-	color: #777;
-	border: 1px solid #777;
-	border-radius: 2px;
-	font-size: 90%;
-=======
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
@@ -435,7 +248,6 @@ main {
     font-size: 1.8rem;
     font-weight: 700;
     color: #d81b60;
->>>>>>> 4070cfd (nice)
 }
 
 #explanation {
@@ -443,35 +255,6 @@ main {
     color: #555;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#btn-hint,
-#btn-audio,
-#btn-audio-back {
-    background-color: #90caf9;
-    border-color: #64b5f6;
-}
-
-#option-1:hover,
-#option-2:hover,
-#option-3:hover,
-#submit-answer:hover,
-#btn-reset:hover,
-#btn-hint:hover,
-#btn-audio:hover,
-#btn-audio-back:hover {
-    background-color: #ffd700;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-3px);
-}
-
-/* STUDENTS: End of recommended modifications */
-
-/* The actions area, which contains buttons for different actions. */
-=======
-/* Card buttons */
-=======
->>>>>>> e43f3dd (new changes)
 .card-buttons {
     display: flex;
     justify-content: center;
@@ -539,10 +322,6 @@ main {
     cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-/* The actions area */
->>>>>>> 4070cfd (nice)
-=======
 #hint-text {
     font-size: 1.2rem;
     color: #007acc;
@@ -550,53 +329,18 @@ main {
     text-align: center;
 }
 
->>>>>>> e43f3dd (new changes)
 #actions {
     grid-row: 4 / 5;
     display: flex;
     justify-content: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
     gap: 1.5rem;
     margin-top: 0;
     min-height: 3rem;
-=======
-    gap: 0.8rem;
-    margin-top: 0.5rem;
-    min-height: 2.5rem;
->>>>>>> 4070cfd (nice)
-=======
-    gap: 1.5rem;
-    margin-top: 0;
-    min-height: 3rem;
->>>>>>> e43f3dd (new changes)
     z-index: 5;
 }
 
 button {
     appearance: none;
-<<<<<<< HEAD
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 2rem;  /* Adjust the padding to make the button smaller */
-    font-size: 20px;        /* Reduce the font size for a smaller button */
-    border-radius: 0.5rem;
-    background-color: #ddf5ff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #c1eaff;
-}
-
-/* Optional: A specific class for the "Start Quiz" button to give it unique styles */
-#start-quiz-button {
-    padding: 0.5rem 1rem;  /* Adjust padding */
-    font-size: 30px;        /* Smaller font size */
-    margin-top: 20px;       /* Optional margin */
-=======
     border: 2px solid #ffca28;
     padding: 0.7rem 2.2rem;
     font-size: 1rem;
@@ -623,7 +367,6 @@ button:hover {
     font-size: 1rem;
     padding: 0.7rem 2.2rem;
     z-index: 5;
->>>>>>> 4070cfd (nice)
 }
 
 #btn-next-question:hover,
@@ -632,205 +375,6 @@ button:hover {
     background-color: #64b5f6;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* Different background colours help distinguish button actions. */
-#btn-again {
-	background-color: #ffcccc;
-}
-
-.btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.difficulty-group .btn {
-    width: 140px;
-    text-align: center;
-    font-size: 1.2rem;
-    padding: 12px;
-}
-
-#btn-easy {
-    background-color: #4caf50;
-    border: none;
-}
-#btn-easy:hover {
-    background-color: #388e3c;
-}
-#btn-medium {
-    background-color: #f59e0b;
-    border: none;
-}
-#btn-medium:hover {
-    background-color: #d97706;
-}
-#btn-hard {
-    background-color: #ef4444;
-    border: none;
-}
-#btn-hard:hover {
-    background-color: #dc2626;
-}
-
-.results-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin: 15px 0;
-}
-
-.stars-container {
-    font-size: 30px;
-    margin: 8px 0;
-    color: #ffca28;
-    animation: twinkle 2s infinite;
-}
-
-.option {
-    margin: 10px; /* Adds space around each button */
-}
-
-.sentence-word:hover {
-    background-color: #90caf9;
-    transform: scale(1.05);
-}
-
-.sentence-builder-area {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0.8rem 0;
-    padding: 0.5rem;
-    background-color: rgba(255, 202, 40, 0.1);
-    border: 2px dashed #ffca28;
-    min-height: 3rem;
-    justify-content: center;
-}
-
-.sentence-builder-word {
-    padding: 0.6rem 1.2rem;
-    border: 2px solid #ffca28;
-    border-radius: 8px;
-    background-color: #90caf9;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #1a3c5e;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.sentence-builder-word:hover {
-    background-color: #64b5f6;
-    transform: scale(1.05);
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-@keyframes pulseProgress {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-#text.error,
-#question-text.error {
-    color: #d81b60;
-    font-weight: bold;
-}
-
-@media (max-width: 360px) {
-    #header {
-        font-size: 1.8rem;
-    }
-    #progress-text {
-        font-size: 1.6rem;
-        padding: 0.2rem 0.6rem;
-    }
-    #progress-bar {
-        height: 8px;
-    }
-    #progress-bar:hover {
-        transform: scale(1.01);
-    }
-    #progress-text.pulse {
-        animation: pulseProgress 0.4s ease-in-out;
-    }
-    .card {
-        padding: 1.2rem;
-        font-size: 1.4rem;
-    }
-    #question-text {
-        font-size: 1.2rem;
-    }
-    #text {
-        font-size: 2.2rem;
-    }
-    #correctness {
-        font-size: 1.6rem;
-    }
-    #explanation {
-        font-size: 1.2rem;
-    }
-    #option-1,
-    #option-2,
-    #option-3,
-    #submit-answer,
-    #btn-reset,
-    #btn-hint,
-    #btn-audio,
-    #btn-audio-back {
-        padding: 0.5rem 1.4rem;
-        font-size: 0.9rem;
-        margin: 0.2rem;
-    }
-    #btn-next-question,
-    #btn-try-again,
-    #btn-home {
-        padding: 0.6rem 2rem;
-        font-size: 0.9rem;
-    }
-    .sentence-word,
-    .sentence-builder-word {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-    .btn {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-    .difficulty-group .btn {
-        width: 120px;
-        font-size: 1rem;
-        padding: 10px;
-    }
-    body::before {
-        background-size: contain;
-        background-position: top center;
-    }
-=======
-/* Fix for button visibility */
-=======
->>>>>>> e43f3dd (new changes)
 #btn-next-question,
 #btn-try-again {
     display: none;
@@ -877,7 +421,6 @@ h1 {
 .btn:hover {
     background-color: #005f99;
     transform: scale(1.05);
->>>>>>> 4070cfd (nice)
 }
 
 .btn:active {
