@@ -1,564 +1,564 @@
 [
-        {
-            "id": 1,
-            "question": "Please choose the correct article: ",
-            "text": "I have ___ apple in my bag.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
-            "tips": "Use 'an' for things like apple or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 2,
-            "question": "Please choose the correct article: ",
-            "text": "He is ___ good student.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'good' starts with a 'g' sound.",
-            "tips": "Use 'a' for things like good or cat.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 3,
-            "question": "Please choose the correct article: ",
-            "text": "We are going to ___ park this afternoon.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean one special park.",
-            "tips": "Use 'the' for special places like a park.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 4,
-            "question": "Please choose the correct article: ",
-            "text": "She is eating ___ sandwich for lunch.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'sandwich' starts with an 's' sound.",
-            "tips": "Use 'a' for things like sandwich or book.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 5,
-            "question": "Please choose the correct article: ",
-            "text": "I want to buy ___ pencil from the store.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'pencil' is any pencil.",
-            "tips": "Use 'a' for any pencil or toy.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 6,
-            "question": "Please choose the correct article: ",
-            "text": "Tim sees ___ elephant at the zoo.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'elephant' starts with an 'e' sound.",
-            "tips": "Use 'an' for things like elephant or apple.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 7,
-            "question": "Please choose the correct article: ",
-            "text": "He is ___ tall boy in our class.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean one special boy.",
-            "tips": "Use 'the' for one special person or thing.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 8,
-            "question": "Please choose the correct article: ",
-            "text": "I have ___ book about animals.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because it’s any book.",
-            "tips": "Use 'a' for any book or toy.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 9,
-            "question": "Please choose the correct article: ",
-            "text": "I saw ___ owl in the tree.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'owl' starts with an 'o' sound.",
-            "tips": "Use 'an' for things like owl or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 10,
-            "question": "Please choose the correct article: ",
-            "text": "My father is ___ engineer.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'engineer' starts with an 'e' sound.",
-            "tips": "Use 'an' for things like engineer or ant.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 11,
-            "question": "Please choose the correct article: ",
-            "text": "She has ___ cat at home.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'cat' starts with a 'c' sound.",
-            "tips": "Use 'a' for things like cat or dog.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 12,
-            "question": "Please choose the correct article: ",
-            "text": "I want to be ___ artist when I grow up.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'artist' starts with an 'a' sound.",
-            "tips": "Use 'an' for things like artist or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 13,
-            "question": "Please choose the correct article: ",
-            "text": "He is ___ best player in the team.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean one special player.",
-            "tips": "Use 'the' for someone special like the best.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 14,
-            "question": "Please choose the correct article: ",
-            "text": "I have ___ idea for the project.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'idea' starts with an 'i' sound.",
-            "tips": "Use 'an' for things like idea or orange.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 15,
-            "question": "Please choose the correct article: ",
-            "text": "She gave me ___ apple.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
-            "tips": "Use 'an' for things like apple or ant.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 16,
-            "question": "Please choose the correct article: ",
-            "text": "He is playing with ___ ball.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'ball' starts with a 'b' sound.",
-            "tips": "Use 'a' for things like ball or pen.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 17,
-            "question": "Please choose the correct article: ",
-            "text": "I would like to order ___ sandwich.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'sandwich' starts with an 's' sound.",
-            "tips": "Use 'a' for things like sandwich or toy.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 18,
-            "question": "Please choose the correct article: ",
-            "text": "She is wearing ___ red dress.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'red' starts with an 'r' sound.",
-            "tips": "Use 'a' for things like red or big.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 19,
-            "question": "Please choose the correct article: ",
-            "text": "We saw ___ sun in the sky.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean the special sun.",
-            "tips": "Use 'the' for special things like the sun.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 20,
-            "question": "Please choose the correct article: ",
-            "text": "There is ___ interesting story in the book.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'interesting' starts with an 'i' sound.",
-            "tips": "Use 'an' for things like interesting or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 21,
-            "question": "Fill in the blank ___:",
-            "text": "He ___ to school every day.",
-            "options": ["goes", "going", "will go"],
-            "explanation": "The answer is 'goes' because he does it every day.",
-            "tips": "'Every day' means he always does it, so use 'goes'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 22,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ her homework right now.",
-            "options": ["is doing", "does", "will do"],
-            "explanation": "The answer is 'is doing' because it’s happening now.",
-            "tips": "'Right now' means use 'is doing'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 23,
-            "question": "Fill in the blank ___:",
-            "text": "We ___ to the park tomorrow.",
-            "options": ["will go", "going", "go"],
-            "explanation": "The answer is 'will go' because it’s tomorrow.",
-            "tips": "'Tomorrow' means use 'will go'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 24,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ a movie yesterday.",
-            "options": ["watched", "watch", "will watch"],
-            "explanation": "The answer is 'watched' because it was yesterday.",
-            "tips": "'Yesterday' means use 'watched'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 25,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ to the shop every day.",
-            "options": ["goes", "going", "will go"],
-            "explanation": "The answer is 'goes' because she does it every day.",
-            "tips": "'Every day' means she always does it, so use 'goes'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 26,
-            "question": "Fill in the blank ___:",
-            "text": "He ___ to the library every week.",
-            "options": ["goes", "going", "will go"],
-            "explanation": "The answer is 'goes' because he does it every week.",
-            "tips": "'Every week' means he always does it, so use 'goes'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 27,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ TV right now.",
-            "options": ["are watching", "watch", "will watch"],
-            "explanation": "The answer is 'are watching' because it’s happening now.",
-            "tips": "'Right now' means use 'are watching'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 28,
-            "question": "Fill in the blank ___:",
-            "text": "We ___ a new book tomorrow.",
-            "options": ["will read", "reading", "read"],
-            "explanation": "The answer is 'will read' because it’s tomorrow.",
-            "tips": "'Tomorrow' means use 'will read'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 29,
-            "question": "Fill in the blank ___:",
-            "text": "He ___ his homework now.",
-            "options": ["is doing", "does", "will do"],
-            "explanation": "The answer is 'is doing' because it’s happening now.",
-            "tips": "'Now' means use 'is doing'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 30,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ a pizza yesterday.",
-            "options": ["ate", "will eat", "eats"],
-            "explanation": "The answer is 'ate' because it was yesterday.",
-            "tips": "'Yesterday' means use 'ate'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 31,
-            "question": "Fill in the blank ___:",
-            "text": "I ___ to school every day.",
-            "options": ["go", "going", "will go"],
-            "explanation": "The answer is 'go' because I do it every day.",
-            "tips": "'Every day' means I always do it, so use 'go'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 32,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ to the market every Saturday.",
-            "options": ["go", "will go", "going"],
-            "explanation": "The answer is 'go' because they do it every Saturday.",
-            "tips": "'Every Saturday' means they always do it, so use 'go'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 33,
-            "question": "Fill in the blank ___:",
-            "text": "He ___ his lunch every day.",
-            "options": ["eats", "ate", "will eat"],
-            "explanation": "The answer is 'eats' because he does it every day.",
-            "tips": "'Every day' means he always does it, so use 'eats'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 34,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ her shoes right now.",
-            "options": ["is wearing", "wore", "wear"],
-            "explanation": "The answer is 'is wearing' because it’s happening now.",
-            "tips": "'Right now' means use 'is wearing'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 35,
-            "question": "Fill in the blank ___:",
-            "text": "We ___ to the zoo tomorrow.",
-            "options": ["will go", "going", "go"],
-            "explanation": "The answer is 'will go' because it’s tomorrow.",
-            "tips": "'Tomorrow' means use 'will go'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 36,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ a movie tonight.",
-            "options": ["will watch", "watch", "are watching"],
-            "explanation": "The answer is 'will watch' because it’s tonight.",
-            "tips": "'Tonight' means use 'will watch'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 37,
-            "question": "Fill in the blank ___:",
-            "text": "He ___ breakfast every morning.",
-            "options": ["eats", "ate", "will eat"],
-            "explanation": "The answer is 'eats' because he does it every morning.",
-            "tips": "'Every morning' means he always does it, so use 'eats'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 38,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ to the park right now.",
-            "options": ["is going", "goes", "will go"],
-            "explanation": "The answer is 'is going' because it’s happening now.",
-            "tips": "'Right now' means use 'is going'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 39,
-            "question": "Fill in the blank ___:",
-            "text": "We ___ a test next week.",
-            "options": ["will take", "take", "taking"],
-            "explanation": "The answer is 'will take' because it’s next week.",
-            "tips": "'Next week' means use 'will take'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 40,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ to the beach last summer.",
-            "options": ["went", "go", "will go"],
-            "explanation": "The answer is 'went' because it was last summer.",
-            "tips": "'Last summer' means use 'went'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 41,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "He like books.",
-                "He likes books.",
-                "She likes books."
-            ],
-            "explanation": "The answer is 'He like books' because 'he' needs 'likes'.",
-            "tips": "Use 'likes' with he or she, not 'like'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 42,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "I is going to school.",
-                "I am going to school.",
-                "She is going to school."
-            ],
-            "explanation": "The answer is 'I is going to school' because 'I' needs 'am'.",
-            "tips": "Use 'am' with I, not 'is'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 43,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "They plays basketball.",
-                "She plays basketball.",
-                "We play basketball."
-            ],
-            "explanation": "The answer is 'They plays basketball' because 'they' needs 'play'.",
-            "tips": "Use 'play' with they or we, not 'plays'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 44,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "My father drink coffee.",
-                "My father drinks coffee.",
-                "My father drinks tea."
-            ],
-            "explanation": "The answer is 'My father drink coffee' because 'father' needs 'drinks'.",
-            "tips": "Use 'drinks' with he or she, not 'drink'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 45,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "We likes playing.",
-                "He likes playing.",
-                "I like playing."
-            ],
-            "explanation": "The answer is 'We likes playing' because 'we' needs 'like'.",
-            "tips": "Use 'like' with we or I, not 'likes'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 46,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "They is eating lunch.",
-                "She is eating lunch.",
-                "I am eating lunch."
-            ],
-            "explanation": "The answer is 'They is eating lunch' because 'they' needs 'are'.",
-            "tips": "Use 'are' with they, not 'is'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 47,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "He go to school.",
-                "She goes to school.",
-                "I go to school."
-            ],
-            "explanation": "The answer is 'He go to school' because 'he' needs 'goes'.",
-            "tips": "Use 'goes' with he or she, not 'go'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 48,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "I is playing soccer.",
-                "We are playing soccer.",
-                "He is playing soccer."
-            ],
-            "explanation": "The answer is 'I is playing soccer' because 'I' needs 'am'.",
-            "tips": "Use 'am' with I, not 'is'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 49,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "She are watching TV.",
-                "They are watching TV.",
-                "I am watching TV."
-            ],
-            "explanation": "The answer is 'She are watching TV' because 'she' needs 'is'.",
-            "tips": "Use 'is' with she or he, not 'are'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 50,
-            "question": "Pick the wrong one out.",
-            "text": "Choose the incorrect sentence.",
-            "options": [
-                "They can swims fast.",
-                "She can swim fast.",
-                "I can swim fast."
-            ],
-            "explanation": "The answer is 'They can swims fast' because 'they' needs 'swim'.",
-            "tips": "Use 'swim' with they or we, not 'swims'.",
-            "difficulty": "hard"
-        },
-        {
-            "id": 51,
-            "question": "Please choose the correct article: ",
-            "text": "He is eating ___ apple.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
-            "tips": "Use 'an' for things like apple or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 52,
-            "question": "Please choose the correct article: ",
-            "text": "She has ___ car.",
-            "options": ["a", "an", "the"],
-            "explanation": "The answer is 'a' because 'car' starts with a 'c' sound.",
-            "tips": "Use 'a' for things like car or dog.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 53,
-            "question": "Please choose the correct article: ",
-            "text": "They need ___ apple.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'apple' starts with an 'a' sound.",
-            "tips": "Use 'an' for things like apple or orange.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 54,
-            "question": "Please choose the correct article: ",
-            "text": "He is ___ best student.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean one special student.",
-            "tips": "Use 'the' for someone special like the best.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 55,
-            "question": "Please choose the correct article: ",
-            "text": "I saw ___ elephant at the zoo.",
-            "options": ["an", "a", "the"],
-            "explanation": "The answer is 'an' because 'elephant' starts with an 'e' sound.",
-            "tips": "Use 'an' for things like elephant or egg.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 56,
-            "question": "Please choose the correct article: ",
-            "text": "We saw ___ moon last night.",
-            "options": ["the", "a", "an"],
-            "explanation": "The answer is 'the' because we mean the special moon.",
-            "tips": "Use 'the' for special things like the moon.",
-            "difficulty": "easy"
-        },
-        {
-            "id": 57,
-            "question": "Fill in the blank ___:",
-            "text": "She ___ a dog every day.",
-            "options": ["feeds", "feeding", "will feed"],
-            "explanation": "The answer is 'feeds' because she does it every day.",
-            "tips": "'Every day' means she always does it, so use 'feeds'.",
-            "difficulty": "medium"
-        },
-        {
-            "id": 58,
-            "question": "Fill in the blank ___:",
-            "text": "They ___ to the park last weekend.",
-            "options": ["went", "go", "will go"],
-            "explanation": "The answer is 'went' because it was last weekend.",
-            "tips": "'Last weekend' means use 'went'.",
-            "difficulty": "medium"
-        }
-    ]
+    {
+      "id": 1,
+      "question": "Choose the correct article: ",
+      "text": "I have ___ pineapple bun.",
+      "options": ["an", "a", "the"],
+      "explanation": "'A' is correct because 'pineapple bun' starts with a 'p'.",
+      "tips": "Use 'a' for pineapple bun or cake.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Choose the correct article: ",
+      "text": "She is ___ kind girl.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'kind' starts with a 'k'.",
+      "tips": "Use 'a' for kind or happy.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Choose the correct article: ",
+      "text": "We go to ___ Victoria Park.",
+      "options": ["the", "a", "an"],
+      "explanation": "'The' is correct for the special Victoria Park.",
+      "tips": "Use 'the' for places like Victoria Park.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Choose the correct article: ",
+      "text": "He eats ___ egg tart.",
+      "options": ["a", "an", "the"],
+      "explanation": "'An' is correct because 'egg' starts with an 'e'.",
+      "tips": "Use 'an' for egg tart or apple.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "Choose the correct article: ",
+      "text": "I want ___ pencil.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'pencil' starts with a 'p'.",
+      "tips": "Use 'a' for pencil or book.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Choose the correct article: ",
+      "text": "Tim sees ___ octopus at Ocean Park.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'octopus' starts with an 'o'.",
+      "tips": "Use 'an' for octopus or orange.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "Choose the correct article: ",
+      "text": "He is ___ tall boy.",
+      "options": ["the", "a", "an"],
+      "explanation": "'The' is correct for the special tall boy.",
+      "tips": "Use 'the' for special people.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "Choose the correct article: ",
+      "text": "I have ___ book about animals.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'book' starts with a 'b'.",
+      "tips": "Use 'a' for book or toy.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Choose the correct article: ",
+      "text": "I saw ___ owl at the zoo.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'owl' starts with an 'o'.",
+      "tips": "Use 'an' for owl or apple.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 10,
+      "question": "Choose the correct article: ",
+      "text": "My dad is ___ engineer.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'engineer' starts with an 'e'.",
+      "tips": "Use 'an' for engineer or ant.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 11,
+      "question": "Choose the correct article: ",
+      "text": "She has ___ cat.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'cat' starts with a 'c'.",
+      "tips": "Use 'a' for cat or dog.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "Choose the correct article: ",
+      "text": "I want to be ___ artist.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'artist' starts with an 'a'.",
+      "tips": "Use 'an' for artist or apple.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 13,
+      "question": "Choose the correct article: ",
+      "text": "She is ___ best singer.",
+      "options": ["the", "a", "an"],
+      "explanation": "'The' is correct for the special best singer.",
+      "tips": "Use 'the' for the best person.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 14,
+      "question": "Choose the correct article: ",
+      "text": "I have ___ idea for a game.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'idea' starts with an 'i'.",
+      "tips": "Use 'an' for idea or orange.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 15,
+      "question": "Choose the correct article: ",
+      "text": "She gives me ___ apple.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'apple' starts with an 'a'.",
+      "tips": "Use 'an' for apple or egg.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 16,
+      "question": "Choose the correct article: ",
+      "text": "He plays with ___ ball.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'ball' starts with a 'b'.",
+      "tips": "Use 'a' for ball or pen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "Choose the correct article: ",
+      "text": "I want ___ milk tea.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'milk tea' starts with an 'm'.",
+      "tips": "Use 'a' for milk tea or juice.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Choose the correct article: ",
+      "text": "She wears ___ red hat.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'red' starts with an 'r'.",
+      "tips": "Use 'a' for red or blue.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "Choose the correct article: ",
+      "text": "We see ___ moon at night.",
+      "options": ["the", "a", "an"],
+      "explanation": "'The' is correct for the special moon.",
+      "tips": "Use 'the' for the moon or sun.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 20,
+      "question": "Choose the correct article: ",
+      "text": "There is ___ fun game.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'fun' starts with an 'f'.",
+      "tips": "Use 'a' for fun or good.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 21,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ the MTR every day.",
+      "options": ["takes", "taking", "will take"],
+      "explanation": "'Takes' is correct because she does it every day.",
+      "tips": "Use 'takes' for every day.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ dim sum now.",
+      "options": ["are eating", "eat", "will eat"],
+      "explanation": "'Are eating' is correct because it’s happening now.",
+      "tips": "Use 'are eating' for now.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 23,
+      "question": "Fill in the blank ___:",
+      "text": "We ___ to Mong Kok tomorrow.",
+      "options": ["will go", "go", "going"],
+      "explanation": "'Will go' is correct because it’s tomorrow.",
+      "tips": "Use 'will go' for tomorrow.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 24,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ egg tarts yesterday.",
+      "options": ["ate", "eat", "will eat"],
+      "explanation": "'Ate' is correct because it was yesterday.",
+      "tips": "Use 'ate' for yesterday.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 25,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ to the shop daily.",
+      "options": ["goes", "going", "will go"],
+      "explanation": "'Goes' is correct because she does it daily.",
+      "tips": "Use 'goes' for daily.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Fill in the blank ___:",
+      "text": "He ___ to the library weekly.",
+      "options": ["goes", "going", "will go"],
+      "explanation": "'Goes' is correct because he does it weekly.",
+      "tips": "Use 'goes' for weekly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ TV now.",
+      "options": ["are watching", "watch", "will watch"],
+      "explanation": "'Are watching' is correct because it’s now.",
+      "tips": "Use 'are watching' for now.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 28,
+      "question": "Fill in the blank ___:",
+      "text": "We ___ a book tomorrow.",
+      "options": ["will read", "read", "reading"],
+      "explanation": "'Will read' is correct because it’s tomorrow.",
+      "tips": "Use 'will read' for tomorrow.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "Fill in the blank ___:",
+      "text": "He ___ homework now.",
+      "options": ["is doing", "does", "will do"],
+      "explanation": "'Is doing' is correct because it’s now.",
+      "tips": "Use 'is doing' for now.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 30,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ noodles yesterday.",
+      "options": ["ate", "eats", "will eat"],
+      "explanation": "'Ate' is correct because it was yesterday.",
+      "tips": "Use 'ate' for yesterday.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 31,
+      "question": "Fill in the blank ___:",
+      "text": "I ___ to school daily.",
+      "options": ["go", "going", "will go"],
+      "explanation": "'Go' is correct because I do it daily.",
+      "tips": "Use 'go' for daily.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ to the market weekly.",
+      "options": ["go", "going", "will go"],
+      "explanation": "'Go' is correct because they do it weekly.",
+      "tips": "Use 'go' for weekly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "Fill in the blank ___:",
+      "text": "He ___ lunch daily.",
+      "options": ["eats", "ate", "will eat"],
+      "explanation": "'Eats' is correct because he does it daily.",
+      "tips": "Use 'eats' for daily.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 34,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ shoes now.",
+      "options": ["is wearing", "wears", "will wear"],
+      "explanation": "'Is wearing' is correct because it’s now.",
+      "tips": "Use 'is wearing' for now.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Fill in the blank ___:",
+      "text": "We ___ to Ocean Park tomorrow.",
+      "options": ["will go", "go", "going"],
+      "explanation": "'Will go' is correct because it’s tomorrow.",
+      "tips": "Use 'will go' for tomorrow.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 36,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ a movie tonight.",
+      "options": ["will watch", "watch", "watching"],
+      "explanation": "'Will watch' is correct because it’s tonight.",
+      "tips": "Use 'will watch' for tonight.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 37,
+      "question": "Fill in the blank ___:",
+      "text": "He ___ breakfast daily.",
+      "options": ["eats", "ate", "will eat"],
+      "explanation": "'Eats' is correct because he does it daily.",
+      "tips": "Use 'eats' for daily.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ to the park now.",
+      "options": ["is going", "goes", "will go"],
+      "explanation": "'Is going' is correct because it’s now.",
+      "tips": "Use 'is going' for now.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "Fill in the blank ___:",
+      "text": "We ___ a game next week.",
+      "options": ["will play", "play", "playing"],
+      "explanation": "'Will play' is correct because it’s next week.",
+      "tips": "Use 'will play' for next week.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 40,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ to Repulse Bay last weekend.",
+      "options": ["went", "go", "will go"],
+      "explanation": "'Went' is correct because it was last weekend.",
+      "tips": "Use 'went' for last weekend.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 41,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "He like dim sum.",
+        "He likes dim sum.",
+        "She likes dim sum."
+      ],
+      "explanation": "'He like dim sum' is wrong because 'he' needs 'likes'.",
+      "tips": "Use 'likes' with he or she.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 42,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "I is taking the MTR.",
+        "I am taking the MTR.",
+        "She is taking the MTR."
+      ],
+      "explanation": "'I is taking the MTR' is wrong because 'I' needs 'am'.",
+      "tips": "Use 'am' with I.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 43,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "They plays football.",
+        "She plays football.",
+        "We play football."
+      ],
+      "explanation": "'They plays football' is wrong because 'they' needs 'play'.",
+      "tips": "Use 'play' with they or we.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 44,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "Dad drink milk tea.",
+        "Dad drinks milk tea.",
+        "Dad drinks juice."
+      ],
+      "explanation": "'Dad drink milk tea' is wrong because 'dad' needs 'drinks'.",
+      "tips": "Use 'drinks' with he or she.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 45,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "We likes playing.",
+        "He likes playing.",
+        "I like playing."
+      ],
+      "explanation": "'We likes playing' is wrong because 'we' needs 'like'.",
+      "tips": "Use 'like' with we or I.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 46,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "They is eating lunch.",
+        "She is eating lunch.",
+        "I am eating lunch."
+      ],
+      "explanation": "'They is eating lunch' is wrong because 'they' needs 'are'.",
+      "tips": "Use 'are' with they.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 47,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "He go to school.",
+        "She goes to school.",
+        "I go to school."
+      ],
+      "explanation": "'He go to school' is wrong because 'he' needs 'goes'.",
+      "tips": "Use 'goes' with he or she.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 48,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "I is playing games.",
+        "We are playing games.",
+        "He is playing games."
+      ],
+      "explanation": "'I is playing games' is wrong because 'I' needs 'am'.",
+      "tips": "Use 'am' with I.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 49,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "She are watching TV.",
+        "They are watching TV.",
+        "I am watching TV."
+      ],
+      "explanation": "'She are watching TV' is wrong because 'she' needs 'is'.",
+      "tips": "Use 'is' with she or he.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 50,
+      "question": "Pick the wrong one out.",
+      "text": "Choose the incorrect sentence.",
+      "options": [
+        "They runs fast.",
+        "She runs fast.",
+        "I run fast."
+      ],
+      "explanation": "'They runs fast' is wrong because 'they' needs 'run'.",
+      "tips": "Use 'run' with they or we.",
+      "difficulty": "hard"
+    },
+    {
+      "id": 51,
+      "question": "Choose the correct article: ",
+      "text": "He drinks ___ milk tea.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'milk tea' starts with an 'm'.",
+      "tips": "Use 'a' for milk tea or juice.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "question": "Choose the correct article: ",
+      "text": "She has ___ toy car.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'toy' starts with a 't'.",
+      "tips": "Use 'a' for toy or book.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "question": "Choose the correct article: ",
+      "text": "They eat ___ orange.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'orange' starts with an 'o'.",
+      "tips": "Use 'an' for orange or apple.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 54,
+      "question": "Choose the correct article: ",
+      "text": "He is ___ best runner.",
+      "options": ["the", "a", "an"],
+      "explanation": "'The' is correct for the special best runner.",
+      "tips": "Use 'the' for the best person.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 55,
+      "question": "Choose the correct article: ",
+      "text": "I see ___ octopus at Ocean Park.",
+      "options": ["an", "a", "the"],
+      "explanation": "'An' is correct because 'octopus' starts with an 'o'.",
+      "tips": "Use 'an' for octopus or egg.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 56,
+      "question": "Choose the correct article: ",
+      "text": "We see ___ star at night.",
+      "options": ["a", "an", "the"],
+      "explanation": "'A' is correct because 'star' starts with an 's'.",
+      "tips": "Use 'a' for star or cloud.",
+      "difficulty": "easy"
+    },
+    {
+      "id": 57,
+      "question": "Fill in the blank ___:",
+      "text": "She ___ her dog daily.",
+      "options": ["feeds", "feeding", "will feed"],
+      "explanation": "'Feeds' is correct because she does it daily.",
+      "tips": "Use 'feeds' for daily.",
+      "difficulty": "medium"
+    },
+    {
+      "id": 58,
+      "question": "Fill in the blank ___:",
+      "text": "They ___ to the park last weekend.",
+      "options": ["went", "go", "will go"],
+      "explanation": "'Went' is correct because it was last weekend.",
+      "tips": "Use 'went' for last weekend.",
+      "difficulty": "medium"
+    }
+  ]
