@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const selectedQuestions = shuffleArray([...selectedMultipleChoice, ...selectedRearrange]);
           localStorage.setItem('quizQuestions', JSON.stringify(selectedQuestions));
 
-          window.location.href = selectedQuestions[0].type === 'multiple-choice' ? 'index.html' : 'rearrange.html';
+          window.location.href = selectedQuestions[0].type === 'multiple-choice' ? 'mc.html' : 'rearrange.html';
         });
       });
     })

@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
           document.body.classList.add(difficulty);
           console.log(`[loadQuestions] Applied background: ${difficulty}`);
           if (!selectedQuestionIds.length) {
-              console.error('[loadQuestions] No questions in localStorage, redirecting to index.html');
-              window.location.href = 'index.html';
+              console.error('[loadQuestions] No questions in localStorage, redirecting to mc.html');
+              window.location.href = 'mc.html';
               return;
           }
           console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`[displayQuestion] Question ID: ${question.id}, Source: ${question.source}, Index: ${currentQuestionIndex}`);
       if (question.source === 'questions.json') {
           localStorage.setItem('currentQuestionIndex', currentQuestionIndex);
-          window.location.href = 'index.html';
+          window.location.href = 'mc.html';
           return;
       }
       questionText.textContent = question.question;
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   homeButton.addEventListener('click', () => {
       localStorage.clear();
-      window.location.href = 'home.html';
+      window.location.href = 'index.html'; 
       console.log('[homeButton] Cleared storage, redirected to home');
   });
 

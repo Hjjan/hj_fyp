@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     homeButton.addEventListener('click', () => {
         localStorage.clear();
-        window.location.href = 'home.html';
+        window.location.href = 'index.html'; 
         console.log('[homeButton] Cleared storage, redirected to home');
     });
 
