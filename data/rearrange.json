@@ -1,5 +1,4 @@
 [
-  // Easy Questions (30)
   {
     "id": 1,
     "question": "Put the words in correct order",
@@ -270,7 +269,6 @@
     "tips": "Start with 'He', then action, then food.",
     "difficulty": "easy"
   },
-  // Medium Questions (30)
   {
     "id": 21,
     "question": "Put the words in correct order",
@@ -541,7 +539,6 @@
     "tips": "Start with 'He', then 'will', then action, then transport and when.",
     "difficulty": "medium"
   },
-  // Hard Questions (30)
   {
     "id": 41,
     "question": "Put the words in correct order",
