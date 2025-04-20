@@ -14,12 +14,22 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Celebration */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.9;
       transition: opacity 0.5s ease-in-out;
+    }
+    body.results.low-score::before {
+      background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3');
+      opacity: 0.7;
+    }
+    body.results.mid-score::before {
+      background-image: url('https://images.unsplash.com/photo-1516321310762-479437144403?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3');
+      opacity: 0.8;
+    }
+    body.results.high-score::before {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3');
+      opacity: 0.9;
     }
     .container {
       max-width: 600px;
@@ -30,21 +40,59 @@
       z-index: 10;
       background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(5px);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     h1 {
       color: #0e3bce;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in;
     }
     .results-text {
       color: #0e3bce;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+    }
+    .stars-container {
+      font-size: 2rem;
+      margin: 1rem 0;
+      animation: bounce 0.5s ease-in-out;
     }
     .message-text {
       color: #ffca28;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .incorrect-list {
+      margin: 1rem 0;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 0 1rem;
+      display: none;
+    }
+    .incorrect-list.active {
+      display: block;
+    }
+    .incorrect-list h3 {
+      color: #0e3bce;
+      cursor: pointer;
+      margin: 0.5rem 0;
+    }
+    .incorrect-list p {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin: 0.5rem 0;
     }
     .btn {
       padding: 12px 24px;
       font-size: 1.2rem;
       border-radius: 9999px;
-      transition: transform 0.2s, background-color 0.2s;
+      transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
       margin: 0.5rem;
       cursor: pointer;
       background-color: #007acc;
@@ -54,10 +102,31 @@
     .btn:hover {
       background-color: #005f99;
       transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
     .btn:focus {
       outline: 2px solid #3b82f6;
       outline-offset: 2px;
+    }
+    .btn#btn-share {
+      background-color: #28a745;
+    }
+    .btn#btn-share:hover {
+      background-color: #218838;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     @media (max-width: 360px) {
       body.results::before {
@@ -66,6 +135,12 @@
       }
       .container {
         padding: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .results-text, .message-text {
+        font-size: 1.2rem;
       }
       .btn {
         font-size: 1rem;
@@ -77,26 +152,24 @@
 <body class="results">
   <div class="container">
     <h1>HJ Quiz Results</h1>
-
     <div id="results" class="results-text"></div>
     <div id="stars" class="stars-container"></div>
     <div id="message" class="message-text"></div>
-
     <div id="incorrect-list" class="incorrect-list"></div>
-
     <div class="button-group">
       <button id="btn-try-again" class="btn">Try Again</button>
+      <button id="btn-share" class="btn">Share Results</button>
       <button id="btn-home" class="btn">Go to Home</button>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Parse URL query parameters
+    // Parse score and total from localStorage or URL
     const urlParams = new URLSearchParams(window.location.search);
-    const score = parseInt(urlParams.get('score')) || 0;
-    const total = parseInt(urlParams.get('total')) || 5; // Default to 5 if missing
-    const type = urlParams.get('type') || 'quiz'; // e.g., 'rearrange' or 'multiple-choice'
-    const incorrectAnswers = JSON.parse(decodeURIComponent(urlParams.get('incorrectAnswers') || '[]')); // For multiple-choice
+    const score = parseInt(urlParams.get('score')) || parseInt(localStorage.getItem('score')) || 0;
+    const total = parseInt(urlParams.get('total')) || 10;
+    const type = urlParams.get('type') || 'quiz';
+    const incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers') || '[]');
 
     // Elements
     const resultsElement = document.getElementById('results');
@@ -104,53 +177,106 @@
     const messageElement = document.getElementById('message');
     const incorrectListElement = document.getElementById('incorrect-list');
 
-    // Display results
-    if (resultsElement) {
-      resultsElement.textContent = `You answered ${score} out of ${total} correctly in the ${type} quiz!`;
-    }
+    // Set dynamic background based on score
+    const scorePercentage = total > 0 ? score / total : 0;
+    document.body.classList.add(
+      scorePercentage >= 0.8 ? 'high-score' :
+      scorePercentage >= 0.5 ? 'mid-score' : 'low-score'
+    );
 
-    // Display stars
-    if (starsElement) {
-      const maxStars = 5;
-      const starsEarned = total > 0 ? Math.round((score / total) * maxStars) : 0;
-      starsElement.innerHTML = '⭐'.repeat(starsEarned) + '☆'.repeat(maxStars - starsEarned);
-    }
+    // Display results
+    resultsElement.textContent = `You answered ${score} out of ${total} correctly in the ${type}!`;
+    console.log(`[results] Score: ${score}, Total: ${total}, Type: ${type}`);
+
+    // Display stars with animation
+    const maxStars = 5;
+    const starsEarned = total > 0 ? Math.round((score / total) * maxStars) : 0;
+    starsElement.innerHTML = '⭐'.repeat(starsEarned) + '☆'.repeat(maxStars - starsEarned);
 
     // Encouraging message
-    if (messageElement) {
-      let message;
-      if (score === total && total > 0) {
-        message = "Wow, you're a grammar superstar!";
-      } else if (total > 0 && score >= total / 2) {
-        message = "Great job, you're almost there!";
-      } else {
-        message = "Nice try! Let's practice some more!";
-      }
-      messageElement.textContent = message;
+    let message;
+    if (score === total && total > 0) {
+      message = "Wow, you're a grammar superstar!";
+    } else if (total > 0 && score >= total / 2) {
+      message = "Great job, you're almost there!";
+    } else {
+      message = "Nice try! Let's practice some more!";
+    }
+    messageElement.textContent = message;
+
+    // Confetti for high scores
+    if (score >= 8) {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ffca28', '#007acc', '#ff4500']
+      });
     }
 
-    // Display incorrect answers (for multiple-choice quiz)
-    if (incorrectListElement && incorrectAnswers.length > 0 && type === 'multiple-choice') {
-      incorrectListElement.innerHTML = '<h3>Incorrect Answers:</h3>' + incorrectAnswers
-        .map(item => `<p><strong>Question:</strong> ${item.question}<br><strong>Your Answer:</strong> ${item.userAnswer}<br><strong>Correct Answer:</strong> ${item.correctAnswer}</p>`)
-        .join('');
+    // Display incorrect answers as collapsible list
+    if (incorrectAnswers.length > 0) {
+      incorrectListElement.innerHTML = `
+        <h3 id="toggle-incorrect">Incorrect Answers (Click to Toggle)</h3>
+        <div id="incorrect-content">
+          ${incorrectAnswers.map(id => {
+            const question = JSON.parse(localStorage.getItem('quizQuestions') || '[]')
+              .find(q => q.data.id === id)?.data;
+            return question ? `
+              <p>
+                <strong>Question:</strong> ${question.question}<br>
+                <strong>Type:</strong> ${question.source === 'questions.json' ? 'Multiple Choice' : 'Rearrange'}<br>
+                <strong>Explanation:</strong> ${question.explanation}
+              </p>
+            ` : '';
+          }).join('')}
+        </div>
+      `;
+      const toggleButton = document.getElementById('toggle-incorrect');
+      toggleButton.addEventListener('click', () => {
+        incorrectListElement.classList.toggle('active');
+        toggleButton.textContent = incorrectListElement.classList.contains('active')
+          ? 'Incorrect Answers (Click to Hide)'
+          : 'Incorrect Answers (Click to Show)';
+      });
     } else {
-      incorrectListElement.style.display = 'none'; // Hide for rearranging quiz
+      incorrectListElement.style.display = 'none';
     }
 
     // Button handlers
     const tryAgainButton = document.getElementById('btn-try-again');
-    if (tryAgainButton) {
-      tryAgainButton.addEventListener('click', () => {
-        window.location.href = type === 'rearrange' ? 'rearrange.html' : 'mc.html'; 
-      });
-    }
+    tryAgainButton.addEventListener('click', () => {
+      localStorage.removeItem('score');
+      localStorage.removeItem('currentQuestionIndex');
+      localStorage.removeItem('selectedQuestionIds');
+      localStorage.removeItem('incorrectAnswers');
+      window.location.href = 'index.html';
+      console.log('[tryAgainButton] Cleared storage, redirected to home');
+    });
+
+    const shareButton = document.getElementById('btn-share');
+    shareButton.addEventListener('click', () => {
+      const shareText = `I scored ${score}/${total} in the HJ Quiz! ${message} Try it out!`;
+      if (navigator.share) {
+        navigator.share({
+          title: 'HJ Quiz Results',
+          text: shareText,
+          url: window.location.origin
+        }).catch(err => console.error('[shareButton] Share failed:', err));
+      } else {
+        navigator.clipboard.write(shareText).then(() => {
+          alert('Results copied to clipboard!');
+        }).catch(err => console.error('[shareButton] Copy failed:', err));
+      }
+      console.log('[shareButton] Shared:', shareText);
+    });
 
     const homeButton = document.getElementById('btn-home');
-    if (homeButton) {
-      homeButton.addEventListener('click', () => {
-        window.location.href = 'index.html'; 
-      });
-    }
+    homeButton.addEventListener('click', () => {
+      localStorage.clear();
+      window.location.href = 'index.html';
+      console.log('[homeButton] Cleared storage, redirected to home');
+    });
   </script>
+</body>
 </html>

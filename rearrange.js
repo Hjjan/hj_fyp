@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
           document.body.classList.add(difficulty);
           console.log(`[loadQuestions] Applied background: ${difficulty}`);
           if (!selectedQuestionIds.length) {
-              console.error('[loadQuestions] No questions in localStorage, redirecting to mc.html');
-              window.location.href = 'mc.html';
+              console.error('[loadQuestions] No questions in localStorage, redirecting to index.html');
+              window.location.href = 'index.html';
               return;
           }
           console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function readText(text) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      utterance.rate = 0.7; // Slower rate for younger users
+      utterance.rate = 0.7;
       window.speechSynthesis.speak(utterance);
   }
 
@@ -90,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
       explanation.textContent = '';
       flipCardCheckbox.checked = false;
       cardInner.classList.remove('flipped');
+      submitButton.disabled = false;
+      resetButton.disabled = false;
       updateProgress();
   }
 
@@ -109,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
       wordElement.className = 'sentence-builder-word';
       wordElement.addEventListener('click', () => moveWordBack(word, wordElement));
       sentenceWords.removeChild(wordElement);
+      submitButton.disabled = builtSentence.length === 0;
+      resetButton.disabled = builtSentence.length === 0;
   }
 
   function moveWordBack(word, wordElement) {
@@ -117,11 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
       wordElement.className = 'sentence-word';
       wordElement.addEventListener('click', () => moveWordToBuilder(word, wordElement));
       sentenceBuilderArea.removeChild(wordElement);
+      submitButton.disabled = builtSentence.length === 0;
+      resetButton.disabled = builtSentence.length === 0;
   }
 
   function checkAnswer() {
       const question = selectedQuestionIds[currentQuestionIndex];
-      const isCorrect = builtSentence.every((word, index) => word === question.options[question.correctOrder[index]]);
+      const correctSentence = question.correctOrder.map(index => question.options[index].toLowerCase());
+      const userSentence = builtSentence.map(word => word.toLowerCase());
+      const isCorrect = userSentence.every((word, index) => word === correctSentence[index]);
       correctness.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
       explanation.textContent = question.explanation;
       submitButton.disabled = true;
@@ -131,7 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
       tryAgainButton.classList.toggle('active', !isCorrect);
       nextQuestionButton.classList.toggle('active', isCorrect);
       audioBackButton.disabled = false;
-      console.log(`[checkAnswer] Correctness: ${correctness.textContent}, Explanation: ${explanation.textContent}, Flipped: ${cardInner.classList.contains('flipped')}`);
+
+      if (isCorrect) {
+          let score = parseInt(localStorage.getItem('score')) || 0;
+          score++;
+          localStorage.setItem('score', score.toString());
+          console.log(`[checkAnswer] Score incremented to: ${score}`);
+      } else {
+          let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
+          incorrectAnswers.push(question.id);
+          localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+          console.log(`[checkAnswer] Incorrect answer, ID ${question.id} added to incorrectAnswers`);
+      }
+
+      console.log(`[checkAnswer] User Sentence: ${userSentence}, Correct Sentence: ${correctSentence}, Correctness: ${correctness.textContent}`);
   }
 
   function resetSentence() {
@@ -178,16 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentQuestionIndex < totalQuestions) {
           displayQuestion();
       } else {
+          const score = parseInt(localStorage.getItem('score')) || 0;
           localStorage.removeItem('selectedQuestionIds');
           localStorage.removeItem('currentQuestionIndex');
-          window.location.href = 'results.html?type=rearrange';
+          window.location.href = `results.html?score=${score}&total=${totalQuestions}&type=quiz`;
+          console.log(`[nextQuestionButton] Quiz ended, score: ${score}, total: ${totalQuestions}`);
       }
       console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
   });
 
   homeButton.addEventListener('click', () => {
       localStorage.clear();
-      window.location.href = 'index.html'; 
+      window.location.href = 'index.html';
       console.log('[homeButton] Cleared storage, redirected to home');
   });
 

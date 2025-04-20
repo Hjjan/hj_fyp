@@ -37,27 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
           const difficulty = button.id.replace('btn-', '');
           localStorage.setItem('difficulty', difficulty);
-          localStorage.setItem('score', 0);
-          localStorage.setItem('currentQuestionIndex', 0);
+          localStorage.setItem('score', '0'); // Initialize score
+          localStorage.setItem('currentQuestionIndex', '0');
           localStorage.setItem('incorrectAnswers', JSON.stringify([]));
 
           // Filter questions by difficulty
           const filteredMultipleChoice = questionsData.filter(q => q.difficulty === difficulty);
           const filteredRearrange = rearrangeData.filter(q => q.difficulty === difficulty);
 
-          // Select 3 random questions from each type
+          // Select 5 random questions from each type
           const selectedMultipleChoice = selectRandomQuestions(filteredMultipleChoice, 5).map(q => ({
             type: 'multiple-choice',
-            data: q
+            data: q,
+            source: 'questions.json'
           }));
           const selectedRearrange = selectRandomQuestions(filteredRearrange, 5).map(q => ({
             type: 'rearrange',
-            data: q
+            data: q,
+            source: 'rearrange.json'
           }));
 
           // Combine and shuffle questions
           const selectedQuestions = shuffleArray([...selectedMultipleChoice, ...selectedRearrange]);
+          localStorage.setItem('selectedQuestionIds', JSON.stringify(selectedQuestions.map(q => ({ ...q.data, source: q.source }))));
           localStorage.setItem('quizQuestions', JSON.stringify(selectedQuestions));
+
+          console.log('Selected Questions:', selectedQuestions.map(q => `${q.data.id} (${q.type})`));
 
           window.location.href = selectedQuestions[0].type === 'multiple-choice' ? 'mc.html' : 'rearrange.html';
         });

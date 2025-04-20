@@ -3,7 +3,7 @@
       "id": 1,
       "question": "Choose the correct article: ",
       "text": "I have ___ pineapple bun.",
-      "options": ["an", "a", "the"],
+      "options": ["a", "an", "the"],
       "explanation": "'A' is correct because 'pineapple bun' starts with a 'p'.",
       "tips": "Use 'a' for pineapple bun or cake.",
       "difficulty": "easy"
@@ -30,7 +30,7 @@
       "id": 4,
       "question": "Choose the correct article: ",
       "text": "He eats ___ egg tart.",
-      "options": ["a", "an", "the"],
+      "options": ["an", "a", "the"],
       "explanation": "'An' is correct because 'egg' starts with an 'e'.",
       "tips": "Use 'an' for egg tart or apple.",
       "difficulty": "easy"

@@ -34,16 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add(difficulty);
             console.log(`[loadQuestions] Applied background: ${difficulty}`);
             if (!selectedQuestionIds.length) {
-                const [mcResponse, reResponse] = await Promise.all([
-                    fetch('data/questions.json'),
-                    fetch('data/rearrange.json')
-                ]);
-                const questions = await mcResponse.json();
-                const rearrangeQuestions = await reResponse.json();
-                const filteredMC = questions.filter(q => q.difficulty === difficulty);
-                const filteredRe = rearrangeQuestions.filter(q => q.difficulty === difficulty);
-                selectedQuestionIds = getRandomQuestions(filteredMC, filteredRe, 5);
-                localStorage.setItem('selectedQuestionIds', JSON.stringify(selectedQuestionIds));
+                console.error('[loadQuestions] No questions in localStorage, redirecting to index.html');
+                window.location.href = 'index.html';
+                return;
             }
             console.log(`[loadQuestions] Selected Question IDs: ${selectedQuestionIds.map(q => `${q.id} (${q.source})`).join(', ')}`);
             displayQuestion();
@@ -52,20 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             questionText.textContent = 'Error loading questions';
             textElement.textContent = '';
         }
-    }
-
-    function getRandomQuestions(mcQuestions, reQuestions, countPerType) {
-        const shuffledMC = mcQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'questions.json' }));
-        const shuffledRe = reQuestions.sort(() => 0.5 - Math.random()).slice(0, countPerType).map(q => ({ ...q, source: 'rearrange.json' }));
-        const interleaved = [];
-        for (let i = 0; i < countPerType; i++) {
-            if (i < shuffledMC.length) interleaved.push(shuffledMC[i]);
-            if (i < shuffledRe.length) interleaved.push(shuffledRe[i]);
-        }
-        console.log(`[getRandomQuestions] MC Questions: ${shuffledMC.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Re Questions: ${shuffledRe.map(q => q.id).join(', ')}`);
-        console.log(`[getRandomQuestions] Interleaved: ${interleaved.map(q => `${q.id} (${q.source})`).join(', ')}`);
-        return interleaved;
     }
 
     function shuffleArray(array) {
@@ -80,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function readText(text) {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
-        utterance.rate = 0.7; // Slower rate for younger users
+        utterance.rate = 0.7;
         window.speechSynthesis.speak(utterance);
     }
 
@@ -138,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
         tryAgainButton.classList.toggle('active', !isCorrect);
         nextQuestionButton.classList.toggle('active', isCorrect);
         audioBackButton.disabled = false;
+
+        if (isCorrect) {
+            let score = parseInt(localStorage.getItem('score')) || 0;
+            score++;
+            localStorage.setItem('score', score.toString());
+            console.log(`[checkAnswer] Score incremented to: ${score}`);
+        } else {
+            let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
+            incorrectAnswers.push(question.id);
+            localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+            console.log(`[checkAnswer] Incorrect answer, ID ${question.id} added to incorrectAnswers`);
+        }
+
         console.log(`[checkAnswer] Correctness: ${correctness.textContent}, Explanation: ${explanation.textContent}, Flipped: ${cardInner.classList.contains('flipped')}`);
     }
 
@@ -183,16 +175,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentQuestionIndex < totalQuestions) {
             displayQuestion();
         } else {
+            const score = parseInt(localStorage.getItem('score')) || 0;
             localStorage.removeItem('selectedQuestionIds');
             localStorage.removeItem('currentQuestionIndex');
-            window.location.href = 'results.html?type=multiple-choice';
+            window.location.href = `results.html?score=${score}&total=${totalQuestions}&type=quiz`;
+            console.log(`[nextQuestionButton] Quiz ended, score: ${score}, total: ${totalQuestions}`);
         }
         console.log(`[nextQuestionButton] New Index: ${currentQuestionIndex}`);
     });
 
     homeButton.addEventListener('click', () => {
         localStorage.clear();
-        window.location.href = 'index.html'; 
+        window.location.href = 'index.html';
         console.log('[homeButton] Cleared storage, redirected to home');
     });
 
