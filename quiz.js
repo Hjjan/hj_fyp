@@ -1,4 +1,4 @@
-const TOTAL_QUESTIONS = 10;
+const TOTAL_QUESTIONS = 15;
 
 // Function to shuffle an array (Fisher-Yates)
 function shuffleArray(array) {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const filteredMultipleChoice = questionsData.filter(q => q.difficulty === difficulty);
           const filteredRearrange = rearrangeData.filter(q => q.difficulty === difficulty);
 
-          // Select 5 random questions from each type
-          const selectedMultipleChoice = selectRandomQuestions(filteredMultipleChoice, 5).map(q => ({
+          // Select x random questions from each type
+          const selectedMultipleChoice = selectRandomQuestions(filteredMultipleChoice, 10).map(q => ({
             type: 'multiple-choice',
             data: q,
             source: 'questions.json'

@@ -137,46 +137,136 @@
   {
     "id": 16,
     "question": "Put the words in correct order",
-    "options": ["She", "sings", "a", "nice", "song."],
+    "options": ["She", "has", "two", "cats", "daily."],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanation": "She sings a nice song. is correct. 'She' is the person, 'sings' is the action, 'a nice song' is the thing.",
-    "tips": "Start with 'She', then action, then thing.",
+    "explanation": "She has two cats daily. is correct. 'She' is the person, 'has' says she owns, 'two cats daily' is the animals and when.",
+    "tips": "Start with 'She', then 'has', then animals.",
     "difficulty": "easy"
   },
   {
     "id": 17,
     "question": "Put the words in correct order",
-    "options": ["We", "eat", "noodles", "every", "week."],
+    "options": ["I", "buy", "one", "toy", "weekly."],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanation": "We eat noodles every week. is correct. 'We' is the people, 'eat' is the action, 'noodles every week' is the food and when.",
-    "tips": "Start with 'We', then action, then food.",
+    "explanation": "I buy one toy weekly. is correct. 'I' is the person, 'buy' is the action, 'one toy weekly' is the thing and when.",
+    "tips": "Start with 'I', then action, then thing.",
     "difficulty": "easy"
   },
   {
     "id": 18,
     "question": "Put the words in correct order",
-    "options": ["I", "drink", "milk", "tea", "daily."],
+    "options": ["The", "MTR", "is", "very", "fast."],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanation": "I drink milk tea daily. is correct. 'I' is the person, 'drink' is the action, 'milk tea daily' is the drink and when.",
-    "tips": "Start with 'I', then action, then drink.",
+    "explanation": "The MTR is very fast. is correct. 'The' starts, 'MTR' is the thing, 'is very fast' describes it.",
+    "tips": "Start with 'The', then thing, then description.",
     "difficulty": "easy"
   },
   {
     "id": 19,
     "question": "Put the words in correct order",
-    "options": ["They", "went", "to", "the", "beach."],
+    "options": ["We", "have", "two", "pens", "daily."],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanation": "They went to the beach. is correct. 'They' is the people, 'went' is the action, 'to the beach' is the place.",
-    "tips": "Start with 'They', then action, then place.",
+    "explanation": "We have two pens daily. is correct. 'We' is the people, 'have' says we own, 'two pens daily' is the things and when.",
+    "tips": "Start with 'We', then 'have', then things.",
     "difficulty": "easy"
   },
   {
     "id": 20,
     "question": "Put the words in correct order",
-    "options": ["He", "feeds", "the", "dog", "daily."],
+    "options": ["Egg", "tarts", "are", "very", "yummy."],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanation": "He feeds the dog daily. is correct. 'He' is the person, 'feeds' is the action, 'the dog daily' is the animal and when.",
-    "tips": "Start with 'He', then action, then animal.",
+    "explanation": "Egg tarts are very yummy. is correct. 'Egg tarts' is the food, 'are very yummy' describes it.",
+    "tips": "Start with food, then 'are', then description.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 59,
+    "question": "Put the words in correct order",
+    "options": ["I", "drink", "a", "juice", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "I drink a juice daily. is correct. 'I' is the person, 'drink' is the action, 'a juice daily' is the drink and when.",
+    "tips": "Start with 'I', then action, then drink.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 60,
+    "question": "Put the words in correct order",
+    "options": ["She", "eats", "an", "orange", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "She eats an orange weekly. is correct. 'She' is the person, 'eats' is the action, 'an orange weekly' is the food and when.",
+    "tips": "Start with 'She', then action, then food.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 61,
+    "question": "Put the words in correct order",
+    "options": ["He", "has", "one", "dog", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "He has one dog daily. is correct. 'He' is the person, 'has' says he owns, 'one dog daily' is the animal and when.",
+    "tips": "Start with 'He', then 'has', then animal.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 62,
+    "question": "Put the words in correct order",
+    "options": ["The", "tram", "is", "very", "slow."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "The tram is very slow. is correct. 'The' starts, 'tram' is the thing, 'is very slow' describes it.",
+    "tips": "Start with 'The', then thing, then description.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 63,
+    "question": "Put the words in correct order",
+    "options": ["We", "buy", "two", "mangoes", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "We buy two mangoes weekly. is correct. 'We' is the people, 'buy' is the action, 'two mangoes weekly' is the food and when.",
+    "tips": "Start with 'We', then action, then food.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 64,
+    "question": "Put the words in correct order",
+    "options": ["I", "eat", "a", "cake", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "I eat a cake weekly. is correct. 'I' is the person, 'eat' is the action, 'a cake weekly' is the food and when.",
+    "tips": "Start with 'I', then action, then food.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 65,
+    "question": "Put the words in correct order",
+    "options": ["They", "have", "two", "books", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "They have two books daily. is correct. 'They' is the people, 'have' says they own, 'two books daily' is the things and when.",
+    "tips": "Start with 'They', then 'have', then things.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 66,
+    "question": "Put the words in correct order",
+    "options": ["Red", "taxis", "are", "very", "cool."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "Red taxis are very cool. is correct. 'Red taxis' is the thing, 'are very cool' describes it.",
+    "tips": "Start with thing, then 'are', then description.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 67,
+    "question": "Put the words in correct order",
+    "options": ["She", "buys", "a", "toy", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "She buys a toy weekly. is correct. 'She' is the person, 'buys' is the action, 'a toy weekly' is the thing and when.",
+    "tips": "Start with 'She', then action, then thing.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 68,
+    "question": "Put the words in correct order",
+    "options": ["He", "eats", "one", "cookie", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "He eats one cookie daily. is correct. 'He' is the person, 'eats' is the action, 'one cookie daily' is the food and when.",
+    "tips": "Start with 'He', then action, then food.",
     "difficulty": "easy"
   },
   {
@@ -227,9 +317,9 @@
   {
     "id": 26,
     "question": "Put the words in correct order",
-    "options": ["She", "ate", "dim", "sum", "yesterday", "at", "morning."],
+    "options": ["She", "ate", "dim", "sum", "in", "the", "morning."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "She ate dim sum yesterday at morning. is correct. 'She' is the person, 'ate' is the action, 'dim sum yesterday at morning' is the food and when.",
+    "explanation": "She ate dim sum in the morning. is correct. 'She' is the person, 'ate' is the action, 'dim sum in the morning' is the food and when.",
     "tips": "Start with 'She', then action, then food.",
     "difficulty": "medium"
   },
@@ -317,46 +407,136 @@
   {
     "id": 36,
     "question": "Put the words in correct order",
-    "options": ["She", "finished", "work", "before", "lunch", "today", "quickly."],
+    "options": ["We", "eat", "at", "dai", "pai", "dong", "weekly."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "She finished work before lunch today quickly. is correct. 'She' is the person, 'finished' is the action, 'work before lunch today quickly' is the task and when.",
-    "tips": "Start with 'She', then action, then task.",
+    "explanation": "We eat at dai pai dong weekly. is correct. 'We' is the people, 'eat' is the action, 'at dai pai dong weekly' is the place and when.",
+    "tips": "Start with 'We', then action, then place.",
     "difficulty": "medium"
   },
   {
     "id": 37,
     "question": "Put the words in correct order",
-    "options": ["They", "will", "arrive", "by", "evening", "today", "safely."],
+    "options": ["I", "like", "dim", "sum", "and", "egg", "tarts."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "They will arrive by evening today safely. is correct. 'They' is the people, 'will arrive' is the action, 'by evening today safely' is when.",
-    "tips": "Start with 'They', then 'will', then action, then when.",
+    "explanation": "I like dim sum and egg tarts. is correct. 'I' is the person, 'like' is the action, 'dim sum and egg tarts' is what I like.",
+    "tips": "Start with 'I', then action, then things.",
     "difficulty": "medium"
   },
   {
     "id": 38,
     "question": "Put the words in correct order",
-    "options": ["I", "learn", "English", "at", "school", "every", "day."],
+    "options": ["She", "shops", "at", "Temple", "Street", "every", "week."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "I learn English at school every day. is correct. 'I' is the person, 'learn' is the action, 'English at school every day' is the subject and place.",
-    "tips": "Start with 'I', then action, then subject.",
+    "explanation": "She shops at Temple Street every week. is correct. 'She' is the person, 'shops' is the action, 'at Temple Street every week' is the place and when.",
+    "tips": "Start with 'She', then action, then place.",
     "difficulty": "medium"
   },
   {
     "id": 39,
     "question": "Put the words in correct order",
-    "options": ["He", "painted", "the", "house", "last", "week", "carefully."],
+    "options": ["He", "likes", "milk", "tea", "or", "bubble", "tea."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "He painted the house last week carefully. is correct. 'He' is the person, 'painted' is the action, 'the house last week carefully' is the thing and when.",
-    "tips": "Start with 'He', then action, then thing.",
+    "explanation": "He likes milk tea or bubble tea. is correct. 'He' is the person, 'likes' is the action, 'milk tea or bubble tea' is what he likes.",
+    "tips": "Start with 'He', then action, then things.",
     "difficulty": "medium"
   },
   {
     "id": 40,
     "question": "Put the words in correct order",
-    "options": ["We", "visit", "our", "grandparents", "on", "Sunday", "weekly."],
+    "options": ["We", "ride", "on", "the", "tram", "every", "day."],
     "correctOrder": [0, 1, 2, 3, 4, 5, 6],
-    "explanation": "We visit our grandparents on Sunday weekly. is correct. 'We' is the people, 'visit' is the action, 'our grandparents on Sunday weekly' is who and when.",
-    "tips": "Start with 'We', then action, then who.",
+    "explanation": "We ride on the tram every day. is correct. 'We' is the people, 'ride' is the action, 'on the tram every day' is the transport and when.",
+    "tips": "Start with 'We', then action, then transport.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 69,
+    "question": "Put the words in correct order",
+    "options": ["I", "am", "drinking", "bubble", "tea", "now", "happily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "I am drinking bubble tea now happily. is correct. 'I' is the person, 'am drinking' is the action, 'bubble tea now happily' is the drink and when.",
+    "tips": "Start with 'I', then 'am', then action, then drink.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 70,
+    "question": "Put the words in correct order",
+    "options": ["They", "will", "eat", "at", "cha", "chaan", "teng."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "They will eat at cha chaan teng. is correct. 'They' is the people, 'will eat' is the action, 'at cha chaan teng' is the place.",
+    "tips": "Start with 'They', then 'will', then action, then place.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 71,
+    "question": "Put the words in correct order",
+    "options": ["She", "bought", "a", "toy", "yesterday", "at", "shop."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "She bought a toy yesterday at shop. is correct. 'She' is the person, 'bought' is the action, 'a toy yesterday at shop' is the thing and when.",
+    "tips": "Start with 'She', then action, then thing.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 72,
+    "question": "Put the words in correct order",
+    "options": ["We", "like", "MTR", "and", "Star", "Ferry", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "We like MTR and Star Ferry daily. is correct. 'We' is the people, 'like' is the action, 'MTR and Star Ferry daily' is what we like and when.",
+    "tips": "Start with 'We', then action, then things.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 73,
+    "question": "Put the words in correct order",
+    "options": ["He", "is", "riding", "red", "taxi", "now", "quickly."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "He is riding red taxi now quickly. is correct. 'He' is the person, 'is riding' is the action, 'red taxi now quickly' is the transport and when.",
+    "tips": "Start with 'He', then 'is', then action, then transport.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 74,
+    "question": "Put the words in correct order",
+    "options": ["I", "went", "to", "wet", "market", "yesterday", "morning."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "I went to wet market yesterday morning. is correct. 'I' is the person, 'went' is the action, 'to wet market yesterday morning' is the place and when.",
+    "tips": "Start with 'I', then action, then place.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 75,
+    "question": "Put the words in correct order",
+    "options": ["They", "will", "shop", "at", "mall", "tomorrow", "morning."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "They will shop at mall tomorrow morning. is correct. 'They' is the people, 'will shop' is the action, 'at mall tomorrow morning' is the place and when.",
+    "tips": "Start with 'They', then 'will', then action, then place.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 76,
+    "question": "Put the words in correct order",
+    "options": ["She", "eats", "noodles", "or", "rice", "every", "day."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "She eats noodles or rice every day. is correct. 'She' is the person, 'eats' is the action, 'noodles or rice every day' is the food and when.",
+    "tips": "Start with 'She', then action, then food.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 77,
+    "question": "Put the words in correct order",
+    "options": ["We", "are", "eating", "at", "home", "now", "happily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "We are eating at home now happily. is correct. 'We' is the people, 'are eating' is the action, 'at home now happily' is the place and when.",
+    "tips": "Start with 'We', then 'are', then action, then place.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 78,
+    "question": "Put the words in correct order",
+    "options": ["He", "will", "ride", "Star", "Ferry", "tomorrow", "morning."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6],
+    "explanation": "He will ride Star Ferry tomorrow morning. is correct. 'He' is the person, 'will ride' is the action, 'Star Ferry tomorrow morning' is the transport and when.",
+    "tips": "Start with 'He', then 'will', then action, then transport.",
     "difficulty": "medium"
   },
   {
@@ -371,9 +551,9 @@
   {
     "id": 42,
     "question": "Put the words in correct order",
-    "options": ["They", "are", "playing", "with", "a", "ball", "in", "park."],
-    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
-    "explanation": "They are playing with a ball in park. is correct. 'They' is the people, 'are playing' is the action, 'with a ball in park' is the thing and place.",
+    "options": ["They", "are", "playing", "with", "a", "ball", "in", "the", "park."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "explanation": "They are playing with a ball in the park. is correct. 'They' is the people, 'are playing' is the action, 'with a ball in the park' is the thing and place.",
     "tips": "Start with 'They', then 'are', then action, then thing and place.",
     "difficulty": "hard"
   },
@@ -519,6 +699,114 @@
     "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
     "explanation": "He is reading a book in the room. is correct. 'He' is the person, 'is reading' is the action, 'a book in the room' is the thing and place.",
     "tips": "Start with 'He', then 'is', then action, then thing and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 79,
+    "question": "Put the words in correct order",
+    "options": ["She", "reads", "her", "book", "in", "the", "library", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "She reads her book in the library daily. is correct. 'She' is the person, 'reads' is the action, 'her book in the library daily' is the thing, place, and when.",
+    "tips": "Start with 'She', then action, then thing, place, and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 80,
+    "question": "Put the words in correct order",
+    "options": ["We", "buy", "two", "egg", "tarts", "at", "the", "market."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "We buy two egg tarts at the market. is correct. 'We' is the people, 'buy' is the action, 'two egg tarts at the market' is the food and place.",
+    "tips": "Start with 'We', then action, then food and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 81,
+    "question": "Put the words in correct order",
+    "options": ["He", "rides", "his", "bike", "in", "the", "park", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "He rides his bike in the park daily. is correct. 'He' is the person, 'rides' is the action, 'his bike in the park daily' is the thing, place, and when.",
+    "tips": "Start with 'He', then action, then thing, place, and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 82,
+    "question": "Put the words in correct order",
+    "options": ["They", "eat", "their", "dim", "sum", "at", "dai", "pai", "dong."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "explanation": "They eat their dim sum at dai pai dong. is correct. 'They' is the people, 'eat' is the action, 'their dim sum at dai pai dong' is the food and place.",
+    "tips": "Start with 'They', then action, then food and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 83,
+    "question": "Put the words in correct order",
+    "options": ["I", "buy", "three", "mangoes", "at", "the", "market", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "I buy three mangoes at the market weekly. is correct. 'I' is the person, 'buy' is the action, 'three mangoes at the market weekly' is the food, place, and when.",
+    "tips": "Start with 'I', then action, then food, place, and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 84,
+    "question": "Put the words in correct order",
+    "options": ["She", "is", "eating", "her", "noodles", "in", "the", "kitchen."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "She is eating her noodles in the kitchen. is correct. 'She' is the person, 'is eating' is the action, 'her noodles in the kitchen' is the food and place.",
+    "tips": "Start with 'She', then 'is', then action, then food and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 85,
+    "question": "Put the words in correct order",
+    "options": ["We", "ride", "our", "bikes", "in", "the", "park", "weekly."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "We ride our bikes in the park weekly. is correct. 'We' is the people, 'ride' is the action, 'our bikes in the park weekly' is the thing, place, and when.",
+    "tips": "Start with 'We', then action, then thing, place, and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 86,
+    "question": "Put the words in correct order",
+    "options": ["He", "buys", "two", "pineapple", "buns", "at", "the", "bakery."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "He buys two pineapple buns at the bakery. is correct. 'He' is the person, 'buys' is the action, 'two pineapple buns at the bakery' is the food and place.",
+    "tips": "Start with 'He', then action, then food and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 87,
+    "question": "Put the words in correct order",
+    "options": ["They", "will", "shop", "at", "Temple", "Street", "tomorrow", "night."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "They will shop at Temple Street tomorrow night. is correct. 'They' is the people, 'will shop' is the action, 'at Temple Street tomorrow night' is the place and when.",
+    "tips": "Start with 'They', then 'will', then action, then place and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 88,
+    "question": "Put the words in correct order",
+    "options": ["I", "am", "drinking", "my", "milk", "tea", "at", "home."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "I am drinking my milk tea at home. is correct. 'I' is the person, 'am drinking' is the action, 'my milk tea at home' is the drink and place.",
+    "tips": "Start with 'I', then 'am', then action, then drink and place.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 89,
+    "question": "Put the words in correct order",
+    "options": ["She", "eats", "two", "cookies", "at", "the", "shop", "daily."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "She eats two cookies at the shop daily. is correct. 'She' is the person, 'eats' is the action, 'two cookies at the shop daily' is the food, place, and when.",
+    "tips": "Start with 'She', then action, then food, place, and when.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 90,
+    "question": "Put the words in correct order",
+    "options": ["We", "will", "ride", "the", "Star", "Ferry", "tomorrow", "morning."],
+    "correctOrder": [0, 1, 2, 3, 4, 5, 6, 7],
+    "explanation": "We will ride the Star Ferry tomorrow morning. is correct. 'We' is the people, 'will ride' is the action, 'the Star Ferry tomorrow morning' is the transport and when.",
+    "tips": "Start with 'We', then 'will', then action, then transport and when.",
     "difficulty": "hard"
   }
 ]

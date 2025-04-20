@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let selectedQuestionIds = [];
     let currentQuestionIndex = parseInt(localStorage.getItem('currentQuestionIndex')) || 0;
-    const totalQuestions = 10;
+    const totalQuestions = 15;
     let hintUsed = false;
     let shuffledOptions = [];
 
