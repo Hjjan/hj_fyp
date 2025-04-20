@@ -108,12 +108,6 @@
       outline: 2px solid #3b82f6;
       outline-offset: 2px;
     }
-    .btn#btn-share {
-      background-color: #28a745;
-    }
-    .btn#btn-share:hover {
-      background-color: #218838;
-    }
     .button-group {
       display: flex;
       flex-wrap: wrap;
@@ -158,7 +152,6 @@
     <div id="incorrect-list" class="incorrect-list"></div>
     <div class="button-group">
       <button id="btn-try-again" class="btn">Try Again</button>
-      <button id="btn-share" class="btn">Share Results</button>
       <button id="btn-home" class="btn">Go to Home</button>
     </div>
   </div>
@@ -252,23 +245,6 @@
       localStorage.removeItem('incorrectAnswers');
       window.location.href = 'index.html';
       console.log('[tryAgainButton] Cleared storage, redirected to home');
-    });
-
-    const shareButton = document.getElementById('btn-share');
-    shareButton.addEventListener('click', () => {
-      const shareText = `I scored ${score}/${total} in the HJ Quiz! ${message} Try it out!`;
-      if (navigator.share) {
-        navigator.share({
-          title: 'HJ Quiz Results',
-          text: shareText,
-          url: window.location.origin
-        }).catch(err => console.error('[shareButton] Share failed:', err));
-      } else {
-        navigator.clipboard.write(shareText).then(() => {
-          alert('Results copied to clipboard!');
-        }).catch(err => console.error('[shareButton] Copy failed:', err));
-      }
-      console.log('[shareButton] Shared:', shareText);
     });
 
     const homeButton = document.getElementById('btn-home');
